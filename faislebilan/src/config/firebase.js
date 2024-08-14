@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "faislebilan-6e138.appspot.com",
   messagingSenderId: "129424566187",
   appId: "1:129424566187:web:591998c1b142ee903614ee",
-  measurementId: "G-SM1RSG1DSV"
+  // measurementId: "G-SM1RSG1DSV"
 };
 
 const app = initializeApp(firebaseConfig);

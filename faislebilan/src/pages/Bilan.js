@@ -1,5 +1,4 @@
-// src/pages/Bilan.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
@@ -18,49 +17,65 @@ function Bilan() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBilan = async () => {
+    const fetchBilanAndClient = async () => {
       try {
-        const bilanDocRef = doc(db, 'bilans', id);
-        const bilanDocSnap = await getDoc(bilanDocRef);
-
-        if (bilanDocSnap.exists()) {
-          const bilanData = bilanDocSnap.data();
-          setBilan(bilanData);
-
-          const clientDocRef = doc(db, 'clients', bilanData.clientId);
-          const clientDocSnap = await getDoc(clientDocRef);
-
-          if (clientDocSnap.exists()) {
-            setClient(clientDocSnap.data());
-          } else {
-            console.error('Client introuvable!');
-          }
+        // Vérifier si les données sont en cache
+        const cachedData = JSON.parse(localStorage.getItem(`bilan_${id}`));
+        if (cachedData) {
+          setBilan(cachedData.bilan);
+          setClient(cachedData.client);
+          setLoading(false);
         } else {
-          console.error('Bilan introuvable!');
+          // Si non en cache, faire les appels Firebase
+          const bilanDocRef = doc(db, 'bilans', id);
+          const bilanDocSnap = await getDoc(bilanDocRef);
+
+          if (bilanDocSnap.exists()) {
+            const bilanData = bilanDocSnap.data();
+
+            const clientDocRef = doc(db, 'clients', bilanData.clientId);
+            const clientDocSnap = await getDoc(clientDocRef);
+
+            if (clientDocSnap.exists()) {
+              const clientData = clientDocSnap.data();
+              setBilan(bilanData);
+              setClient(clientData);
+
+              // Stocker en cache pour les prochaines visites
+              localStorage.setItem(`bilan_${id}`, JSON.stringify({ bilan: bilanData, client: clientData }));
+            } else {
+              console.error('Client introuvable!');
+            }
+          } else {
+            console.error('Bilan introuvable!');
+          }
+
+          setLoading(false);
         }
       } catch (error) {
-        console.error('Erreur lors de la récupération du bilan:', error);
-      } finally {
+        console.error('Erreur lors de la récupération des données:', error);
         setLoading(false);
       }
     };
 
-    fetchBilan();
+    fetchBilanAndClient();
   }, [id]);
 
-  useEffect(() => {
-    const processBilanData = async () => {
-      if (bilan && client) {
-        const processedData = await calculateTestIndices(bilan, client);
-        setBilan(prevBilan => ({
-          ...prevBilan,
-          tests: processedData,
-        }));
-      }
-    };
-
-    processBilanData();
+  const processedData = useMemo(() => {
+    if (bilan && client) {
+      return calculateTestIndices(bilan, client);
+    }
+    return null;
   }, [bilan, client]);
+
+  useEffect(() => {
+    if (processedData) {
+      setBilan(prevBilan => ({
+        ...prevBilan,
+        tests: processedData,
+      }));
+    }
+  }, [processedData]);
 
   if (loading) {
     return <Typography variant="h6">Chargement...</Typography>;
@@ -114,13 +129,9 @@ function Bilan() {
         Bilan créé le : {bilan.createdAt.toDate().toLocaleDateString()}
       </Typography>
 
-      {/* Ajouter un espace entre le titre et les infos du clients */}
-      <Box
-        mt={4}
-      />
+      <Box mt={4} />
 
       <Grid container spacing={4}>
-        {/* Colonne de gauche : Infos client */}
         <Grid item xs={12} md={6}>
           <Typography variant="h6" gutterBottom>
             Informations du Client
@@ -151,7 +162,6 @@ function Bilan() {
           </Table>
         </Grid>
 
-        {/* Colonne de droite : Radar */}
         <Grid item xs={12} md={6}>
           <Box display="flex" justifyContent="center" alignItems="center" height="100%">
             <div style={{ width: '300px', height: '300px' }}>
@@ -161,10 +171,8 @@ function Bilan() {
         </Grid>
       </Grid>
 
-      {/* Ajouter un espace entre les infos clients et les réponses aux tests */}
       <Box mt={4} />
 
-      {/* Afficher les réponses et indices pour chaque test */}
       <Typography variant="h6" gutterBottom>
         Réponses aux tests
       </Typography>
@@ -179,7 +187,6 @@ function Bilan() {
           ))}
         </TableBody>
       </Table>
-
     </Container>
   );
 }

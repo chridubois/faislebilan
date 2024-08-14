@@ -4,16 +4,24 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { calculateSorensenIndex, calculateAssisDeboutIndex, calculatePlankIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
 
+// Variable pour stocker les tests en cache
+let cachedTests = null;
+
 export const fetchTests = async () => {
+  if (cachedTests) {
+    return cachedTests;
+  }
+
   const testsCollection = collection(db, 'tests');
   const testsSnapshot = await getDocs(testsCollection);
-  const tests = testsSnapshot.docs.map(doc => ({
+  cachedTests = testsSnapshot.docs.map(doc => ({
     id: doc.id,
     ...doc.data(),
   }));
 
   // Trier les tests par nom avant de les retourner
-  return tests.sort((a, b) => a.name.localeCompare(b.name));
+  cachedTests = cachedTests.sort((a, b) => a.name.localeCompare(b.name));
+  return cachedTests;
 };
 
 export const calculateTestIndices = async (bilan, client) => {
@@ -28,18 +36,28 @@ export const calculateTestIndices = async (bilan, client) => {
     if (testData) {
       let index = 0;
 
-      if (test.name === 'assis debout') {
-        index = calculateAssisDeboutIndex(client.gender, age, testData.response);
-      } else if (test.name === 'pushup') {
-        index = calculatePushupIndex(client.gender, age, testData.response);
-      } else if (test.name === 'chaise') {
-        index = calculateChairIndex(testData.response);
-      } else if (test.name === '6min marche') {
-        index = calculate6MinWalkIndex(client.gender, age, testData.response);
-      } else if (test.name === 'planche') {
-        index = calculatePlankIndex(testData.response);
-      } else if (test.name === 'sorensen') {
-        index = calculateSorensenIndex(client.gender, age, testData.response);
+      switch (test.name) {
+        case 'assis debout':
+          index = calculateAssisDeboutIndex(client.gender, age, testData.response);
+          break;
+        case 'pushup':
+          index = calculatePushupIndex(client.gender, age, testData.response);
+          break;
+        case 'chaise':
+          index = calculateChairIndex(testData.response);
+          break;
+        case '6min marche':
+          index = calculate6MinWalkIndex(client.gender, age, testData.response);
+          break;
+        case 'planche':
+          index = calculatePlankIndex(testData.response);
+          break;
+        case 'sorensen':
+          index = calculateSorensenIndex(client.gender, age, testData.response);
+          break;
+        default:
+          index = 0;
+          break;
       }
 
       testsWithIndices[test.id] = {
