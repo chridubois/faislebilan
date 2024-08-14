@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useMemo } from 'react';
+// src/pages/Bilan.js
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, Button, Table, TableBody, TableCell, TableRow, Grid, Box } from '@mui/material';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
-import { calculateTestIndices } from '../services/testService';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
@@ -19,63 +19,34 @@ function Bilan() {
   useEffect(() => {
     const fetchBilanAndClient = async () => {
       try {
-        // Vérifier si les données sont en cache
-        const cachedData = JSON.parse(localStorage.getItem(`bilan_${id}`));
-        if (cachedData) {
-          setBilan(cachedData.bilan);
-          setClient(cachedData.client);
-          setLoading(false);
-        } else {
-          // Si non en cache, faire les appels Firebase
-          const bilanDocRef = doc(db, 'bilans', id);
-          const bilanDocSnap = await getDoc(bilanDocRef);
+        const bilanDocRef = doc(db, 'bilans', id);
+        const bilanDocSnap = await getDoc(bilanDocRef);
 
-          if (bilanDocSnap.exists()) {
-            const bilanData = bilanDocSnap.data();
+        if (bilanDocSnap.exists()) {
+          const bilanData = bilanDocSnap.data();
+          setBilan(bilanData);
 
-            const clientDocRef = doc(db, 'clients', bilanData.clientId);
-            const clientDocSnap = await getDoc(clientDocRef);
+          const clientDocRef = doc(db, 'clients', bilanData.clientId);
+          const clientDocSnap = await getDoc(clientDocRef);
 
-            if (clientDocSnap.exists()) {
-              const clientData = clientDocSnap.data();
-              setBilan(bilanData);
-              setClient(clientData);
-
-              // Stocker en cache pour les prochaines visites
-              localStorage.setItem(`bilan_${id}`, JSON.stringify({ bilan: bilanData, client: clientData }));
-            } else {
-              console.error('Client introuvable!');
-            }
+          if (clientDocSnap.exists()) {
+            setClient(clientDocSnap.data());
           } else {
-            console.error('Bilan introuvable!');
+            console.error('Client introuvable!');
           }
-
-          setLoading(false);
+        } else {
+          console.error('Bilan introuvable!');
         }
+
+        setLoading(false);
       } catch (error) {
-        console.error('Erreur lors de la récupération des données:', error);
+        console.error('Erreur lors de la récupération du bilan:', error);
         setLoading(false);
       }
     };
 
     fetchBilanAndClient();
   }, [id]);
-
-  const processedData = useMemo(() => {
-    if (bilan && client) {
-      return calculateTestIndices(bilan, client);
-    }
-    return null;
-  }, [bilan, client]);
-
-  useEffect(() => {
-    if (processedData) {
-      setBilan(prevBilan => ({
-        ...prevBilan,
-        tests: processedData,
-      }));
-    }
-  }, [processedData]);
 
   if (loading) {
     return <Typography variant="h6">Chargement...</Typography>;
