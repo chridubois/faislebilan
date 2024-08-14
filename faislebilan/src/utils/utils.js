@@ -303,4 +303,19 @@ export const calculateSorensenIndex = (gender, age, timeInSeconds) => {
   return index;
 };
 
+export const calculateHandPositionIndex = (response) => {
+  switch (response) {
+    case 'Les mains se touchent paume contre paume':
+      return 5;
+    case 'Les mains se chevauchent':
+      return 3;
+    case 'Les doigts se touchent':
+      return 2;
+    case 'Les mains sont écartées':
+      return 1;
+    default:
+      return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
+  }
+};
+
 // Ajoute d'autres fonctions de calcul pour d'autres tests ici
