@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Box, Container } from '@mui/material';
 import Home from './pages/Home';
 import Funnel from './pages/Funnel';
 import Bilan from './pages/Bilan';
@@ -13,6 +14,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Box mt={4}></Box>
       <div style={{ minHeight: 'calc(100vh - 64px - 64px)' }}> {/* Adjust height for header and footer */}
         <Routes>
           <Route path="/" element={<Home />} />

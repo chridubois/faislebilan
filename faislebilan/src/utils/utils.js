@@ -1,6 +1,6 @@
 // src/utils/utils.js
 
-export const calculateSquatIndex = (sex, age, squats) => {
+export const calculateAssisDeboutIndex = (sex, age, squats) => {
   if (sex === 'Femme') {
     if (age >= 20 && age <= 29) {
       if (squats > 35) return 5;
@@ -215,6 +215,92 @@ export const calculate6MinWalkIndex = (sex, age, distance) => {
   }
 
   return 0;
+};
+
+export const calculatePlankIndex = (timeInSeconds) => {
+  if (timeInSeconds > 90) {
+    return 5;
+  } else if (timeInSeconds >= 70 && timeInSeconds <= 90) {
+    return 4;
+  } else if (timeInSeconds >= 31 && timeInSeconds <= 69) {
+    return 3;
+  } else if (timeInSeconds >= 20 && timeInSeconds <= 30) {
+    return 2;
+  } else {
+    return 1;
+  }
+};
+
+export const calculateSorensenIndex = (gender, age, timeInSeconds) => {
+  let index = 1; // Par défaut, l'indice est 1
+
+  if (gender === 'Homme') {
+    if (age >= 15 && age <= 29) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 130 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 122 && timeInSeconds <= 129) index = 3;
+      else if (timeInSeconds >= 90 && timeInSeconds <= 121) index = 2;
+      else if (timeInSeconds < 90) index = 1;
+    } else if (age >= 30 && age <= 39) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 150 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 120 && timeInSeconds <= 149) index = 3;
+      else if (timeInSeconds >= 120 && timeInSeconds <= 119) index = 2;
+      else if (timeInSeconds < 120) index = 1;
+    } else if (age >= 40 && age <= 49) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 140 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 120 && timeInSeconds <= 139) index = 3;
+      else if (timeInSeconds >= 85 && timeInSeconds <= 119) index = 2;
+      else if (timeInSeconds < 85) index = 1;
+    } else if (age >= 50 && age <= 59) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 130 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 116 && timeInSeconds <= 129) index = 3;
+      else if (timeInSeconds >= 85 && timeInSeconds <= 115) index = 2;
+      else if (timeInSeconds < 85) index = 1;
+    } else if (age >= 60) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 120 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 110 && timeInSeconds <= 119) index = 3;
+      else if (timeInSeconds >= 70 && timeInSeconds <= 109) index = 2;
+      else if (timeInSeconds < 70) index = 1;
+    }
+  } else if (gender === 'Femme') {
+    if (age >= 15 && age <= 29) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 165 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 140 && timeInSeconds <= 164) index = 3;
+      else if (timeInSeconds >= 100 && timeInSeconds <= 139) index = 2;
+      else if (timeInSeconds < 100) index = 1;
+    } else if (age >= 30 && age <= 39) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 155 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 130 && timeInSeconds <= 154) index = 3;
+      else if (timeInSeconds >= 90 && timeInSeconds <= 129) index = 2;
+      else if (timeInSeconds < 90) index = 1;
+    } else if (age >= 40 && age <= 49) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 143 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 120 && timeInSeconds <= 142) index = 3;
+      else if (timeInSeconds >= 100 && timeInSeconds <= 119) index = 2;
+      else if (timeInSeconds < 100) index = 1;
+    } else if (age >= 50 && age <= 59) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 124 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 90 && timeInSeconds <= 123) index = 3;
+      else if (timeInSeconds >= 60 && timeInSeconds <= 89) index = 2;
+      else if (timeInSeconds < 60) index = 1;
+    } else if (age >= 60) {
+      if (timeInSeconds > 180) index = 5;
+      else if (timeInSeconds >= 100 && timeInSeconds <= 179) index = 4;
+      else if (timeInSeconds >= 70 && timeInSeconds <= 99) index = 3;
+      else if (timeInSeconds >= 60 && timeInSeconds <= 69) index = 2;
+      else if (timeInSeconds < 60) index = 1;
+    }
+  }
+
+  return index;
 };
 
 // Ajoute d'autres fonctions de calcul pour d'autres tests ici

@@ -3,27 +3,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
+import { Container, Typography, Button, Table, TableBody, TableCell, TableRow, Grid, Box } from '@mui/material';
 import { Radar } from 'react-chartjs-2';
-import { calculateSquatIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-} from 'chart.js';
+import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
+import { calculateTestIndices } from '../services/testService';
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
-);
+ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
 function Bilan() {
   const { id } = useParams();
@@ -42,7 +27,6 @@ function Bilan() {
           const bilanData = bilanDocSnap.data();
           setBilan(bilanData);
 
-          // Récupérer les informations du client
           const clientDocRef = doc(db, 'clients', bilanData.clientId);
           const clientDocSnap = await getDoc(clientDocRef);
 
@@ -64,6 +48,20 @@ function Bilan() {
     fetchBilan();
   }, [id]);
 
+  useEffect(() => {
+    const processBilanData = async () => {
+      if (bilan && client) {
+        const processedData = await calculateTestIndices(bilan, client);
+        setBilan(prevBilan => ({
+          ...prevBilan,
+          tests: processedData,
+        }));
+      }
+    };
+
+    processBilanData();
+  }, [bilan, client]);
+
   if (loading) {
     return <Typography variant="h6">Chargement...</Typography>;
   }
@@ -72,45 +70,30 @@ function Bilan() {
     return <Typography variant="h6">Bilan ou Client introuvable</Typography>;
   }
 
-  const handleGoToClientPage = () => {
-    navigate(`/client/${bilan.clientId}`);
-  };
-
-  const age = new Date().getFullYear() - new Date(client.dob).getFullYear();
-
-  // Calcul des indices pour chaque test
-  const testsWithIndices = {};
-  for (const [testId, testData] of Object.entries(bilan.tests)) {
-    let index = 0;
-    if (testData.name === 'squat') {
-      index = calculateSquatIndex(client.gender, age, testData.response);
-      console.log('index:', index);
-    } else if (testData.name === 'pushup') {
-      index = calculatePushupIndex(client.gender, age, testData.response);
-    } else if (testData.name === 'chaise') {
-      index = calculateChairIndex(testData.response);
-    } else if (testData.name === '6min_marche') {
-      index = calculate6MinWalkIndex(client.gender, age, testData.response);
-    }
-
-    testsWithIndices[testId] = {
-      ...testData,
-      index: index
-    };
-  }
-
   // Préparer les données pour le graphique radar
   const radarData = {
-    labels: Object.values(testsWithIndices).map(test => test.name),
+    labels: Object.values(bilan.tests).map(test => test.name),
     datasets: [
       {
         label: 'Indice de Forme',
-        data: Object.values(testsWithIndices).map(test => test.index),
+        data: Object.values(bilan.tests).map(test => test.index),
         backgroundColor: 'rgba(34, 202, 236, 0.2)',
         borderColor: 'rgba(34, 202, 236, 1)',
         borderWidth: 2,
       },
     ],
+  };
+
+  const radarOptions = {
+    scales: {
+      r: {
+        min: 0,
+        max: 5,
+        ticks: {
+          stepSize: 1,
+        },
+      },
+    },
   };
 
   return (
@@ -120,46 +103,71 @@ function Bilan() {
         <Button
           variant="contained"
           color="primary"
-          onClick={handleGoToClientPage}
+          onClick={() => navigate(`/client/${bilan.clientId}`)}
           style={{ float: 'right' }}
         >
           Page Client
         </Button>
       </Typography>
 
-      {/* Afficher les informations du client */}
-      <Typography variant="h6" gutterBottom>
-        Informations du Client
+      <Typography variant="body1" style={{ marginTop: '20px' }}>
+        Bilan créé le : {bilan.createdAt.toDate().toLocaleDateString()}
       </Typography>
-      <Table>
-        <TableBody>
-          <TableRow>
-            <TableCell>Nom-Prénom</TableCell>
-            <TableCell>{client.name}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Date de naissance</TableCell>
-            <TableCell>{client.dob}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Sexe</TableCell>
-            <TableCell>{client.gender}</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Taille</TableCell>
-            <TableCell>{client.height} cm</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Poids</TableCell>
-            <TableCell>{client.weight} kg</TableCell>
-          </TableRow>
-        </TableBody>
-      </Table>
 
-      {/* Afficher le graphique radar */}
-      <Radar data={radarData} />
+      {/* Ajouter un espace entre le titre et les infos clients */}
+      <Box
+        mt={4}
+      />
+
+      <Grid container spacing={4}>
+        {/* Colonne de gauche : Infos client */}
+        <Grid item xs={12} md={6}>
+          <Typography variant="h6" gutterBottom>
+            Informations du Client
+          </Typography>
+          <Table>
+            <TableBody>
+              <TableRow>
+                <TableCell>Nom-Prénom</TableCell>
+                <TableCell>{client.name}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Date de naissance</TableCell>
+                <TableCell>{client.dob}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Sexe</TableCell>
+                <TableCell>{client.gender}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Taille</TableCell>
+                <TableCell>{client.height} cm</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>Poids</TableCell>
+                <TableCell>{client.weight} kg</TableCell>
+              </TableRow>
+            </TableBody>
+          </Table>
+        </Grid>
+
+        {/* Colonne de droite : Radar */}
+        <Grid item xs={12} md={6}>
+          <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+            <div style={{ width: '300px', height: '300px' }}>
+              <Radar data={radarData} options={radarOptions} />
+            </div>
+          </Box>
+        </Grid>
+      </Grid>
+
+      {/* Ajouter un espace entre les infos clients et les réponses aux tests */}
+      <Box mt={4} />
 
       {/* Afficher les réponses et indices pour chaque test */}
+      <Typography variant="h6" gutterBottom>
+        Réponses aux tests
+      </Typography>
       <Table>
         <TableBody>
           {Object.entries(bilan.tests).map(([testId, testData]) => (
@@ -172,9 +180,6 @@ function Bilan() {
         </TableBody>
       </Table>
 
-      <Typography variant="body1" style={{ marginTop: '20px' }}>
-        Bilan créé le : {bilan.createdAt.toDate().toLocaleDateString()}
-      </Typography>
     </Container>
   );
 }

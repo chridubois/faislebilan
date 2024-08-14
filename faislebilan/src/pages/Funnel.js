@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, TextField, Button, Box } from '@mui/material';
-import { calculateSquatIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
+import { calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
 import { fetchTests } from '../services/testService';
 
 function Funnel() {
@@ -131,14 +131,18 @@ function Funnel() {
       for (const test of tests) {
         let index = 0;
 
-        if (test.name === 'squat') {
-          index = calculateSquatIndex(responses.gender, age, responses[test.id]);
+        if (test.name === 'assis debout') {
+          index = calculateAssisDeboutIndex(responses.gender, age, responses[test.id]);
         } else if (test.name === 'pushup') {
           index = calculatePushupIndex(responses.gender, age, responses[test.id]);
         } else if (test.name === 'chaise') {
           index = calculateChairIndex(responses[test.id]);
-        } else if (test.name === '6min_marche') {  // Assurez-vous que l'ID est correct
+        } else if (test.name === '6min marche') {  // Assurez-vous que l'ID est correct
           index = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
+        } else if (test.name === 'planche') {  // Assurez-vous que l'ID est correct
+          index = calculatePlankIndex(responses[test.id]);
+        } else if (test.name === 'sorensen') {
+          index = calculateSorensenIndex(responses.gender, age, responses[test.id]);
         }
 
         testsWithNames[test.id] = {
