@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Container, Typography } from '@mui/material';
+import { Button, Container } from '@mui/material';
 import { Helmet } from 'react-helmet';
 
 function Home() {
