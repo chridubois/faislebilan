@@ -114,7 +114,7 @@ function Bilan() {
         Bilan créé le : {bilan.createdAt.toDate().toLocaleDateString()}
       </Typography>
 
-      {/* Ajouter un espace entre le titre et les infos clients */}
+      {/* Ajouter un espace entre le titre et les infos du clients */}
       <Box
         mt={4}
       />

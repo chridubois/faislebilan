@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Box, Container } from '@mui/material';
+import { Box } from '@mui/material';
 import Home from './pages/Home';
 import Funnel from './pages/Funnel';
 import Bilan from './pages/Bilan';
