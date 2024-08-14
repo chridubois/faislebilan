@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function ListeBilans() {
   const [bilans, setBilans] = useState([]);
@@ -21,6 +22,9 @@ function ListeBilans() {
 
   return (
     <Container>
+      <Helmet>
+        <title>Liste Bilans</title>
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         Liste des bilans
       </Typography>

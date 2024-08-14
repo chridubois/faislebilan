@@ -7,19 +7,23 @@ import ListeBilans from './pages/ListeBilans';
 import ListeClients from './pages/ListeClients';
 import Client from './pages/Client';
 import Header from './components/Header'; // Importer le Header
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
-      <Header /> {/* Ajoute le Header ici pour qu'il soit présent sur toutes les pages */}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/funnel" element={<Funnel />} />
-        <Route path="/bilan/:id" element={<Bilan />} />
-        <Route path="/bilans" element={<ListeBilans />} />
-        <Route path="/clients" element={<ListeClients />} />
-        <Route path="/client/:id" element={<Client />} />
-      </Routes>
+      <Header />
+      <div style={{ minHeight: 'calc(100vh - 64px - 64px)' }}> {/* Adjust height for header and footer */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/funnel" element={<Funnel />} />
+          <Route path="/bilan/:id" element={<Bilan />} />
+          <Route path="/bilans" element={<ListeBilans />} />
+          <Route path="/clients" element={<ListeClients />} />
+          <Route path="/client/:id" element={<Client />} />
+        </Routes>
+      </div>
+      <Footer /> {/* Ajouter le Footer ici */}
     </Router>
   );
 }

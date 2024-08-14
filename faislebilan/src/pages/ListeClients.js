@@ -4,6 +4,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, List, ListItem, ListItemText } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 function ListeClients() {
   const [clients, setClients] = useState([]);
@@ -24,6 +25,9 @@ function ListeClients() {
 
   return (
     <Container>
+      <Helmet>
+        <title>Liste Clients</title>
+      </Helmet>
       <Typography variant="h4" component="h1" gutterBottom>
         Liste des clients
       </Typography>

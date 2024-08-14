@@ -1,15 +1,16 @@
 // src/pages/Client.js
 import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Table, TableBody, TableCell, TableHead, TableRow, Button, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText } from '@mui/material';
 
 function Client() {
   const { id } = useParams();
   const [client, setClient] = useState(null);
   const [bilans, setBilans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchClientAndBilans = async () => {
@@ -51,6 +52,10 @@ function Client() {
     return <Typography variant="h6">Client introuvable</Typography>;
   }
 
+  const handleNewBilan = () => {
+    navigate('/funnel', { state: { clientId: id, client } });
+  };
+
   return (
     <Container>
       <Typography variant="h4" component="h1" gutterBottom>
@@ -58,11 +63,10 @@ function Client() {
         <Button
           variant="contained"
           color="primary"
-          component={Link}
-          to="/funnel"
+          onClick={handleNewBilan}
           style={{ float: 'right' }}
         >
-          Nouveau bilan
+          Nouveau Bilan
         </Button>
       </Typography>
 

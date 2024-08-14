@@ -3,6 +3,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, Container, Typography } from '@mui/material';
+import { Helmet } from 'react-helmet';
 
 function Home() {
   const navigate = useNavigate();
@@ -18,10 +19,13 @@ function Home() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '50vh',
         textAlign: 'center'
       }}
     >
+      <Helmet>
+        <title>Faislebilan</title>
+      </Helmet>
       <Button variant="contained" color="primary" size="large" onClick={handleStart}>
         Lancer un bilan
       </Button>

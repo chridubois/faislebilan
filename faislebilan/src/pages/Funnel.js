@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// src/pages/Funnel.js
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
+import { Container, Typography, TextField, Button, Box } from '@mui/material';
+import { calculateSquatIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
+import { fetchTests } from '../services/testService';
 
 function Funnel() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
+  const [clientExists, setClientExists] = useState(false);
   const [responses, setResponses] = useState({
     name: '',
     dob: '',
@@ -12,8 +19,25 @@ function Funnel() {
     height: '',
     weight: ''
   });
-  const [clientExists, setClientExists] = useState(false);
-  const navigate = useNavigate();
+  const [tests, setTests] = useState([]);
+
+  useEffect(() => {
+    if (location.state?.clientId) {
+      // Si le client est déjà connu, définir les réponses par défaut et sauter aux tests
+      setClientExists(true);
+      setResponses(location.state.client);
+      setStep(5); // Passer directement aux tests (5 est l'index après les 5 premières questions)
+    }
+  }, [location.state]);
+
+  useEffect(() => {
+    const fetchAllTests = async () => {
+      const allTests = await fetchTests();
+      setTests(Object.values(allTests)); // Conserver les valeurs pour l'accès
+    };
+
+    fetchAllTests();
+  }, []);
 
   const initialQuestions = [
     { id: 'name', title: 'Quel est le nom-prénom du client ?', type: 'text' },
@@ -21,12 +45,6 @@ function Funnel() {
     { id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'] },
     { id: 'height', title: 'Quelle est la taille du client ? (cm)', type: 'number' },
     { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' }
-  ];
-
-  const tests = [
-    { id: 'squat', title: 'Test des squats sur chaise', description: 'Nombre de squats réalisés en 1 minute' },
-    { id: 'pushup', title: 'Test des pompes', description: 'Nombre de pompes réalisées en 1 minute' },
-    // Ajoute d'autres tests ici
   ];
 
   const allSteps = [...initialQuestions, ...tests];
@@ -40,18 +58,19 @@ function Funnel() {
   };
 
   const handleNext = async () => {
-    if (step === 0) {
-      // Vérifier si l'utilisateur existe lors de la première étape
+    if (step === 0 && !clientExists) {
+      // Vérifier si l'utilisateur existe lors de la première étape (nom-prénom)
       const clientsRef = collection(db, 'clients');
       const q = query(clientsRef, where('name', '==', responses.name));
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
+        // Si le client existe, récupérer ses données et passer aux tests
+        querySnapshot.forEach((doc) => {
+          setResponses(doc.data());
+        });
         setClientExists(true);
-        console.log('Client trouvé !');
-        console.log(step);
-        setStep(initialQuestions.length); // Passer directement aux tests
-        console.log(step);
+        setStep(5); // Passer directement aux tests
         return;
       }
     }
@@ -60,6 +79,12 @@ function Funnel() {
       setStep(step + 1);
     } else {
       handleSubmit();
+    }
+  };
+
+  const handlePrevious = () => {
+    if (step > 0) {
+      setStep(step - 1);
     }
   };
 
@@ -73,18 +98,9 @@ function Funnel() {
 
   const handleSubmit = async () => {
     try {
-      let clientId;
+      let clientId = location.state?.clientId;
 
-      if (clientExists) {
-        // Si l'utilisateur existe, récupérer son ID
-        const clientsRef = collection(db, 'clients');
-        const q = query(clientsRef, where('name', '==', responses.name));
-        const querySnapshot = await getDocs(q);
-        querySnapshot.forEach((doc) => {
-          clientId = doc.id;
-        });
-      } else {
-        // Sinon, créer un nouvel utilisateur
+      if (!clientId && !clientExists) {
         const newClient = {
           name: responses.name,
           dob: responses.dob,
@@ -95,56 +111,125 @@ function Funnel() {
         };
         const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
         clientId = clientDocRef.id;
+      } else if (!clientId) {
+        const clientsRef = collection(db, 'clients');
+        const q = query(clientsRef, where('name', '==', responses.name));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          clientId = doc.id;
+        });
       }
 
-      // Créer un nouvel objet bilan avec les réponses du formulaire
+      if (!clientId) {
+        throw new Error("Client ID is undefined");
+      }
+
+      const age = new Date().getFullYear() - new Date(responses.dob).getFullYear();
+
+      // Calcul des indices pour chaque test et création de l'objet tests avec le nom du test
+      const testsWithNames = {};
+      for (const test of tests) {
+        let index = 0;
+
+        if (test.name === 'squat') {
+          index = calculateSquatIndex(responses.gender, age, responses[test.id]);
+        } else if (test.name === 'pushup') {
+          index = calculatePushupIndex(responses.gender, age, responses[test.id]);
+        } else if (test.name === 'chaise') {
+          index = calculateChairIndex(responses[test.id]);
+        } else if (test.name === '6min_marche') {  // Assurez-vous que l'ID est correct
+          index = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
+        }
+
+        testsWithNames[test.id] = {
+          name: test.name, // Assurez-vous que 'name' existe dans chaque test
+          response: responses[test.id],
+          index: index
+        };
+      }
+
       const newBilan = {
         clientId: clientId,
-        tests: tests.reduce((acc, test) => {
-          acc[test.id] = responses[test.id] || 0;
-          return acc;
-        }, {}),
+        tests: testsWithNames, // Enregistre les réponses, indices et noms pour chaque test
         createdAt: new Date(),
       };
 
-      // Ajouter ce nouvel objet à la collection "bilans" dans Firestore
-      const docRef = await addDoc(collection(db, "bilans"), newBilan);
-
-      // Naviguer vers la page du bilan avec l'ID du document nouvellement créé
-      navigate(`/bilan/${docRef.id}`);
+      const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);
+      navigate(`/bilan/${bilanDocRef.id}`);
     } catch (e) {
       console.error("Erreur lors de la création du bilan :", e);
     }
   };
 
-  // Ajout de la vérification conditionnelle pour éviter l'accès à une étape inexistante
-  if (step >= allSteps.length) {
-    return <div>Aucune étape disponible.</div>;
-  }
 
   return (
-    <div>
-      <h1>{allSteps[step].title}</h1>
-      {allSteps[step].type === 'select' ? (
-        <select name={allSteps[step].id} value={responses[allSteps[step].id] || ''} onChange={handleInputChange}>
-          <option value="">Sélectionnez une option</option>
-          {allSteps[step].options.map((option) => (
-            <option key={option} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      ) : (
-        <input
-          type={allSteps[step].type}
-          name={allSteps[step].id}
-          value={responses[allSteps[step].id] || ''}
-          onChange={handleInputChange}
-        />
-      )}
-      <button onClick={handleNext}>Valider</button>
-      <button onClick={handleSkip}>Passer</button>
-    </div>
+    <Container maxWidth="sm">
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        minHeight="50vh"
+        textAlign="center"
+      >
+        <Typography variant="h5" component="h1" gutterBottom>
+          {allSteps[step]?.title}
+        </Typography>
+
+        {allSteps[step]?.description && (
+          <Typography variant="body1" paragraph>
+            {allSteps[step]?.description}
+          </Typography>
+        )}
+        {allSteps[step]?.image && (
+          <img src={allSteps[step]?.image} alt={allSteps[step]?.title} style={{ maxWidth: '80%', height: 'auto', marginBottom: '20px' }} />
+        )}
+
+        {allSteps[step]?.type === 'select' ? (
+          <TextField
+            select
+            SelectProps={{ native: true }}
+            name={allSteps[step]?.id}
+            value={responses[allSteps[step]?.id] || ''}
+            onChange={handleInputChange}
+            variant="outlined"
+            fullWidth
+          >
+            <option value="">Sélectionnez une option</option>
+            {allSteps[step]?.options?.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </TextField>
+        ) : (
+          <TextField
+            type={allSteps[step]?.type}
+            name={allSteps[step]?.id}
+            value={responses[allSteps[step]?.id] || ''}
+            onChange={handleInputChange}
+            variant="outlined"
+            fullWidth
+            margin="normal"
+            placeholder={allSteps[step]?.placeholder || ''}
+          />
+        )}
+
+        <Box mt={2} display="flex" justifyContent="space-between" width="100%">
+          <Button variant="contained" color="primary" onClick={handlePrevious} disabled={step === 0}>
+            Précédent
+          </Button>
+          <Box>
+            <Button variant="contained" color="primary" onClick={handleNext} style={{ marginRight: '10px' }}>
+              Suivant
+            </Button>
+            <Button variant="text" color="secondary" onClick={handleSkip}>
+              Passer
+            </Button>
+          </Box>
+        </Box>
+      </Box>
+    </Container>
   );
 }
 

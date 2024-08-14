@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+// src/pages/Bilan.js
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Table, TableBody, TableCell, TableHead, TableRow, CircularProgress } from '@mui/material';
+import { Container, Typography, Button, Table, TableBody, TableCell, TableRow } from '@mui/material';
 import { Radar } from 'react-chartjs-2';
+import { calculateSquatIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -11,7 +13,7 @@ import {
   LineElement,
   Filler,
   Tooltip,
-  Legend,
+  Legend
 } from 'chart.js';
 
 ChartJS.register(
@@ -28,57 +30,85 @@ function Bilan() {
   const [bilan, setBilan] = useState(null);
   const [client, setClient] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchBilanAndClient = async () => {
+    const fetchBilan = async () => {
       try {
-        // Récupérer le bilan à partir de l'ID
-        const bilanDocRef = doc(db, "bilans", id);
+        const bilanDocRef = doc(db, 'bilans', id);
         const bilanDocSnap = await getDoc(bilanDocRef);
 
         if (bilanDocSnap.exists()) {
           const bilanData = bilanDocSnap.data();
           setBilan(bilanData);
 
-          // Récupérer le client associé au bilan
-          const clientDocRef = doc(db, "clients", bilanData.clientId);
+          // Récupérer les informations du client
+          const clientDocRef = doc(db, 'clients', bilanData.clientId);
           const clientDocSnap = await getDoc(clientDocRef);
 
           if (clientDocSnap.exists()) {
             setClient(clientDocSnap.data());
           } else {
-            console.error("No such client document!");
+            console.error('Client introuvable!');
           }
         } else {
-          console.error("No such bilan document!");
+          console.error('Bilan introuvable!');
         }
-      } catch (e) {
-        console.error("Error fetching document: ", e);
+      } catch (error) {
+        console.error('Erreur lors de la récupération du bilan:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchBilanAndClient();
+    fetchBilan();
   }, [id]);
 
   if (loading) {
-    return <CircularProgress />;
+    return <Typography variant="h6">Chargement...</Typography>;
   }
 
   if (!bilan || !client) {
-    return <Typography variant="h6">Bilan ou client introuvable</Typography>;
+    return <Typography variant="h6">Bilan ou Client introuvable</Typography>;
   }
 
-  const data = {
-    labels: Object.keys(bilan.tests),
+  const handleGoToClientPage = () => {
+    navigate(`/client/${bilan.clientId}`);
+  };
+
+  const age = new Date().getFullYear() - new Date(client.dob).getFullYear();
+
+  // Calcul des indices pour chaque test
+  const testsWithIndices = {};
+  for (const [testId, testData] of Object.entries(bilan.tests)) {
+    let index = 0;
+    if (testData.name === 'squat') {
+      index = calculateSquatIndex(client.gender, age, testData.response);
+      console.log('index:', index);
+    } else if (testData.name === 'pushup') {
+      index = calculatePushupIndex(client.gender, age, testData.response);
+    } else if (testData.name === 'chaise') {
+      index = calculateChairIndex(testData.response);
+    } else if (testData.name === '6min_marche') {
+      index = calculate6MinWalkIndex(client.gender, age, testData.response);
+    }
+
+    testsWithIndices[testId] = {
+      ...testData,
+      index: index
+    };
+  }
+
+  // Préparer les données pour le graphique radar
+  const radarData = {
+    labels: Object.values(testsWithIndices).map(test => test.name),
     datasets: [
       {
-        label: 'Résultats des tests',
-        data: Object.values(bilan.tests),
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
-        borderWidth: 1,
+        label: 'Indice de Forme',
+        data: Object.values(testsWithIndices).map(test => test.index),
+        backgroundColor: 'rgba(34, 202, 236, 0.2)',
+        borderColor: 'rgba(34, 202, 236, 1)',
+        borderWidth: 2,
       },
     ],
   };
@@ -86,11 +116,27 @@ function Bilan() {
   return (
     <Container>
       <Typography variant="h4" component="h1" gutterBottom>
-        Bilan de {client.name}
+        Détails du Bilan
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleGoToClientPage}
+          style={{ float: 'right' }}
+        >
+          Page Client
+        </Button>
       </Typography>
-      <Typography variant="h6">Informations personnelles</Typography>
+
+      {/* Afficher les informations du client */}
+      <Typography variant="h6" gutterBottom>
+        Informations du Client
+      </Typography>
       <Table>
         <TableBody>
+          <TableRow>
+            <TableCell>Nom-Prénom</TableCell>
+            <TableCell>{client.name}</TableCell>
+          </TableRow>
           <TableRow>
             <TableCell>Date de naissance</TableCell>
             <TableCell>{client.dob}</TableCell>
@@ -110,26 +156,25 @@ function Bilan() {
         </TableBody>
       </Table>
 
-      <Typography variant="h6" style={{ marginTop: '20px' }}>Résultats des tests</Typography>
-      <Radar data={data} />
+      {/* Afficher le graphique radar */}
+      <Radar data={radarData} />
 
-      <Typography variant="h6" style={{ marginTop: '20px' }}>Détails des tests</Typography>
+      {/* Afficher les réponses et indices pour chaque test */}
       <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Test</TableCell>
-            <TableCell>Résultat</TableCell>
-          </TableRow>
-        </TableHead>
         <TableBody>
-          {Object.entries(bilan.tests).map(([test, result]) => (
-            <TableRow key={test}>
-              <TableCell>{test}</TableCell>
-              <TableCell>{result}</TableCell>
+          {Object.entries(bilan.tests).map(([testId, testData]) => (
+            <TableRow key={testId}>
+              <TableCell>{testData.name}</TableCell>
+              <TableCell>Réponse: {testData.response}</TableCell>
+              <TableCell>Indice: {testData.index}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
+
+      <Typography variant="body1" style={{ marginTop: '20px' }}>
+        Bilan créé le : {bilan.createdAt.toDate().toLocaleDateString()}
+      </Typography>
     </Container>
   );
 }

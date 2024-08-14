@@ -21,7 +21,7 @@ function Header() {
       <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6" component="div">
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <img src={logo} alt="Faislebilan Logo" style={{ height: '40px' }} />
+            <img src={logo} alt="Faislebilan Logo" style={{ height: '20px' }} />
           </Link>
         </Typography>
 
