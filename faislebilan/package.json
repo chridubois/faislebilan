@@ -20,7 +20,6 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.26.0",
     "react-scripts": "5.0.1",
-    "source-map-explorer": "^2.5.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
