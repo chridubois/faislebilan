@@ -1,7 +1,7 @@
 // src/config/firebase.js
 
 import { initializeApp } from 'firebase/app';
-import { getFirestore } from 'firebase/firestore';
+import { initializeFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCO_XAqNHGBjj-_Q38wHI5pw3vHJKkA6I",
@@ -14,6 +14,10 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = initializeFirestore(app, {
+  experimentalForceLongPolling: true,
+  useFetchStreams: false,
+  cacheSizeBytes: 10 * 1024 * 1024, // Réduisez la taille du cache à 10 MB (par exemple)
+});
 
 export { db };
