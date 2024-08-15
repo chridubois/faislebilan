@@ -99,13 +99,6 @@ function Bilan() {
         borderColor: 'rgba(34, 202, 236, 1)',
         borderWidth: 2,
       },
-      // {
-      //   label: 'Valeurs de Référence',
-      //   data: sortedTests.map(test => referenceValues[test.name] || 0), // Utiliser les valeurs de référence
-      //   backgroundColor: 'rgba(255, 99, 132, 0.2)',
-      //   borderColor: 'rgba(255, 99, 132, 1)',
-      //   borderWidth: 2,
-      // },
     ],
   };
 
@@ -171,6 +164,7 @@ function Bilan() {
       </Typography>
 
       <Box mt={4} id="bilan-content">
+        {/* Informations du Client */}
         <Card style={{ marginBottom: '20px', padding: '20px' }}>
           <Typography variant="h5" gutterBottom>
             Informations du Client
@@ -240,6 +234,7 @@ function Bilan() {
           </Grid>
         </Card>
 
+        {/* Recommandations */}
         <Card style={{ marginBottom: '20px', padding: '20px' }}>
           <Typography variant="h5" gutterBottom>
             Recommandations
@@ -283,6 +278,7 @@ function Bilan() {
           </Box>
         </Card>
 
+        {/* Réponses aux Tests */}
         <Card style={{ marginBottom: '20px', padding: '20px' }}>
           <Typography variant="h5" gutterBottom>
             Réponses aux Tests
