@@ -318,4 +318,58 @@ export const calculateHandPositionIndex = (response) => {
   }
 };
 
+export const calculateSouplessePostIndex = (gender, response) => {
+  if (gender === 'Femme') {
+    switch (response) {
+      case 'Le poignet touche les orteils (au-delà de +20 cm)':
+        return 5;
+      case 'La jonction doigts-paume touche les orteils (entre +10 et +20 cm)':
+        return 4;
+      case 'Les doigts touchent les orteils (entre 0 et +10 cm)':
+        return 3;
+      case 'Les doigts touchent le bas du tibia (entre -10 et 0 cm)':
+        return 2;
+      case 'Les doigts atteignent le milieu du tibia (entre -20 et -10 cm)':
+        return 1;
+      default:
+        return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
+    }
+  } else if (gender === 'Homme') {
+    switch (response) {
+      case 'La jonction doigts-paume touche les orteils (au-delà de +10 cm)':
+        return 5;
+      case 'Les doigts touchent les orteils (entre 0 et +10 cm)':
+        return 4;
+      case 'Les doigts touchent le bas du tibia (entre -10 et 0 cm)':
+        return 3;
+      case 'Les doigts atteignent le milieu du tibia (entre -20 et -10 cm)':
+        return 2;
+      case 'Les doigts atteignent le haut du tibia (au-delà de -20 cm)':
+        return 1;
+      default:
+        return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
+    }
+  } else {
+    return 0; // Si le sexe n'est ni "Femme" ni "Homme"
+  }
+};
+
+export const calculateLegPositionIndex = (response) => {
+  switch (response) {
+    case 'jambe tendue au-delà de la verticale':
+      return 5;
+    case 'jambe tendue à la verticale (90°)':
+      return 4;
+    case 'jambe non-tendue à la verticale (90°)':
+      return 3;
+    case 'jambe tendue entre 45° et 90°':
+      return 2;
+    case 'jambe tendue entre 0° et 45°':
+      return 1;
+    default:
+      return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
+  }
+};
+
+
 // Ajoute d'autres fonctions de calcul pour d'autres tests ici

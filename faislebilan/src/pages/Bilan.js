@@ -56,13 +56,16 @@ function Bilan() {
     return <Typography variant="h6">Bilan ou Client introuvable</Typography>;
   }
 
+  // Trier les tests par nom croissant avant de préparer les données pour le graphique radar
+  const sortedTests = Object.values(bilan.tests).sort((a, b) => a.name.localeCompare(b.name));
+
   // Préparer les données pour le graphique radar
   const radarData = {
-    labels: Object.values(bilan.tests).map(test => test.name),
+    labels: sortedTests.map(test => test.name),
     datasets: [
       {
         label: 'Indice de Forme',
-        data: Object.values(bilan.tests).map(test => test.index),
+        data: sortedTests.map(test => test.index),
         backgroundColor: 'rgba(34, 202, 236, 0.2)',
         borderColor: 'rgba(34, 202, 236, 1)',
         borderWidth: 2,

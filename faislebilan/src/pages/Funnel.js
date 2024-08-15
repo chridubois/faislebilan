@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, TextField, Button, Box } from '@mui/material';
-import { calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
+import { calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
 import { fetchTests } from '../services/testService';
 
 function Funnel() {
@@ -145,7 +145,12 @@ function Funnel() {
           index = calculateSorensenIndex(responses.gender, age, responses[test.id]);
         } else if (test.name === 'mobilité épaule') {
           index = calculateHandPositionIndex(responses[test.id]);
+        } else if (test.name === 'souplesse chaîne post') {
+          index = calculateSouplessePostIndex(responses.gender, responses[test.id]);
+        } else if (test.name === 'mobilité hanches') {
+          index = calculateLegPositionIndex(responses[test.id])
         }
+
 
         testsWithNames[test.id] = {
           name: test.name, // Assurez-vous que 'name' existe dans chaque test

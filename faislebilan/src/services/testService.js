@@ -2,7 +2,7 @@
 
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { calculateHandPositionIndex, calculateSorensenIndex, calculateAssisDeboutIndex, calculatePlankIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
+import { calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculateAssisDeboutIndex, calculatePlankIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
 
 // Variable pour stocker les tests en cache
 let cachedTests = null;
@@ -57,6 +57,12 @@ export const calculateTestIndices = async (bilan, client) => {
           break;
         case 'mobilité épaule':
           index = calculateHandPositionIndex(testData.response);
+          break;
+        case 'souplesse chaîne post':
+          index = calculateSouplessePostIndex(client.gender, testData.response);
+          break;
+        case 'mobilité hanches':
+          index = calculateLegPositionIndex(testData.response);
           break;
         default:
           index = 0;
