@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Button, Card, CardContent, Table, TableBody, TableCell, TableRow, Grid, Box, Divider } from '@mui/material';
+import { Container, Typography, Button, Card, Table, TableBody, TableCell, TableRow, Grid, Box, Divider } from '@mui/material';
 import { Radar } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 import jsPDF from 'jspdf';
@@ -85,8 +85,8 @@ function Bilan() {
     return <Typography variant="h6">Bilan ou Client introuvable</Typography>;
   }
 
-   // Trier les tests par nom croissant avant de préparer les données pour le graphique radar
-   const sortedTests = Object.values(bilan.tests).sort((a, b) => a.name.localeCompare(b.name));
+  // Trier les tests par nom croissant avant de préparer les données pour le graphique radar
+  const sortedTests = Object.values(bilan.tests).sort((a, b) => a.name.localeCompare(b.name));
 
   // Préparer les données pour le graphique radar avec les valeurs de l'utilisateur
   const radarData = {
@@ -203,6 +203,26 @@ function Bilan() {
                   <TableRow>
                     <TableCell>Niveau d'activité</TableCell>
                     <TableCell>{client.activity}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>Coeff Niveau d'activité</TableCell>
+                    <TableCell>{client.activityCoeff}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>BMR (Harris Benedict)</TableCell>
+                    <TableCell>{client.bmrHarrisBenedict?.toFixed(2)} kcal/jour</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>BMR (Mifflin St Jeor)</TableCell>
+                    <TableCell>{client.bmrMifflinStJeor?.toFixed(2)} kcal/jour</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>BMR (Harris Benedict) Final</TableCell>
+                    <TableCell>{client.bmrHarrisBenedictFinal?.toFixed(2)} kcal/jour</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>BMR (Mifflin St Jeor) Final</TableCell>
+                    <TableCell>{client.bmrMifflinStJeorFinal?.toFixed(2)} kcal/jour</TableCell>
                   </TableRow>
                 </TableBody>
               </Table>
