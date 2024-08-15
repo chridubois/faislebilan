@@ -1,15 +1,19 @@
-// src/pages/Client.js
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText } from '@mui/material';
+import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box } from '@mui/material';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Client() {
   const { id } = useParams();
   const [client, setClient] = useState(null);
   const [bilans, setBilans] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [chartData, setChartData] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +35,26 @@ function Client() {
             ...doc.data()
           }));
           setBilans(bilanList);
+
+          if (bilanList.length > 0) {
+            // Préparer les données pour le graphique
+            const dates = bilanList.map(bilan => bilan.createdAt.toDate().toLocaleDateString());
+            const indices = bilanList.map(bilan => {
+              return Object.values(bilan.tests).reduce((sum, test) => sum + test.index, 0) / Object.values(bilan.tests).length;
+            });
+
+            setChartData({
+              labels: dates,
+              datasets: [
+                {
+                  label: 'Indice de Forme Moyen',
+                  data: indices,
+                  borderColor: 'rgba(75,192,192,1)',
+                  backgroundColor: 'rgba(75,192,192,0.2)',
+                },
+              ],
+            });
+          }
         } else {
           console.error('No such client!');
         }
@@ -44,6 +68,10 @@ function Client() {
     fetchClientAndBilans();
   }, [id]);
 
+  const handleNewBilan = () => {
+    navigate('/funnel', { state: { clientId: id, client } });
+  };
+
   if (loading) {
     return <Typography variant="h6">Chargement...</Typography>;
   }
@@ -51,10 +79,6 @@ function Client() {
   if (!client) {
     return <Typography variant="h6">Client introuvable</Typography>;
   }
-
-  const handleNewBilan = () => {
-    navigate('/funnel', { state: { clientId: id, client } });
-  };
 
   return (
     <Container>
@@ -99,13 +123,23 @@ function Client() {
         Bilans
       </Typography>
       {bilans.length > 0 ? (
-        <List>
-          {bilans.map((bilan) => (
-            <ListItem key={bilan.id} button component={Link} to={`/bilan/${bilan.id}`}>
-              <ListItemText primary={`Bilan créé le : ${bilan.createdAt.toDate().toLocaleDateString()}`} />
-            </ListItem>
-          ))}
-        </List>
+        <>
+          <List>
+            {bilans.map((bilan) => (
+              <ListItem key={bilan.id} button component={Link} to={`/bilan/${bilan.id}`}>
+                <ListItemText primary={`Bilan créé le : ${bilan.createdAt.toDate().toLocaleDateString()}`} />
+              </ListItem>
+            ))}
+          </List>
+
+          {/* Afficher le graphique si des bilans existent */}
+          {chartData && (
+            <Box mt={4}>
+              <Typography variant="h6">Évolution de l'Indice de Forme</Typography>
+              <Line data={chartData} />
+            </Box>
+          )}
+        </>
       ) : (
         <Typography variant="body1">Ce client n'a pas encore fait de bilan.</Typography>
       )}

@@ -151,7 +151,6 @@ function Funnel() {
           index = calculateLegPositionIndex(responses[test.id])
         }
 
-
         testsWithNames[test.id] = {
           name: test.name, // Assurez-vous que 'name' existe dans chaque test
           response: responses[test.id],
@@ -201,10 +200,11 @@ function Funnel() {
             select
             SelectProps={{ native: true }}
             name={allSteps[step]?.id}
-            value={responses[allSteps[step]?.id] || ''}
+            value={responses[allSteps[step]?.id] || ''} // Assurez-vous que la valeur est spécifique au test actuel
             onChange={handleInputChange}
             variant="outlined"
             fullWidth
+            key={step} // Ajoutez cette clé pour forcer le re-rendu lors du changement de test
           >
             <option value="">Sélectionnez une option</option>
             {allSteps[step]?.options?.map((option) => (
@@ -217,7 +217,7 @@ function Funnel() {
           <TextField
             type={allSteps[step]?.type}
             name={allSteps[step]?.id}
-            value={responses[allSteps[step]?.id] || ''}
+            value={responses[allSteps[step]?.id] || ''} // Assurez-vous que la valeur est spécifique au test actuel
             onChange={handleInputChange}
             variant="outlined"
             fullWidth

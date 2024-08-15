@@ -9,6 +9,7 @@ import ListeClients from './pages/ListeClients';
 import Client from './pages/Client';
 import Header from './components/Header'; // Importer le Header
 import Footer from './components/Footer';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/bilans" element={<ListeBilans />} />
           <Route path="/clients" element={<ListeClients />} />
           <Route path="/client/:id" element={<Client />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
       </div>
       <Footer /> {/* Ajouter le Footer ici */}

@@ -1,9 +1,12 @@
-// src/components/Header.js
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Box } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
 import logo from '../images/faislebilan.png';
+import AddIcon from '@mui/icons-material/Add';
+import PeopleIcon from '@mui/icons-material/People';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import DashboardIcon from '@mui/icons-material/Dashboard'; // Icône pour le tableau de bord
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -17,23 +20,26 @@ function Header() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="primary">
       <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
         <Typography variant="h6" component="div">
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-            <img src={logo} alt="Faislebilan Logo" style={{ height: '20px' }} />
+            <img src={logo} alt="Faislebilan Logo" style={{ height: '30px' }} />
           </Link>
         </Typography>
 
         <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-          <Button color="inherit" component={Link} to="/funnel">
+          <Button color="inherit" component={Link} to="/funnel" startIcon={<AddIcon />}>
             Créer un bilan
           </Button>
-          <Button color="inherit" component={Link} to="/clients">
+          <Button color="inherit" component={Link} to="/clients" startIcon={<PeopleIcon />}>
             Liste des clients
           </Button>
-          <Button color="inherit" component={Link} to="/bilans">
+          <Button color="inherit" component={Link} to="/bilans" startIcon={<ListAltIcon />}>
             Liste des bilans
+          </Button>
+          <Button color="inherit" component={Link} to="/dashboard" startIcon={<DashboardIcon />}>
+            Tableau de Bord
           </Button>
         </Box>
 
@@ -42,7 +48,7 @@ function Header() {
           edge="start"
           color="inherit"
           aria-label="menu"
-          sx={{ display: { xs: 'block', sm: 'none' } }}  // Visible uniquement sur les petits écrans
+          sx={{ display: { xs: 'block', sm: 'none' } }}
           onClick={handleMenuOpen}
         >
           <MenuIcon />
@@ -71,6 +77,9 @@ function Header() {
           </MenuItem>
           <MenuItem onClick={handleMenuClose} component={Link} to="/bilans">
             Liste des bilans
+          </MenuItem>
+          <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard">
+            Tableau de Bord
           </MenuItem>
         </Menu>
       </Toolbar>
