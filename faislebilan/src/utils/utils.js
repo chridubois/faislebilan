@@ -371,5 +371,188 @@ export const calculateLegPositionIndex = (response) => {
   }
 };
 
+export const calculate2MinWalkIndex = (gender, age, performance) => {
+  console.log('Calculating 2 Min Walk Index');
+  console.log('Gender:', gender);
+  console.log('Age:', age);
+  console.log('Performance:', performance);
+
+  if (gender === 'Femme') {
+    console.log('Gender is Femme');
+    if (age < 60) {
+      if (performance > 114) return 5;
+      if (performance >= 95 && performance <= 113) return 4;
+      if (performance >= 90 && performance <= 94) return 3;
+      if (performance >= 70 && performance <= 89) return 2;
+      return 1;
+    } else if (age >= 60 && age <= 64) {
+      if (performance > 102) return 5;
+      if (performance >= 90 && performance <= 101) return 4;
+      if (performance >= 78 && performance <= 89) return 3;
+      if (performance >= 66 && performance <= 77) return 2;
+      return 1;
+    } else if (age >= 65 && age <= 69) {
+      if (performance > 97) return 5;
+      if (performance >= 85 && performance <= 96) return 4;
+      if (performance >= 73 && performance <= 84) return 3;
+      if (performance >= 61 && performance <= 72) return 2;
+      return 1;
+    } else if (age >= 70 && age <= 74) {
+      if (performance > 87) return 5;
+      if (performance >= 76 && performance <= 86) return 4;
+      if (performance >= 64 && performance <= 75) return 3;
+      if (performance >= 53 && performance <= 63) return 2;
+      return 1;
+    } else if (age >= 75 && age <= 79) {
+      if (performance > 89) return 5;
+      if (performance >= 79 && performance <= 88) return 4;
+      if (performance >= 69 && performance <= 78) return 3;
+      if (performance >= 59 && performance <= 68) return 2;
+      return 1;
+    } else if (age >= 80 && age <= 84) {
+      if (performance > 88) return 5;
+      if (performance >= 72 && performance <= 87) return 4;
+      if (performance >= 55 && performance <= 71) return 3;
+      if (performance >= 39 && performance <= 54) return 2;
+      return 1;
+    } else if (age >= 85 && age <= 89) {
+      if (performance > 66) return 5;
+      if (performance >= 54 && performance <= 65) return 4;
+      if (performance >= 41 && performance <= 53) return 3;
+      if (performance >= 29 && performance <= 40) return 2;
+      return 1;
+    }
+  } else if (gender === 'Homme') {
+    console.log('Gender is Homme');
+    if (age < 60) {
+      if (performance > 124) return 5;
+      if (performance >= 110 && performance <= 123) return 4;
+      if (performance >= 90 && performance <= 109) return 3;
+      if (performance >= 74 && performance <= 89) return 2;
+      return 1;
+    } else if (age >= 60 && age <= 64) {
+      if (performance > 114) return 5;
+      if (performance >= 99 && performance <= 113) return 4;
+      if (performance >= 84 && performance <= 98) return 3;
+      if (performance >= 70 && performance <= 83) return 2;
+      return 1;
+    } else if (age >= 65 && age <= 69) {
+      if (performance > 107) return 5;
+      if (performance >= 96 && performance <= 106) return 4;
+      if (performance >= 86 && performance <= 95) return 3;
+      if (performance >= 75 && performance <= 85) return 2;
+      return 1;
+    } else if (age >= 70 && age <= 74) {
+      if (performance > 105) return 5;
+      if (performance >= 93 && performance <= 104) return 4;
+      if (performance >= 82 && performance <= 92) return 3;
+      if (performance >= 70 && performance <= 81) return 2;
+      return 1;
+    } else if (age >= 75 && age <= 79) {
+      if (performance > 90) return 5;
+      if (performance >= 81 && performance <= 89) return 4;
+      if (performance >= 71 && performance <= 80) return 3;
+      if (performance >= 62 && performance <= 70) return 2;
+      return 1;
+    } else if (age >= 80 && age <= 84) {
+      if (performance > 93) return 5;
+      if (performance >= 81 && performance <= 92) return 4;
+      if (performance >= 69 && performance <= 80) return 3;
+      if (performance >= 57 && performance <= 68) return 2;
+      return 1;
+    } else if (age >= 85 && age <= 89) {
+      if (performance > 72) return 5;
+      if (performance >= 59 && performance <= 71) return 4;
+      if (performance >= 46 && performance <= 58) return 3;
+      if (performance >= 33 && performance <= 45) return 2;
+      return 1;
+    }
+  }
+
+  console.log('No matching conditions found, returning 0');
+  return 0; // Valeur par défaut si aucune condition n'est remplie
+};
+
+export const calculateHipFlexionMobilityIndex = (position) => {
+  switch (position) {
+    case 'jambe tendue au-delà de la verticale':
+      return 5;
+    case 'jambe tendue à la verticale (90°)':
+      return 4;
+    case 'jambe non-tendue à la verticale (90°)':
+      return 3;
+    case 'jambe tendue entre 45° et 90°':
+      return 2;
+    case 'jambe tendue entre 0° et 45°':
+      return 1;
+    default:
+      return 0; // Valeur par défaut pour une entrée non reconnue
+  }
+};
+
+export const calculateCoordinationJambesBrasIndex = (cycles) => {
+  if (cycles > 20) {
+    return 5;
+  } else if (cycles >= 16 && cycles <= 19) {
+    return 4;
+  } else if (cycles >= 11 && cycles <= 15) {
+    return 3;
+  } else if (cycles >= 6 && cycles <= 10) {
+    return 2;
+  } else if (cycles <= 5) {
+    return 1;
+  } else {
+    throw new Error("Nombre de cycles inconnu pour le test de coordination jambes-bras.");
+  }
+};
+
+export const calculateRuffierIndex = (P1, P2, P3) => {
+  // Convertir les valeurs en nombres
+  const p1 = parseFloat(P1);
+  const p2 = parseFloat(P2);
+  const p3 = parseFloat(P3);
+
+  // Vérifier que les valeurs sont bien des nombres
+  if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
+    console.error('Erreur: Les valeurs P1, P2, ou P3 ne sont pas des nombres valides', { P1, P2, P3 });
+    return NaN; // Retourner NaN si les valeurs sont invalides
+  }
+
+  // Calcul de l'indice de Ruffier
+  const total = p1 + p2 + p3;
+  const result = (total - 200) / 10;
+  let index = 0;
+
+  if (result < 0) {
+    index = 5;
+  } else if (result >= 0 && result <= 5) {
+    index = 4;
+  } else if (result > 5 && result <= 10) {
+    index = 3;
+  } else if (result > 10 && result <= 15) {
+    index = 2;
+  } else if (result > 15) {
+    index = 1;
+  }
+
+  return index;
+};
+
+export const calculateActivityLevelCoeff = (activityLevel) => {
+  switch (activityLevel) {
+    case 'Sédentaire':
+      return 1.2;
+    case 'Légèrement actif':
+      return 1.4;
+    case 'Modérément actif':
+      return 1.6;
+    case 'Très actif':
+      return 1.7;
+    case 'Extrêmement actif':
+      return 1.9;
+    default:
+      throw new Error('Niveau d\'activité non reconnu');
+  }
+}
 
 // Ajoute d'autres fonctions de calcul pour d'autres tests ici

@@ -4,8 +4,10 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, TextField, Button, Box } from '@mui/material';
-import { calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex } from '../utils/utils';
+import { calculateCoordinationJambesBrasIndex, calculateHipFlexionMobilityIndex, calculate2MinWalkIndex, calculateActivityLevelCoeff, calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex, calculateRuffierIndex } from '../utils/utils';
 import { fetchTests } from '../services/testService';
+import { LinearProgress } from '@mui/material';
+
 
 function Funnel() {
   const location = useLocation();
@@ -17,16 +19,19 @@ function Funnel() {
     dob: '',
     gender: '',
     height: '',
-    weight: ''
+    weight: '',
+    activity: '',
   });
   const [tests, setTests] = useState([]);
+  const [errors, setErrors] = useState({});
+
 
   useEffect(() => {
     if (location.state?.clientId) {
       // Si le client est déjà connu, définir les réponses par défaut et sauter aux tests
       setClientExists(true);
       setResponses(location.state.client);
-      setStep(5); // Passer directement aux tests (5 est l'index après les 5 premières questions)
+      setStep(6); // Passer directement aux tests (5 est l'index après les 5 premières questions)
     }
   }, [location.state]);
 
@@ -44,20 +49,44 @@ function Funnel() {
     { id: 'dob', title: 'Quelle est la date de naissance ?', type: 'date' },
     { id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'] },
     { id: 'height', title: 'Quelle est la taille du client ? (cm)', type: 'number' },
-    { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' }
+    { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' },
+    { id: 'activity', title: 'Quel est le niveau d\'activité du client ?', type: 'select', options: ['Sédentaire', 'Légèrement actif', 'Modéremment actif', 'Très actif', 'Extrèmement actif'] }
   ];
 
   const allSteps = [...initialQuestions, ...tests];
 
+  const progress = (step / (allSteps.length - 1)) * 100;
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setResponses({
-      ...responses,
-      [name]: value
-    });
+
+    // Vérifier si le champ actuel appartient à un test spécifique (comme Ruffier)
+    if (name.startsWith("ruffier")) {
+      // Extraire l'ID du champ (par exemple, P1, P2, P3)
+      const [testName, inputId] = name.split("_");
+
+      setResponses((prevResponses) => ({
+        ...prevResponses,
+        [testName]: {
+          ...prevResponses[testName],
+          [inputId]: value,  // Mettre à jour la réponse spécifique du test
+        },
+      }));
+    } else {
+      // Pour tous les autres cas, continuer la mise à jour habituelle
+      setResponses({
+        ...responses,
+        [name]: value
+      });
+    }
   };
 
+
   const handleNext = async () => {
+    if (!validateStep()) {
+      return;  // Empêche de passer à l'étape suivante si la validation échoue
+    }
+
     if (step === 0 && !clientExists) {
       // Vérifier si l'utilisateur existe lors de la première étape (nom-prénom)
       const clientsRef = collection(db, 'clients');
@@ -70,7 +99,7 @@ function Funnel() {
           setResponses(doc.data());
         });
         setClientExists(true);
-        setStep(5); // Passer directement aux tests
+        setStep(6); // Passer directement aux tests
         return;
       }
     }
@@ -96,17 +125,60 @@ function Funnel() {
     }
   };
 
+  const validateStep = () => {
+    const currentStep = allSteps[step];
+    const newErrors = {};
+
+    if (currentStep.inputs) {
+      for (const input of currentStep.inputs) {
+        if (!responses[input.id] || responses[input.id].trim() === "") {
+          newErrors[input.id] = "Ce champ est obligatoire";  // Message d'erreur
+        }
+      }
+    } else if (currentStep.type !== 'select' && (!responses[currentStep.id] || responses[currentStep.id].trim() === "")) {
+      newErrors[currentStep.id] = "Ce champ est obligatoire";  // Message d'erreur
+    }
+
+    setErrors(newErrors);  // Mettre à jour l'état des erreurs
+
+    // Retourne true si aucun champ n'est vide, sinon false
+    return Object.keys(newErrors).length === 0;
+  };
+
+
+
   const handleSubmit = async () => {
     try {
       let clientId = location.state?.clientId;
 
       if (!clientId && !clientExists) {
+        const age = new Date().getFullYear() - new Date(responses.dob).getFullYear();
+        const { gender, height, weight } = responses;
+
+        // Calcul BMR (Harris Benedict)
+        const bmrHarrisBenedict =
+          gender === 'Homme'
+            ? 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+            : 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
+
+        // Calcul BMR (Mifflin St Jeor)
+        const bmrMifflinStJeor =
+          gender === 'Homme'
+            ? 10 * weight + 6.25 * height - 5 * age + 5
+            : 10 * weight + 6.25 * height - 5 * age - 161;
+
         const newClient = {
           name: responses.name,
           dob: responses.dob,
           gender: responses.gender,
           height: responses.height,
           weight: responses.weight,
+          activity: responses.activity,
+          activityCoeff: calculateActivityLevelCoeff(responses.activity),
+          bmrHarrisBenedict,
+          bmrMifflinStJeor,
+          bmrHarrisBenedictFinal: bmrHarrisBenedict * calculateActivityLevelCoeff(responses.activity),
+          bmrMifflinStJeorFinal: bmrMifflinStJeor * calculateActivityLevelCoeff(responses.activity),
           createdAt: new Date(),
         };
         const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
@@ -131,36 +203,63 @@ function Funnel() {
       for (const test of tests) {
         let index = 0;
 
-        if (test.name === 'assis debout') {
-          index = calculateAssisDeboutIndex(responses.gender, age, responses[test.id]);
-        } else if (test.name === 'pushup') {
-          index = calculatePushupIndex(responses.gender, age, responses[test.id]);
-        } else if (test.name === 'chaise') {
-          index = calculateChairIndex(responses[test.id]);
-        } else if (test.name === '6min marche') {  // Assurez-vous que l'ID est correct
-          index = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
-        } else if (test.name === 'planche') {  // Assurez-vous que l'ID est correct
-          index = calculatePlankIndex(responses[test.id]);
-        } else if (test.name === 'sorensen') {
-          index = calculateSorensenIndex(responses.gender, age, responses[test.id]);
-        } else if (test.name === 'mobilité épaule') {
-          index = calculateHandPositionIndex(responses[test.id]);
-        } else if (test.name === 'souplesse chaîne post') {
-          index = calculateSouplessePostIndex(responses.gender, responses[test.id]);
-        } else if (test.name === 'mobilité hanches') {
-          index = calculateLegPositionIndex(responses[test.id])
-        }
+        if (test.name === 'ruffier') {
+          // Gérer le test Ruffier avec plusieurs champs (P1, P2, P3)
+          console.log(responses);
 
-        testsWithNames[test.id] = {
-          name: test.name, // Assurez-vous que 'name' existe dans chaque test
-          response: responses[test.id],
-          index: index
-        };
+          const p1 = parseFloat(responses['P1']) || 0;
+          const p2 = parseFloat(responses['P2']) || 0;
+          const p3 = parseFloat(responses['P3']) || 0;
+          if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
+            throw new Error("Les valeurs P1, P2 ou P3 ne sont pas des nombres valides");
+          }
+          index = calculateRuffierIndex(p1, p2, p3);
+          testsWithNames[test.id] = {
+            name: test.name,
+            response: { P1: p1, P2: p2, P3: p3 },
+            index: index
+          };
+        } else {
+          if (test.name === 'assis debout') {
+            index = calculateAssisDeboutIndex(responses.gender, age, responses[test.id]);
+          } else if (test.name === 'pushup') {
+            index = calculatePushupIndex(responses.gender, age, responses[test.id]);
+          } else if (test.name === 'chaise') {
+            index = calculateChairIndex(responses[test.id]);
+          } else if (test.name === '6min marche') {
+            index = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
+          } else if (test.name === 'planche') {
+            index = calculatePlankIndex(responses[test.id]);
+          } else if (test.name === 'sorensen') {
+            index = calculateSorensenIndex(responses.gender, age, responses[test.id]);
+          } else if (test.name === 'mobilité épaule') {
+            index = calculateHandPositionIndex(responses[test.id]);
+          } else if (test.name === 'souplesse chaîne post') {
+            index = calculateSouplessePostIndex(responses.gender, responses[test.id]);
+          } else if (test.name === 'mobilité hanches') {
+            index = calculateLegPositionIndex(responses[test.id]);
+          } else if (test.name === 'marche 2min') {
+            index = calculate2MinWalkIndex(responses.gender, age, responses[test.id]);
+          } else if (test.name === 'mobilité hanche flexion') {
+            index = calculateHipFlexionMobilityIndex(responses[test.id]);
+          } else if (test.name === 'coordination jambes bras') {
+            index = calculateCoordinationJambesBrasIndex(responses[test.id]);
+          }
+
+          // Log the calculated index before saving it
+          console.log(`Index for ${test.name}: ${index}`);
+
+          testsWithNames[test.id] = {
+            name: test.name,
+            response: responses[test.id],
+            index: index
+          };
+        }
       }
 
       const newBilan = {
         clientId: clientId,
-        tests: testsWithNames, // Enregistre les réponses, indices et noms pour chaque test
+        tests: testsWithNames,
         createdAt: new Date(),
       };
 
@@ -171,9 +270,12 @@ function Funnel() {
     }
   };
 
-
   return (
     <Container maxWidth="sm">
+      {/* Barre de progression */}
+      <Box width="100%" mb={2}>
+        <LinearProgress variant="determinate" value={progress} />
+      </Box>
       <Box
         display="flex"
         flexDirection="column"
@@ -200,11 +302,11 @@ function Funnel() {
             select
             SelectProps={{ native: true }}
             name={allSteps[step]?.id}
-            value={responses[allSteps[step]?.id] || ''} // Assurez-vous que la valeur est spécifique au test actuel
+            value={responses[allSteps[step]?.id] || ''}
             onChange={handleInputChange}
             variant="outlined"
             fullWidth
-            key={step} // Ajoutez cette clé pour forcer le re-rendu lors du changement de test
+            key={step}
           >
             <option value="">Sélectionnez une option</option>
             {allSteps[step]?.options?.map((option) => (
@@ -214,16 +316,48 @@ function Funnel() {
             ))}
           </TextField>
         ) : (
-          <TextField
-            type={allSteps[step]?.type}
-            name={allSteps[step]?.id}
-            value={responses[allSteps[step]?.id] || ''} // Assurez-vous que la valeur est spécifique au test actuel
-            onChange={handleInputChange}
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            placeholder={allSteps[step]?.placeholder || ''}
-          />
+          allSteps[step]?.inputs ? (
+            allSteps[step].inputs.map(input => (
+              <div key={input.id} style={{ width: '100%' }}>
+                <TextField
+                  type={input.type}
+                  name={input.id}
+                  value={responses[input.id] || ''}
+                  onChange={handleInputChange}
+                  variant="outlined"
+                  fullWidth  // Maintenir la pleine largeur
+                  margin="normal"
+                  placeholder={input.placeholder || ''}
+                  label={input.label || ''}
+                  error={!!errors[input.id]}  // Afficher l'erreur si présente
+                />
+                {errors[input.id] && (
+                  <Typography variant="body2" color="error">
+                    {errors[input.id]}
+                  </Typography>
+                )}
+              </div>
+            ))
+          ) : (
+            <div style={{ width: '100%' }}>
+              <TextField
+                type={allSteps[step]?.type}
+                name={allSteps[step]?.id}
+                value={responses[allSteps[step]?.id] || ''}
+                onChange={handleInputChange}
+                variant="outlined"
+                fullWidth  // Maintenir la pleine largeur
+                margin="normal"
+                placeholder={allSteps[step]?.placeholder || ''}
+                error={!!errors[allSteps[step]?.id]}  // Afficher l'erreur si présente
+              />
+              {errors[allSteps[step]?.id] && (
+                <Typography variant="body2" color="error">
+                  {errors[allSteps[step]?.id]}
+                </Typography>
+              )}
+            </div>
+          )
         )}
 
         <Box mt={2} display="flex" justifyContent="space-between" width="100%">

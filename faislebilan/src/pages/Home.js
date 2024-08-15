@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Typography, Button, Container, Card, CardContent, Grid, Box, Snackbar } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore';
+import { collection, query, orderBy, limit, getDocs, doc, getDoc } from 'firebase/firestore'; // Assurez-vous d'importer correctement 'doc' et 'getDoc'
 import { db } from '../config/firebase';
 
 function Home() {
@@ -17,7 +17,23 @@ function Home() {
       const bilansRef = collection(db, 'bilans');
       const q = query(bilansRef, orderBy('createdAt', 'desc'), limit(5));
       const querySnapshot = await getDocs(q);
-      const bilans = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+      const bilans = await Promise.all(
+        querySnapshot.docs.map(async (bilanDoc) => {
+          const bilanData = bilanDoc.data();
+          const clientDocRef = doc(db, 'clients', bilanData.clientId);
+          const clientDocSnap = await getDoc(clientDocRef);
+
+          let clientName = 'Client inconnu';
+          if (clientDocSnap.exists()) {
+            const clientData = clientDocSnap.data();
+            clientName = clientData.name || 'Client sans nom';
+          }
+
+          return { id: bilanDoc.id, clientName, createdAt: bilanData.createdAt };
+        })
+      );
+
       setRecentBilans(bilans);
     };
 
@@ -88,7 +104,7 @@ function Home() {
                 }}
               >
                 <CardContent>
-                  <Typography variant="h6" style={{ color: '#34495e' }}>{bilan.clientName}</Typography> {/* Remplacez par le bon champ */}
+                  <Typography variant="h6" style={{ color: '#34495e' }}>{bilan.clientName}</Typography>
                   <Typography variant="body2" color="textSecondary">
                     Date: {new Date(bilan.createdAt.toDate()).toLocaleDateString()}
                   </Typography>
