@@ -356,18 +356,18 @@ export const calculateSouplessePostIndex = (gender, response) => {
 
 export const calculateLegPositionIndex = (response) => {
   switch (response) {
-    case 'jambe tendue au-delà de la verticale':
+    case "Contact total cuisse-ventre, l'autre jambe est tendue au sol":
       return 5;
-    case 'jambe tendue à la verticale (90°)':
+    case "Contact 1/2 de cuisse sur le ventre, l'autre jambe est tendue au sol":
       return 4;
-    case 'jambe non-tendue à la verticale (90°)':
+    case "Contact 1/3 de cuisse sur le ventre, l'autre jambe décolle":
       return 3;
-    case 'jambe tendue entre 45° et 90°':
+    case "Jambe fléchie mais pas de contact cuisse-ventre":
       return 2;
-    case 'jambe tendue entre 0° et 45°':
+    case "La personne ne parvient pas à attraper l'arrière du genou":
       return 1;
     default:
-      return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
+      return 0; // Valeur par défaut si aucune correspondance n'est trouvée
   }
 };
 
@@ -541,15 +541,15 @@ export const calculateRuffierIndex = (P1, P2, P3) => {
 export const calculateActivityLevelCoeff = (activityLevel) => {
   switch (activityLevel) {
     case 'Sédentaire':
-      return 1.2;
+      return 1.1;
     case 'Légèrement actif':
-      return 1.4;
+      return 1.3;
     case 'Modérément actif':
-      return 1.6;
+      return 1.5;
     case 'Très actif':
-      return 1.7;
+      return 1.6;
     case 'Extrêmement actif':
-      return 1.9;
+      return 1.8;
     default:
       throw new Error('Niveau d\'activité non reconnu');
   }
