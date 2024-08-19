@@ -51,7 +51,17 @@ function Funnel() {
     { id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'] },
     { id: 'height', title: 'Quelle est la taille du client ? (cm)', type: 'number' },
     { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' },
-    { id: 'activity', title: 'Quel est le niveau d\'activité du client ?', type: 'select', options: ['Sédentaire', 'Légèrement actif', 'Modéremment actif', 'Très actif', 'Extrèmement actif'] }
+    {
+      id: 'activity', title: 'Quel est le niveau d\'activité du client ?', description: (
+        <ul>
+          <li><strong>Sédentaire :</strong> Peu ou pas d’activité physique, mode de vie sédentaire.</li>
+          <li><strong>Légèrement actif :</strong> Activité physique légère ou sports 1 à 3 jours par semaine.</li>
+          <li><strong>Modéremment actif :</strong> Activité physique modérée ou sports 3 à 5 jours par semaine.</li>
+          <li><strong>Très actif :</strong> Activité physique intense ou sports 6 à 7 jours par semaine.</li>
+          <li><strong>Extrèmement actif :</strong> Entraînement très intense, souvent 2 fois par jour.</li>
+        </ul>
+      ), type: 'select', options: ['Sédentaire', 'Légèrement actif', 'Modéremment actif', 'Très actif', 'Extrèmement actif']
+    }
   ];
 
   const allSteps = [...initialQuestions, ...tests];
@@ -173,6 +183,7 @@ function Funnel() {
             ? 10 * weight + 6.25 * height - 5 * age + 5
             : 10 * weight + 6.25 * height - 5 * age - 161;
 
+            console.log(responses);
         const newClient = {
           name: responses.name,
           dob: responses.dob,
