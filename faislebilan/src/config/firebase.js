@@ -2,6 +2,7 @@
 
 import { initializeApp } from 'firebase/app';
 import { initializeFirestore } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDCO_XAqNHGBjj-_Q38wHI5pw3vHJKkA6I",
@@ -19,5 +20,7 @@ const db = initializeFirestore(app, {
   useFetchStreams: false,
   cacheSizeBytes: 10 * 1024 * 1024, // Réduisez la taille du cache à 10 MB (par exemple)
 });
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider();
 
 export { db };

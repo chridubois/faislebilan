@@ -1,10 +1,11 @@
 // src/pages/ListeClients.js
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, Card, CardContent, Grid, Button, Box } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { getAuth } from 'firebase/auth';
 
 function ListeClients() {
   const [clients, setClients] = useState([]);
@@ -12,8 +13,13 @@ function ListeClients() {
 
   useEffect(() => {
     const fetchClients = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (!user) return;
+
       const clientsCollection = collection(db, 'clients');
-      const clientSnapshot = await getDocs(clientsCollection);
+      const q = query(clientsCollection, where('userId', '==', user.uid));
+      const clientSnapshot = await getDocs(q);
       const clientList = clientSnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()

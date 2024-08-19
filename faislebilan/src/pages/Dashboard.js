@@ -4,6 +4,7 @@ import { db } from '../config/firebase';
 import { Container, Typography, Grid, Card, CardContent, TextField, MenuItem } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { getAuth } from 'firebase/auth';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
@@ -17,8 +18,13 @@ function Dashboard() {
   // Récupérer les clients à l'initialisation
   useEffect(() => {
     const fetchClients = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (!user) return;
+
       const clientsCollection = collection(db, 'clients');
-      const clientsSnapshot = await getDocs(clientsCollection);
+      const q = query(clientsCollection, where('userId', '==', user.uid));
+      const clientsSnapshot = await getDocs(q);
       const clientsData = clientsSnapshot.docs.map(doc => ({
         id: doc.id,
         name: doc.data().name,
@@ -31,13 +37,18 @@ function Dashboard() {
 
   // Récupérer les bilans (soit tous, soit pour un client spécifique)
   useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) return;
+
     const fetchBilans = async () => {
       const bilansCollection = collection(db, 'bilans');
-      let bilanQuery = bilansCollection;
+      const q = query(bilansCollection, where('userId', '==', user.uid));
+      let bilanQuery = q;
 
       if (selectedClient) {
         // Si un client est sélectionné, filtrer les bilans par client
-        bilanQuery = query(bilansCollection, where('clientId', '==', selectedClient));
+        bilanQuery = query(bilansCollection, where('clientId', '==', selectedClient), where('userId', '==', user.uid));
       }
 
       const bilanSnapshot = await getDocs(bilanQuery);

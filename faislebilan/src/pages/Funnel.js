@@ -7,6 +7,7 @@ import { Container, Typography, TextField, Button, Box } from '@mui/material';
 import { calculateCoordinationJambesBrasIndex, calculateHipFlexionMobilityIndex, calculate2MinWalkIndex, calculateActivityLevelCoeff, calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex, calculateRuffierIndex } from '../utils/utils';
 import { fetchTests } from '../services/testService';
 import { LinearProgress } from '@mui/material';
+import { getAuth } from 'firebase/auth';
 
 
 function Funnel() {
@@ -149,6 +150,11 @@ function Funnel() {
 
   const handleSubmit = async () => {
     try {
+      const auth = getAuth();
+      const user = auth.currentUser; // Obtenez l'utilisateur connecté
+      if (!user) {
+        throw new Error("User not authenticated");
+      }
       let clientId = location.state?.clientId;
 
       if (!clientId && !clientExists) {
@@ -180,6 +186,7 @@ function Funnel() {
           bmrHarrisBenedictFinal: bmrHarrisBenedict * calculateActivityLevelCoeff(responses.activity),
           bmrMifflinStJeorFinal: bmrMifflinStJeor * calculateActivityLevelCoeff(responses.activity),
           createdAt: new Date(),
+          userId: user.uid,
         };
         const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
         clientId = clientDocRef.id;
@@ -261,6 +268,7 @@ function Funnel() {
         clientId: clientId,
         tests: testsWithNames,
         createdAt: new Date(),
+        userId: user.uid,
       };
 
       const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);

@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, query, orderBy, getDocs, doc, getDoc } from 'firebase/firestore';
+import { collection, query, orderBy, getDocs, doc, getDoc, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, TextField, Grid, Card, CardContent, Typography, MenuItem } from '@mui/material';
+import { getAuth } from 'firebase/auth';
 
 function BilanList() {
   const navigate = useNavigate();
@@ -13,8 +14,12 @@ function BilanList() {
 
   useEffect(() => {
     const fetchBilans = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (!user) return;
+
       const bilansRef = collection(db, 'bilans');
-      const q = query(bilansRef, orderBy('createdAt', 'desc'));
+      const q = query(bilansRef, where('userId', '==', user.uid), orderBy('createdAt', 'desc'));
       const querySnapshot = await getDocs(q);
 
       const bilansData = await Promise.all(
