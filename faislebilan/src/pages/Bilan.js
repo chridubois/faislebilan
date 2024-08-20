@@ -143,25 +143,29 @@ function Bilan() {
 
   return (
     <Container>
-      <Typography variant="h4" component="h1" gutterBottom>
-        Détails du Bilan
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => navigate(`/client/${bilan.clientId}`)}
-          style={{ float: 'right' }}
-        >
-          Page Client
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          onClick={generatePDF}
-          style={{ float: 'right', marginRight: '10px' }}
-        >
-          Télécharger PDF
-        </Button>
-      </Typography>
+      <Box display="flex" justifyContent="space-between" alignItems="center" flexWrap="wrap">
+        <Typography variant="h4" component="h1" gutterBottom>
+          Détails du Bilan
+        </Typography>
+        <Box display="flex" flexWrap="wrap" justifyContent="flex-end">
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => navigate(`/client/${bilan.clientId}`)}
+            style={{ marginRight: '10px', marginBottom: '10px' }}
+          >
+            Page Client
+          </Button>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={generatePDF}
+            style={{ marginBottom: '10px' }}
+          >
+            Télécharger PDF
+          </Button>
+        </Box>
+      </Box>
 
       <Box mt={4} id="bilan-content">
         {/* Informations du Client */}
@@ -226,7 +230,7 @@ function Bilan() {
                 Graphique des Indices
               </Typography>
               <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-                <div style={{ width: '400px', height: '400px' }}>
+                <div style={{ width: '100%', maxWidth: '400px', height: '400px' }}>
                   <Radar data={radarData} options={radarOptions} />
                 </div>
               </Box>
@@ -246,22 +250,6 @@ function Bilan() {
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom>
-              Exercices recommandés :
-            </Typography>
-            <ul>
-              <li>Augmentez vos séries de push-ups pour améliorer votre force du haut du corps.</li>
-              <li>Incorporez des étirements quotidiens pour améliorer votre flexibilité.</li>
-            </ul>
-
-            <Typography variant="subtitle1" gutterBottom>
-              Recommandations nutritionnelles :
-            </Typography>
-            <ul>
-              <li>Consommez des protéines après l'entraînement pour favoriser la récupération.</li>
-              <li>Augmentez votre apport en fibres pour une meilleure digestion et énergie.</li>
-            </ul>
-
-            <Typography variant="subtitle1" gutterBottom>
               Objectifs à court terme :
             </Typography>
             <ul>
@@ -269,12 +257,6 @@ function Bilan() {
               <li>Améliorer votre score de souplesse en ajoutant des étirements.</li>
             </ul>
 
-            <Typography variant="subtitle1" gutterBottom>
-              Motivation :
-            </Typography>
-            <Typography variant="body2">
-              Continuez vos efforts ! Chaque petite amélioration compte, et vous êtes sur la bonne voie pour atteindre vos objectifs de forme physique.
-            </Typography>
           </Box>
         </Card>
 

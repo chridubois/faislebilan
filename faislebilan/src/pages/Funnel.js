@@ -99,9 +99,14 @@ function Funnel() {
     }
 
     if (step === 0 && !clientExists) {
+      const auth = getAuth();
+      const user = auth.currentUser; // Obtenez l'utilisateur connecté
+      if (!user) {
+        throw new Error("User not authenticated");
+      }
       // Vérifier si l'utilisateur existe lors de la première étape (nom-prénom)
       const clientsRef = collection(db, 'clients');
-      const q = query(clientsRef, where('name', '==', responses.name));
+      const q = query(clientsRef, where('name', '==', responses.name), where('userId', '==', user.uid));
       const querySnapshot = await getDocs(q);
 
       if (!querySnapshot.empty) {
