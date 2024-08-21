@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box, Grid, Paper } from '@mui/material';
+import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box, Grid } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 
@@ -123,6 +123,10 @@ function Client() {
               <TableRow>
                 <TableCell>Coeff Niveau d'activité</TableCell>
                 <TableCell>{client.activityCoeff}</TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>IMC</TableCell>
+                <TableCell>{client.bmi?.toFixed(2)} kg/m2</TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>BMR (Harris Benedict)</TableCell>

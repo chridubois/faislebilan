@@ -56,6 +56,12 @@ function Header() {
               <Button color="inherit" component={Link} to="/bilans" startIcon={<ListAltIcon />}>
                 Liste des bilans
               </Button>
+              <Button color="inherit" component={Link} to="/bilan-templates" startIcon={<ListAltIcon />}>
+                Gestion de bilans
+              </Button>
+              <Button color="inherit" component={Link} to="/dashboard" startIcon={<ListAltIcon />}>
+                Dashboard
+              </Button>
               <IconButton color="inherit" component={Link} to="/profile">
                 <AccountCircleIcon />
               </IconButton>
@@ -118,6 +124,12 @@ function Header() {
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/bilans">
                 Liste des bilans
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose} component={Link} to="/bilan-templates">
+                Gestion de bilans
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard">
+                Dashboard
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
                 Mon profil

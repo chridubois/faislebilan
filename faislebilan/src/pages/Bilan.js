@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { doc, getDoc, collection, query, where, orderBy, limit, getDocs } from 'firebase/firestore';
+import { doc, getDoc, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, Button, Card, Table, TableBody, TableCell, TableRow, Grid, Box, Divider } from '@mui/material';
-import { Radar } from 'react-chartjs-2';
+import { Radar, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
@@ -37,15 +37,14 @@ function Bilan() {
             const previousBilanQuery = query(
               collection(db, 'bilans'),
               where('clientId', '==', bilanData.clientId),
-              orderBy('createdAt', 'desc'),
-              limit(2)
+              orderBy('createdAt', 'desc')
             );
 
             const previousBilanSnapshot = await getDocs(previousBilanQuery);
             const previousBilans = previousBilanSnapshot.docs.map(doc => doc.data());
 
             if (previousBilans.length > 1) {
-              setPreviousBilan(previousBilans[1]);
+              setPreviousBilan(previousBilans);
             }
           } else {
             console.error('Client introuvable!');
@@ -88,6 +87,31 @@ function Bilan() {
   // Trier les tests par nom croissant avant de préparer les données pour le graphique radar
   const sortedTests = Object.values(bilan.tests).sort((a, b) => a.name.localeCompare(b.name));
 
+  // Calculer l'indice moyen pour chaque bilan
+  const indicesMoyens = previousBilan && previousBilan.length > 0
+  ? previousBilan.map(bilan => {
+      const totalIndex = Object.values(bilan.tests).reduce((acc, test) => acc + test.index, 0);
+      return totalIndex / Object.values(bilan.tests).length;
+    })
+  : [];
+
+  // Préparer les données pour la courbe d'évolution
+  const lineData = {
+    labels: previousBilan && previousBilan.length > 0
+      ? previousBilan.map(bilan => new Date(bilan.createdAt.toDate()).toLocaleDateString())
+      : [],
+    datasets: [
+      {
+        label: 'Indice Moyen',
+        data: indicesMoyens,
+        fill: false,
+        borderColor: 'rgba(75, 192, 192, 1)',
+        tension: 0.1
+      }
+    ]
+  };
+
+
   // Préparer les données pour le graphique radar avec les valeurs de l'utilisateur
   const radarData = {
     labels: sortedTests.map(test => test.name),
@@ -103,8 +127,8 @@ function Bilan() {
   };
 
   // Ajouter les données du bilan précédent si disponible
-  if (previousBilan) {
-    const sortedPreviousTests = Object.values(previousBilan.tests).sort((a, b) => a.name.localeCompare(b.name));
+  if (previousBilan && previousBilan.length > 1 && previousBilan[1]) {
+    const sortedPreviousTests = Object.values(previousBilan[1].tests).sort((a, b) => a.name.localeCompare(b.name));
     radarData.datasets.push({
       label: 'Bilan Précédent',
       data: sortedPreviousTests.map(test => test.index),
@@ -112,7 +136,7 @@ function Bilan() {
       borderColor: 'rgba(255, 99, 132, 1)',
       borderWidth: 2,
     });
-  }
+}
 
   const radarOptions = {
     scales: {
@@ -207,6 +231,10 @@ function Bilan() {
                     <TableCell>{client.activityCoeff}</TableCell>
                   </TableRow>
                   <TableRow>
+                    <TableCell>IMC</TableCell>
+                    <TableCell>{client.bmi?.toFixed(2)} kg/m2</TableCell>
+                  </TableRow>
+                  <TableRow>
                     <TableCell>BMR (Harris Benedict)</TableCell>
                     <TableCell>{client.bmrHarrisBenedict?.toFixed(2)} kcal/jour</TableCell>
                   </TableRow>
@@ -236,6 +264,15 @@ function Bilan() {
               </Box>
             </Grid>
           </Grid>
+        </Card>
+
+        {/* Ajouter la courbe d'évolution de l'indice moyen */}
+        <Card style={{ marginBottom: '20px', padding: '20px' }}>
+          <Typography variant="h5" gutterBottom>
+            Évolution de l'Indice Moyen
+          </Typography>
+          <Divider style={{ marginBottom: '20px' }} />
+          <Line data={lineData} />
         </Card>
 
         {/* Recommandations */}

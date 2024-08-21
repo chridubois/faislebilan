@@ -17,6 +17,8 @@ import Profile from './pages/Profile';
 import AdminPage from './pages/AdminPage';
 import PrivateRoute from './components/PrivateRoute';
 import AdminRoute from './hoc/AdminRoute';
+import BilanTemplates from './pages/BilanTemplates';
+import CreateBilanTemplate from './pages/CreateBilanTemplate';
 
 function App() {
   return (
@@ -36,6 +38,9 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/support" element={<Support />} />
           <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+          <Route path="/bilan-templates" element={<PrivateRoute><BilanTemplates /></PrivateRoute>} />
+          <Route path="/create-bilan-template" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
+          <Route path="/create-bilan-template/:id" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
         </Routes>
       </div>

@@ -1,11 +1,11 @@
 // src/pages/Funnel.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { Container, Typography, TextField, Button, Box } from '@mui/material';
 import { calculateCoordinationJambesBrasIndex, calculateHipFlexionMobilityIndex, calculate2MinWalkIndex, calculateActivityLevelCoeff, calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex, calculateRuffierIndex } from '../utils/utils';
-import { fetchTests } from '../services/testService';
+// import { fetchTests } from '../services/testService';
 import { LinearProgress } from '@mui/material';
 import { getAuth } from 'firebase/auth';
 
@@ -24,35 +24,83 @@ function Funnel() {
     activity: '',
   });
   const [tests, setTests] = useState([]);
+  const [bilanTemplates, setBilanTemplates] = useState([]);
   const [errors, setErrors] = useState({});
 
+  // Charger les templates de bilan depuis Firestore
+  useEffect(() => {
+    const fetchBilanTemplates = async () => {
+      try {
+        const templatesCollection = collection(db, 'bilanTemplates');
+        const templateSnapshot = await getDocs(templatesCollection);
+        const templates = templateSnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setBilanTemplates(templates);
+      } catch (error) {
+        console.error('Erreur lors du chargement des modèles de bilans :', error);
+      }
+    };
 
+    fetchBilanTemplates();
+  }, []);
+
+  // Charger les tests en fonction du template sélectionné
+  useEffect(() => {
+    const fetchTemplateTests = async () => {
+      const selectedTemplateId = responses.template;
+      if (selectedTemplateId) {
+        const templateDocRef = doc(db, 'bilanTemplates', selectedTemplateId);
+        const templateDocSnap = await getDoc(templateDocRef);
+        if (templateDocSnap.exists()) {
+          const templateData = templateDocSnap.data();
+          setTests(templateData.tests || []);
+        }
+      }
+    };
+
+    fetchTemplateTests();
+  }, [responses.template]);
+
+  // Initialisation depuis la page client
   useEffect(() => {
     if (location.state?.clientId) {
-      // Si le client est déjà connu, définir les réponses par défaut et sauter aux tests
+      // Charger les informations du client dans les réponses
+      setResponses(prevResponses => ({
+        ...prevResponses,
+        ...location.state.client,  // Charger les informations du client
+      }));
+      // Indiquer que le client existe déjà
       setClientExists(true);
-      setResponses(location.state.client);
-      setStep(6); // Passer directement aux tests (5 est l'index après les 5 premières questions)
     }
   }, [location.state]);
 
-  useEffect(() => {
-    const fetchAllTests = async () => {
-      const allTests = await fetchTests();
-      setTests(Object.values(allTests)); // Conserver les valeurs pour l'accès
-    };
-
-    fetchAllTests();
-  }, []);
 
   const initialQuestions = [
+    {
+      id: 'template',
+      title: 'Choisir un modèle de Bilan',
+      type: 'select',
+      options: bilanTemplates.map(template => ({
+        value: template.id,
+        label: template.name,
+      })),
+    },
     { id: 'name', title: 'Quel est le nom-prénom du client ?', type: 'text' },
     { id: 'dob', title: 'Quelle est la date de naissance ?', type: 'date' },
-    { id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'] },
+    {
+      id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'].map(option => ({
+        value: option,
+        label: option,
+      }))
+    },
     { id: 'height', title: 'Quelle est la taille du client ? (cm)', type: 'number' },
     { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' },
     {
-      id: 'activity', title: 'Quel est le niveau d\'activité du client ?', description: (
+      id: 'activity',
+      title: 'Quel est le niveau d\'activité du client ?',
+      description: (
         <ul>
           <li><strong>Sédentaire :</strong> Peu ou pas d’activité physique, mode de vie sédentaire.</li>
           <li><strong>Légèrement actif :</strong> Activité physique légère ou sports 1 à 3 jours par semaine.</li>
@@ -60,11 +108,18 @@ function Funnel() {
           <li><strong>Très actif :</strong> Activité physique intense ou sports 6 à 7 jours par semaine.</li>
           <li><strong>Extrèmement actif :</strong> Entraînement très intense, souvent 2 fois par jour.</li>
         </ul>
-      ), type: 'select', options: ['Sédentaire', 'Légèrement actif', 'Modéremment actif', 'Très actif', 'Extrèmement actif']
+      ),
+      type: 'select',
+      options: ['Sédentaire', 'Légèrement actif', 'Modéremment actif', 'Très actif', 'Extrèmement actif'].map(option => ({
+        value: option,
+        label: option,
+      })),
     }
   ];
 
-  const allSteps = [...initialQuestions, ...tests];
+  // Si le client existe déjà, ne pas inclure les initialQuestions, sinon les inclure
+  const allSteps = clientExists ? [initialQuestions[0], ...tests] : [...initialQuestions, ...tests];
+
 
   const progress = (step / (allSteps.length - 1)) * 100;
 
@@ -85,10 +140,10 @@ function Funnel() {
       }));
     } else {
       // Pour tous les autres cas, continuer la mise à jour habituelle
-      setResponses({
-        ...responses,
-        [name]: value
-      });
+      setResponses(prevResponses => ({
+        ...prevResponses,
+        [name]: value,
+      }));
     }
   };
 
@@ -98,7 +153,13 @@ function Funnel() {
       return;  // Empêche de passer à l'étape suivante si la validation échoue
     }
 
-    if (step === 0 && !clientExists) {
+    console.log(responses);
+    console.log(step);
+    console.log(clientExists);
+
+
+
+    if (step === 1 && !clientExists) {
       const auth = getAuth();
       const user = auth.currentUser; // Obtenez l'utilisateur connecté
       if (!user) {
@@ -109,13 +170,21 @@ function Funnel() {
       const q = query(clientsRef, where('name', '==', responses.name), where('userId', '==', user.uid));
       const querySnapshot = await getDocs(q);
 
+      console.log(querySnapshot);
+
+
       if (!querySnapshot.empty) {
         // Si le client existe, récupérer ses données et passer aux tests
         querySnapshot.forEach((doc) => {
-          setResponses(doc.data());
+          const clientData = doc.data();
+          setResponses((prevResponses) => ({
+            ...prevResponses,
+            ...clientData,
+          }));
         });
         setClientExists(true);
-        setStep(6); // Passer directement aux tests
+        // setStep(1 + tests.length); // Passer directement aux tests
+        setStep(1);
         return;
       }
     }
@@ -126,6 +195,12 @@ function Funnel() {
       handleSubmit();
     }
   };
+
+  console.log(step);
+  console.log(responses);
+  console.log(allSteps);
+  console.log(allSteps[step]);
+
 
   const handlePrevious = () => {
     if (step > 0) {
@@ -188,7 +263,10 @@ function Funnel() {
             ? 10 * weight + 6.25 * height - 5 * age + 5
             : 10 * weight + 6.25 * height - 5 * age - 161;
 
-            console.log(responses);
+        // Calcul de l'IMC
+        const bmi = weight / ((height / 100) ** 2);
+
+        console.log(responses);
         const newClient = {
           name: responses.name,
           dob: responses.dob,
@@ -201,6 +279,7 @@ function Funnel() {
           bmrMifflinStJeor,
           bmrHarrisBenedictFinal: bmrHarrisBenedict * calculateActivityLevelCoeff(responses.activity),
           bmrMifflinStJeorFinal: bmrMifflinStJeor * calculateActivityLevelCoeff(responses.activity),
+          bmi,
           createdAt: new Date(),
           userId: user.uid,
         };
@@ -334,8 +413,8 @@ function Funnel() {
           >
             <option value="">Sélectionnez une option</option>
             {allSteps[step]?.options?.map((option) => (
-              <option key={option} value={option}>
-                {option}
+              <option key={option.value} value={option.value}>
+                {option.label}
               </option>
             ))}
           </TextField>
