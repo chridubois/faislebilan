@@ -43,7 +43,7 @@ function Bilan() {
             const previousBilanSnapshot = await getDocs(previousBilanQuery);
             const previousBilans = previousBilanSnapshot.docs.map(doc => doc.data());
 
-            if (previousBilans.length > 1) {
+            if (previousBilans.length > 0) {
               setPreviousBilan(previousBilans);
             }
           } else {
@@ -94,6 +94,10 @@ function Bilan() {
       return totalIndex / Object.values(bilan.tests).length;
     })
   : [];
+
+  console.log(previousBilan);
+
+  console.log('indicesMoyens:', indicesMoyens);
 
   // Préparer les données pour la courbe d'évolution
   const lineData = {

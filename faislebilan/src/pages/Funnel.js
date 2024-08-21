@@ -25,26 +25,40 @@ function Funnel() {
   });
   const [tests, setTests] = useState([]);
   const [bilanTemplates, setBilanTemplates] = useState([]);
+  // const [loading, setLoading] = useState(true);
   const [errors, setErrors] = useState({});
 
   // Charger les templates de bilan depuis Firestore
   useEffect(() => {
     const fetchBilanTemplates = async () => {
       try {
+        const auth = getAuth();
+        const user = auth.currentUser; // Obtenez l'utilisateur connecté
+        if (!user) {
+          throw new Error("User not authenticated");
+        }
+
+        // Filtrer les templates par userId
         const templatesCollection = collection(db, 'bilanTemplates');
-        const templateSnapshot = await getDocs(templatesCollection);
+        const q = query(templatesCollection, where('userId', '==', user.uid));
+        const templateSnapshot = await getDocs(q);
         const templates = templateSnapshot.docs.map(doc => ({
           id: doc.id,
           ...doc.data(),
         }));
         setBilanTemplates(templates);
+
+        if (templates.length === 0) {
+          // Si l'utilisateur n'a aucun template, rediriger vers la page avec le message
+          navigate('/no-templates');
+        }
       } catch (error) {
         console.error('Erreur lors du chargement des modèles de bilans :', error);
       }
     };
 
     fetchBilanTemplates();
-  }, []);
+  }, [navigate]);
 
   // Charger les tests en fonction du template sélectionné
   useEffect(() => {
