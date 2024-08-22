@@ -46,6 +46,13 @@ function Funnel() {
           id: doc.id,
           ...doc.data(),
         }));
+
+        // Envoyer l'événement au dataLayer lorsque le client est vu
+        window.dataLayer.push({
+          event: 'begin_bilan',
+          userId: user.uid,
+        });
+
         setBilanTemplates(templates);
 
         if (templates.length === 0) {
@@ -166,13 +173,6 @@ function Funnel() {
     if (!validateStep()) {
       return;  // Empêche de passer à l'étape suivante si la validation échoue
     }
-
-    console.log(responses);
-    console.log(step);
-    console.log(clientExists);
-
-
-
     if (step === 1 && !clientExists) {
       const auth = getAuth();
       const user = auth.currentUser; // Obtenez l'utilisateur connecté
@@ -183,9 +183,6 @@ function Funnel() {
       const clientsRef = collection(db, 'clients');
       const q = query(clientsRef, where('name', '==', responses.name), where('userId', '==', user.uid));
       const querySnapshot = await getDocs(q);
-
-      console.log(querySnapshot);
-
 
       if (!querySnapshot.empty) {
         // Si le client existe, récupérer ses données et passer aux tests
@@ -209,12 +206,6 @@ function Funnel() {
       handleSubmit();
     }
   };
-
-  console.log(step);
-  console.log(responses);
-  console.log(allSteps);
-  console.log(allSteps[step]);
-
 
   const handlePrevious = () => {
     if (step > 0) {
@@ -298,6 +289,11 @@ function Funnel() {
           userId: user.uid,
         };
         const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
+        // Envoyer l'événement au dataLayer lorsque le client est vu
+        window.dataLayer.push({
+          event: 'create_client',
+          userId: user.uid,
+        });
         clientId = clientDocRef.id;
       } else if (!clientId) {
         const clientsRef = collection(db, 'clients');
@@ -381,6 +377,11 @@ function Funnel() {
       };
 
       const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'create_bilan',
+        userId: user.uid,
+      });
       navigate(`/bilan/${bilanDocRef.id}`);
     } catch (e) {
       console.error("Erreur lors de la création du bilan :", e);

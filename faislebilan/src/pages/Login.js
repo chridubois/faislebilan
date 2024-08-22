@@ -39,6 +39,13 @@ function Login() {
         // Connexion
         await signInWithEmailAndPassword(auth, email, password);
       }
+
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'login',
+        method: 'email',
+        userId: auth.currentUser.uid,
+      });
       // Rediriger vers la page d'accueil après connexion/inscription réussie
       navigate('/');
     } catch (error) {
@@ -65,6 +72,13 @@ function Login() {
           createdAt: new Date(),
         });
       }
+
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'login',
+        method: 'google',
+        userId: auth.currentUser.uid,
+      });
 
       // Rediriger vers la page d'accueil après connexion Google réussie
       navigate('/');

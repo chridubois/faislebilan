@@ -27,6 +27,11 @@ function Bilan() {
         if (bilanDocSnap.exists()) {
           const bilanData = bilanDocSnap.data();
           setBilan(bilanData);
+          // Envoyer l'événement au dataLayer lorsque le client est vu
+          window.dataLayer.push({
+            event: 'view_bilan',
+            bilanId: id,
+          });
 
           const clientDocRef = doc(db, 'clients', bilanData.clientId);
           const clientDocSnap = await getDoc(clientDocRef);

@@ -25,6 +25,12 @@ function BilanTemplates() {
         const querySnapshot = await getDocs(q);
         const templatesData = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
         setTemplates(templatesData);
+
+        // Envoyer l'événement au dataLayer lorsque le client est vu
+        window.dataLayer.push({
+          event: 'view_bilan_templates',
+          userId: user.uid,
+        });
       } catch (error) {
         console.error('Erreur lors du chargement des modèles de bilans :', error);
       }

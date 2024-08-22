@@ -39,6 +39,12 @@ function BilanList() {
         })
       );
 
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'view_bilan_list',
+        userId: user.uid,
+      });
+
       setBilans(bilansData);
     };
 

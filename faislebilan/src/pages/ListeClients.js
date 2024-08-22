@@ -25,6 +25,12 @@ function ListeClients() {
         ...doc.data()
       }));
       setClients(clientList);
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'view_client_list',
+        userId: user.uid,
+        clientCount: clientList.length
+      });
     };
 
     fetchClients();

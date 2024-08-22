@@ -30,6 +30,12 @@ function Client() {
         if (clientDocSnap.exists()) {
           setClient(clientDocSnap.data());
 
+          // Envoyer l'événement au dataLayer lorsque le client est vu
+          window.dataLayer.push({
+            event: 'view_client',
+            clientId: id,
+          });
+
           const bilansCollection = collection(db, 'bilans');
           const bilansQuery = query(bilansCollection, where('clientId', '==', id));
           const bilanSnapshot = await getDocs(bilansQuery);
@@ -101,6 +107,15 @@ function Client() {
         createdAt: new Date(),
       });
 
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'create_session',
+        clientId: id,
+        session: {
+          description: sessionDescription,
+        },
+      });
+
       // Rafraîchir la liste des sessions après création
       const sessionsCollection = collection(db, 'sessions');
       const sessionQuery = query(sessionsCollection, where('clientId', '==', id));
@@ -134,6 +149,16 @@ function Client() {
         fileName: file.name,
         fileURL: downloadURL,
         createdAt: new Date(),
+      });
+
+      // Envoyer l'événement au dataLayer lorsque le client est vu
+      window.dataLayer.push({
+        event: 'create_prescription',
+        clientId: id,
+        prescription: {
+          fileName: file.name,
+          fileURL: downloadURL,
+        },
       });
 
       // Ajouter la prescription à l'état local

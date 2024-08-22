@@ -113,6 +113,11 @@ function CreateBilanTemplate() {
           userId: user.uid,
           createdAt: new Date(),
         });
+        // Envoyer l'événement au dataLayer lorsque le client est vu
+        window.dataLayer.push({
+          event: 'create_bilan_templates',
+          userId: user.uid,
+        });
       }
 
       navigate('/bilan-templates');

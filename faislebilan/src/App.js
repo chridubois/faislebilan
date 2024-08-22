@@ -20,8 +20,15 @@ import AdminRoute from './hoc/AdminRoute';
 import BilanTemplates from './pages/BilanTemplates';
 import CreateBilanTemplate from './pages/CreateBilanTemplate';
 import NoTemplates from './pages/NoTemplates';
+import { getAuth } from 'firebase/auth';
 
 function App() {
+  const auth = getAuth();
+  const user = auth.currentUser; // Obtenez l'utilisateur connecté
+  window.dataLayer.push({
+    event: 'page_view',
+    userId: user ? user.uid : null,
+  });
   return (
     <Router>
       <Header />
