@@ -20,6 +20,7 @@ import AdminRoute from './hoc/AdminRoute';
 import BilanTemplates from './pages/BilanTemplates';
 import CreateBilanTemplate from './pages/CreateBilanTemplate';
 import NoTemplates from './pages/NoTemplates';
+import UserPreferences from './pages/UserPreferences';
 import { getAuth } from 'firebase/auth';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="/create-bilan-template" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
           <Route path="/create-bilan-template/:id" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
           <Route path="/no-templates" element={<PrivateRoute><NoTemplates /></PrivateRoute>} />
+          <Route path="/preferences" element={<PrivateRoute><UserPreferences /></PrivateRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
         </Routes>
       </div>

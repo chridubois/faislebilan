@@ -7,6 +7,7 @@ import { Radar, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { getAuth } from 'firebase/auth';
 
 ChartJS.register(RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend);
 
@@ -16,7 +17,44 @@ function Bilan() {
   const [client, setClient] = useState(null);
   const [previousBilan, setPreviousBilan] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [preferences, setPreferences] = useState({
+    showClientInfo: true,
+    showTestResults: true,
+    showRecommendations: true,
+    showBilanList: true,
+    showEvolutionGraph: true,
+    showIndicesGraph: true,
+    clientAttributes: {
+      name: true,
+      dob: true,
+      gender: true,
+      height: true,
+      weight: true,
+      activity: true,
+      bmi: true,
+      bmr: true,
+    },
+  });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchPreferences = async () => {
+      const auth = getAuth();
+      const user = auth.currentUser; // Obtenez l'utilisateur connecté
+      const userDocRef = doc(db, 'users', user.uid);
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        const userData = userDocSnap.data();
+        if (userData.preferences) {
+          setPreferences(userData.preferences);
+        }
+      }
+    };
+
+    fetchPreferences();
+  }, []);
+
 
   useEffect(() => {
     const fetchBilanAndClient = async () => {
@@ -94,11 +132,11 @@ function Bilan() {
 
   // Calculer l'indice moyen pour chaque bilan
   const indicesMoyens = previousBilan && previousBilan.length > 0
-  ? previousBilan.map(bilan => {
+    ? previousBilan.map(bilan => {
       const totalIndex = Object.values(bilan.tests).reduce((acc, test) => acc + test.index, 0);
       return totalIndex / Object.values(bilan.tests).length;
     })
-  : [];
+    : [];
 
   console.log(previousBilan);
 
@@ -145,7 +183,7 @@ function Bilan() {
       borderColor: 'rgba(255, 99, 132, 1)',
       borderWidth: 2,
     });
-}
+  }
 
   const radarOptions = {
     scales: {
@@ -202,128 +240,152 @@ function Bilan() {
 
       <Box mt={4} id="bilan-content">
         {/* Informations du Client */}
-        <Card style={{ marginBottom: '20px', padding: '20px' }}>
-          <Typography variant="h5" gutterBottom>
-            Informations du Client
-          </Typography>
-          <Divider style={{ marginBottom: '20px' }} />
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={6}>
-              <Table>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>Nom-Prénom</TableCell>
-                    <TableCell>{client.name}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Date de naissance</TableCell>
-                    <TableCell>{client.dob}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Sexe</TableCell>
-                    <TableCell>{client.gender}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Taille</TableCell>
-                    <TableCell>{client.height} cm</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Poids</TableCell>
-                    <TableCell>{client.weight} kg</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Niveau d'activité</TableCell>
-                    <TableCell>{client.activity}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>Coeff Niveau d'activité</TableCell>
-                    <TableCell>{client.activityCoeff}</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>IMC</TableCell>
-                    <TableCell>{client.bmi?.toFixed(2)} kg/m2</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>BMR (Harris Benedict)</TableCell>
-                    <TableCell>{client.bmrHarrisBenedict?.toFixed(2)} kcal/jour</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>BMR (Mifflin St Jeor)</TableCell>
-                    <TableCell>{client.bmrMifflinStJeor?.toFixed(2)} kcal/jour</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>BMR (Harris Benedict) Final</TableCell>
-                    <TableCell>{client.bmrHarrisBenedictFinal?.toFixed(2)} kcal/jour</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>BMR (Mifflin St Jeor) Final</TableCell>
-                    <TableCell>{client.bmrMifflinStJeorFinal?.toFixed(2)} kcal/jour</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
+        {preferences.showClientInfo && (
+          <Card style={{ marginBottom: '20px', padding: '20px' }}>
+            <Typography variant="h5" gutterBottom>
+              Informations du Client
+            </Typography>
+            <Divider style={{ marginBottom: '20px' }} />
+            <Grid container spacing={4}>
+              <Grid item xs={12} md={6}>
+                <Table>
+                  <TableBody>
+                    {preferences.clientAttributes.name && (
+                      <TableRow>
+                        <TableCell>Nom-Prénom</TableCell>
+                        <TableCell>{client.name}</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.dob && (
+                      <TableRow>
+                        <TableCell>Date de naissance</TableCell>
+                        <TableCell>{client.dob}</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.gender && (
+                      <TableRow>
+                        <TableCell>Sexe</TableCell>
+                        <TableCell>{client.gender}</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.height && (
+                      <TableRow>
+                        <TableCell>Taille</TableCell>
+                        <TableCell>{client.height} cm</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.weight && (
+                      <TableRow>
+                        <TableCell>Poids</TableCell>
+                        <TableCell>{client.weight} kg</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.activity && (
+                      <TableRow>
+                        <TableCell>Niveau d'activité</TableCell>
+                        <TableCell>{client.activity}</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.bmi && (
+                      <TableRow>
+                        <TableCell>IMC</TableCell>
+                        <TableCell>{client.bmi?.toFixed(2)} kg/m2</TableCell>
+                      </TableRow>
+                    )}
+                    {preferences.clientAttributes.bmr && (
+                      <>
+                        <TableRow>
+                          <TableCell>BMR (Harris Benedict)</TableCell>
+                          <TableCell>{client.bmrHarrisBenedict?.toFixed(2)} kcal/jour</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>BMR (Mifflin St Jeor)</TableCell>
+                          <TableCell>{client.bmrMifflinStJeor?.toFixed(2)} kcal/jour</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>BMR (Harris Benedict) Final</TableCell>
+                          <TableCell>{client.bmrHarrisBenedictFinal?.toFixed(2)} kcal/jour</TableCell>
+                        </TableRow>
+                        <TableRow>
+                          <TableCell>BMR (Mifflin St Jeor) Final</TableCell>
+                          <TableCell>{client.bmrMifflinStJeorFinal?.toFixed(2)} kcal/jour</TableCell>
+                        </TableRow>
+                      </>
+                    )}
+                  </TableBody>
+                </Table>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                {preferences.showIndicesGraph && (
+                  <>
+                    <Typography variant="h6" gutterBottom>
+                      Graphique des Indices
+                    </Typography>
+                    <Box display="flex" justifyContent="center" alignItems="center" height="100%">
+                      <div style={{ width: '100%', maxWidth: '400px', height: '400px' }}>
+                        <Radar data={radarData} options={radarOptions} />
+                      </div>
+                    </Box>
+                  </>
+                )}
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={6}>
-              <Typography variant="h6" gutterBottom>
-                Graphique des Indices
-              </Typography>
-              <Box display="flex" justifyContent="center" alignItems="center" height="100%">
-                <div style={{ width: '100%', maxWidth: '400px', height: '400px' }}>
-                  <Radar data={radarData} options={radarOptions} />
-                </div>
-              </Box>
-            </Grid>
-          </Grid>
-        </Card>
+          </Card>
+        )}
 
         {/* Ajouter la courbe d'évolution de l'indice moyen */}
-        <Card style={{ marginBottom: '20px', padding: '20px' }}>
-          <Typography variant="h5" gutterBottom>
-            Évolution de l'Indice Moyen
-          </Typography>
-          <Divider style={{ marginBottom: '20px' }} />
-          <Line data={lineData} />
-        </Card>
+        {preferences.showEvolutionGraph && (
+          <Card style={{ marginBottom: '20px', padding: '20px' }}>
+            <Typography variant="h5" gutterBottom>
+              Évolution de l'Indice Moyen
+            </Typography>
+            <Divider style={{ marginBottom: '20px' }} />
+            <Line data={lineData} />
+          </Card>)}
 
         {/* Recommandations */}
-        <Card style={{ marginBottom: '20px', padding: '20px' }}>
-          <Typography variant="h5" gutterBottom>
-            Recommandations
-          </Typography>
-          <Divider style={{ marginBottom: '20px' }} />
-          <Box mt={2}>
-            <Typography variant="body1">
-              Basé sur vos résultats, voici quelques recommandations pour vous aider à améliorer votre condition physique :
+        {preferences.showRecommendations && (
+          <Card style={{ marginBottom: '20px', padding: '20px' }}>
+            <Typography variant="h5" gutterBottom>
+              Recommandations
             </Typography>
+            <Divider style={{ marginBottom: '20px' }} />
+            <Box mt={2}>
+              <Typography variant="body1">
+                Basé sur vos résultats, voici quelques recommandations pour vous aider à améliorer votre condition physique :
+              </Typography>
 
-            <Typography variant="subtitle1" gutterBottom>
-              Objectifs à court terme :
-            </Typography>
-            <ul>
-              <li>Atteindre 20 push-ups d'ici le prochain bilan.</li>
-              <li>Améliorer votre score de souplesse en ajoutant des étirements.</li>
-            </ul>
+              <Typography variant="subtitle1" gutterBottom>
+                Objectifs à court terme :
+              </Typography>
+              <ul>
+                <li>Atteindre 20 push-ups d'ici le prochain bilan.</li>
+                <li>Améliorer votre score de souplesse en ajoutant des étirements.</li>
+              </ul>
 
-          </Box>
-        </Card>
+            </Box>
+          </Card>)}
 
         {/* Réponses aux Tests */}
-        <Card style={{ marginBottom: '20px', padding: '20px' }}>
-          <Typography variant="h5" gutterBottom>
-            Réponses aux Tests
-          </Typography>
-          <Divider style={{ marginBottom: '20px' }} />
-          <Table>
-            <TableBody>
-              {Object.entries(bilan.tests).map(([testId, testData]) => (
-                <TableRow key={testId}>
-                  <TableCell>{testData.name}</TableCell>
-                  <TableCell>Réponse: {renderResponse(testData.response)}</TableCell>
-                  <TableCell>Indice: {testData.index}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Card>
+        {preferences.showTestResults && (
+          <Card style={{ marginBottom: '20px', padding: '20px' }}>
+            <Typography variant="h5" gutterBottom>
+              Réponses aux Tests
+            </Typography>
+            <Divider style={{ marginBottom: '20px' }} />
+            <Table>
+              <TableBody>
+                {Object.entries(bilan.tests).map(([testId, testData]) => (
+                  <TableRow key={testId}>
+                    <TableCell>{testData.name}</TableCell>
+                    <TableCell>Réponse: {renderResponse(testData.response)}</TableCell>
+                    <TableCell>Indice: {testData.index}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Card>
+        )}
       </Box>
     </Container>
   );

@@ -62,6 +62,9 @@ function Header() {
               <Button color="inherit" component={Link} to="/dashboard" startIcon={<ListAltIcon />}>
                 Dashboard
               </Button>
+              <Button color="inherit" component={Link} to="/preferences" startIcon={<ListAltIcon />}>
+                Préférences
+              </Button>
               <IconButton color="inherit" component={Link} to="/profile">
                 <AccountCircleIcon />
               </IconButton>
@@ -130,6 +133,9 @@ function Header() {
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard">
                 Dashboard
+              </MenuItem>
+              <MenuItem onClick={handleMenuClose} component={Link} to="/preferences">
+                Préférences
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
                 Mon profil
