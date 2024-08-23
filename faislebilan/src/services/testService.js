@@ -34,53 +34,54 @@ export const calculateTestIndices = async (bilan, client) => {
     const testData = bilan.tests[test.id]; // Récupérer les données du bilan pour ce test
 
     if (testData) {
-      let index = 0;
+      let result = {};
 
       switch (test.name) {
         case 'assis debout':
-          index = calculateAssisDeboutIndex(client.gender, age, testData.response);
+          result = calculateAssisDeboutIndex(client.gender, age, testData.response);
           break;
         case 'pushup':
-          index = calculatePushupIndex(client.gender, age, testData.response);
+          result = calculatePushupIndex(client.gender, age, testData.response);
           break;
         case 'chaise':
-          index = calculateChairIndex(testData.response);
+          result = calculateChairIndex(testData.response);
           break;
         case '6min marche':
-          index = calculate6MinWalkIndex(client.gender, age, testData.response);
+          result = calculate6MinWalkIndex(client.gender, age, testData.response);
           break;
         case 'planche':
-          index = calculatePlankIndex(testData.response);
+          result = calculatePlankIndex(testData.response);
           break;
         case 'sorensen':
-          index = calculateSorensenIndex(client.gender, age, testData.response);
+          result = calculateSorensenIndex(client.gender, age, testData.response);
           break;
         case 'mobilité épaule':
-          index = calculateHandPositionIndex(testData.response);
+          result = calculateHandPositionIndex(testData.response);
           break;
         case 'souplesse chaîne post':
-          index = calculateSouplessePostIndex(client.gender, testData.response);
+          result = calculateSouplessePostIndex(client.gender, testData.response);
           break;
         case 'mobilité hanches':
-          index = calculateLegPositionIndex(testData.response);
+          result = calculateLegPositionIndex(testData.response);
           break;
         case 'marche 2min':
-          index = calculate2MinWalkIndex(client.gender, age, testData.response);
+          result = calculate2MinWalkIndex(client.gender, age, testData.response);
           break;
         case 'mobilité hanche flexion':
-          index = calculateHipFlexionMobilityIndex(testData.response)
+          result = calculateHipFlexionMobilityIndex(testData.response)
           break;
         case 'coordination jambes bras':
-          index = calculateCoordinationJambesBrasIndex(testData.response)
+          result = calculateCoordinationJambesBrasIndex(testData.response)
           break;
         default:
-          index = 0;
+          result = 0;
           break;
       }
 
       testsWithIndices[test.id] = {
         ...testData,
-        index: index,
+        index: result.index,
+        goal: result.goal,
       };
     }
   }

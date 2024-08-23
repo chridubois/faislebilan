@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { doc, getDoc, collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { doc, getDoc, collection, query, where, getDocs, addDoc, orderBy } from 'firebase/firestore';
 import { db, storage } from '../config/firebase'; // Assurez-vous d'importer Firebase Storage
 import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box, Grid, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
 import { Line } from 'react-chartjs-2';
@@ -37,11 +37,15 @@ function Client() {
           });
 
           const bilansCollection = collection(db, 'bilans');
-          const bilansQuery = query(bilansCollection, where('clientId', '==', id));
+          const bilansQuery = query(
+            bilansCollection,
+            where('clientId', '==', id),
+            orderBy('createdAt', 'desc') // Sorting by createdAt in descending order
+          );
           const bilanSnapshot = await getDocs(bilansQuery);
           const bilanList = bilanSnapshot.docs.map(doc => ({
             id: doc.id,
-            ...doc.data()
+            ...doc.data(),
           }));
           setBilans(bilanList);
 

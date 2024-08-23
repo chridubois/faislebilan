@@ -359,12 +359,19 @@ function Bilan() {
                 Objectifs à court terme :
               </Typography>
               <ul>
-                <li>Atteindre 20 push-ups d'ici le prochain bilan.</li>
-                <li>Améliorer votre score de souplesse en ajoutant des étirements.</li>
+                {Object.entries(bilan.tests)
+                  .filter(([testId, testData]) => testData.goal !== null && testData.goal !== undefined) // Filter tests with goals
+                  .map(([testId, testData]) => (
+                    <li key={testId}>
+                      Pour le test {testData.name}, essayez d'atteindre {testData.goal} pour passer à l'indice {testData.index + 1}.
+                    </li>
+                  ))}
               </ul>
-
             </Box>
-          </Card>)}
+          </Card>
+        )}
+
+
 
         {/* Réponses aux Tests */}
         {preferences.showTestResults && (

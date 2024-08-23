@@ -271,7 +271,6 @@ function Funnel() {
         // Calcul de l'IMC
         const bmi = weight / ((height / 100) ** 2);
 
-        console.log(responses);
         const newClient = {
           name: responses.name,
           dob: responses.dob,
@@ -289,7 +288,6 @@ function Funnel() {
           userId: user.uid,
         };
         const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
-        // Envoyer l'événement au dataLayer lorsque le client est vu
         window.dataLayer.push({
           event: 'create_client',
           userId: user.uid,
@@ -313,58 +311,54 @@ function Funnel() {
       // Calcul des indices pour chaque test et création de l'objet tests avec le nom du test
       const testsWithNames = {};
       for (const test of tests) {
-        let index = 0;
+        let result = {};
 
         if (test.name === 'ruffier') {
-          // Gérer le test Ruffier avec plusieurs champs (P1, P2, P3)
-          console.log(responses);
-
           const p1 = parseFloat(responses['P1']) || 0;
           const p2 = parseFloat(responses['P2']) || 0;
           const p3 = parseFloat(responses['P3']) || 0;
           if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
             throw new Error("Les valeurs P1, P2 ou P3 ne sont pas des nombres valides");
           }
-          index = calculateRuffierIndex(p1, p2, p3);
+          result = calculateRuffierIndex(p1, p2, p3);
           testsWithNames[test.id] = {
             name: test.name,
             response: { P1: p1, P2: p2, P3: p3 },
-            index: index
+            index: result.indice,
+            goal: result.goal,
           };
         } else {
           if (test.name === 'assis debout') {
-            index = calculateAssisDeboutIndex(responses.gender, age, responses[test.id]);
+            result = calculateAssisDeboutIndex(responses.gender, age, responses[test.id]);
           } else if (test.name === 'pushup') {
-            index = calculatePushupIndex(responses.gender, age, responses[test.id]);
+            result = calculatePushupIndex(responses.gender, age, responses[test.id]);
           } else if (test.name === 'chaise') {
-            index = calculateChairIndex(responses[test.id]);
+            result = calculateChairIndex(responses[test.id]);
           } else if (test.name === '6min marche') {
-            index = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
+            result = calculate6MinWalkIndex(responses.gender, age, responses[test.id]);
           } else if (test.name === 'planche') {
-            index = calculatePlankIndex(responses[test.id]);
+            result = calculatePlankIndex(responses[test.id]);
           } else if (test.name === 'sorensen') {
-            index = calculateSorensenIndex(responses.gender, age, responses[test.id]);
+            result = calculateSorensenIndex(responses.gender, age, responses[test.id]);
           } else if (test.name === 'mobilité épaule') {
-            index = calculateHandPositionIndex(responses[test.id]);
+            result = calculateHandPositionIndex(responses[test.id]);
           } else if (test.name === 'souplesse chaîne post') {
-            index = calculateSouplessePostIndex(responses.gender, responses[test.id]);
+            result = calculateSouplessePostIndex(responses.gender, responses[test.id]);
           } else if (test.name === 'mobilité hanches') {
-            index = calculateLegPositionIndex(responses[test.id]);
+            result = calculateLegPositionIndex(responses[test.id]);
           } else if (test.name === 'marche 2min') {
-            index = calculate2MinWalkIndex(responses.gender, age, responses[test.id]);
+            result = calculate2MinWalkIndex(responses.gender, age, responses[test.id]);
           } else if (test.name === 'mobilité hanche flexion') {
-            index = calculateHipFlexionMobilityIndex(responses[test.id]);
+            result = calculateHipFlexionMobilityIndex(responses[test.id]);
           } else if (test.name === 'coordination jambes bras') {
-            index = calculateCoordinationJambesBrasIndex(responses[test.id]);
+            result = calculateCoordinationJambesBrasIndex(responses[test.id]);
           }
-
-          // Log the calculated index before saving it
-          console.log(`Index for ${test.name}: ${index}`);
 
           testsWithNames[test.id] = {
             name: test.name,
             response: responses[test.id],
-            index: index
+            index: result.indice,
+            goal: result.goal,
           };
         }
       }
@@ -377,7 +371,6 @@ function Funnel() {
       };
 
       const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);
-      // Envoyer l'événement au dataLayer lorsque le client est vu
       window.dataLayer.push({
         event: 'create_bilan',
         userId: user.uid,
@@ -387,6 +380,7 @@ function Funnel() {
       console.error("Erreur lors de la création du bilan :", e);
     }
   };
+
 
   return (
     <Container maxWidth="sm">
