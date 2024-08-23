@@ -308,11 +308,11 @@ export const calculateHandPositionIndex = (response) => {
     case 'Les mains se touchent paume contre paume':
       return 5;
     case 'Les mains se chevauchent':
-      return 3;
+      return 4;
     case 'Les doigts se touchent':
-      return 2;
+      return 3;
     case 'Les mains sont écartées':
-      return 1;
+      return 2;
     default:
       return 0; // Retourne 0 si la réponse ne correspond à aucun des choix
   }
@@ -544,11 +544,11 @@ export const calculateActivityLevelCoeff = (activityLevel) => {
       return 1.1;
     case 'Légèrement actif':
       return 1.3;
-    case 'Modérément actif':
+    case 'Modéremment actif':
       return 1.5;
     case 'Très actif':
       return 1.6;
-    case 'Extrêmement actif':
+    case 'Extrèmement actif':
       return 1.8;
     default:
       throw new Error('Niveau d\'activité non reconnu');
