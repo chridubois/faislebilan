@@ -158,6 +158,19 @@ function Bilan() {
     ]
   };
 
+  // Calculer l'âge du client à partir de la date de naissance (dob)
+  const calculateAge = (dob) => {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
+  };
+
 
   // Préparer les données pour le graphique radar avec les valeurs de l'utilisateur
   const radarData = {
@@ -258,8 +271,8 @@ function Bilan() {
                     )}
                     {preferences.clientAttributes.dob && (
                       <TableRow>
-                        <TableCell>Date de naissance</TableCell>
-                        <TableCell>{client.dob}</TableCell>
+                        <TableCell>Age</TableCell>
+                        <TableCell>{calculateAge(client.dob)} ans ({new Date(client.dob).toLocaleDateString()})</TableCell>
                       </TableRow>
                     )}
                     {preferences.clientAttributes.gender && (

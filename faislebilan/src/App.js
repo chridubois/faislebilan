@@ -21,6 +21,11 @@ import BilanTemplates from './pages/BilanTemplates';
 import CreateBilanTemplate from './pages/CreateBilanTemplate';
 import NoTemplates from './pages/NoTemplates';
 import UserPreferences from './pages/UserPreferences';
+import CreateForm from './pages/CreateForm';
+import FormManagement from './pages/FormManagement';
+import FillForm from './pages/FillForm';
+import UserFormSubmissions from './pages/UserFormSubmissions';
+import FormSubmissionDetail from './pages/FormSubmissionDetail';
 import { getAuth } from 'firebase/auth';
 
 function App() {
@@ -52,6 +57,12 @@ function App() {
           <Route path="/create-bilan-template/:id" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
           <Route path="/no-templates" element={<PrivateRoute><NoTemplates /></PrivateRoute>} />
           <Route path="/preferences" element={<PrivateRoute><UserPreferences /></PrivateRoute>} />
+          <Route path="/create-form" element={<PrivateRoute><CreateForm /></PrivateRoute>} />
+          <Route path="/edit-form/:id" element={<PrivateRoute><CreateForm /></PrivateRoute>} />
+          <Route path="/manage-forms" element={<PrivateRoute><FormManagement /></PrivateRoute>} />
+          <Route path="/fill-form/:formId/:clientId" element={<FillForm />} />
+          <Route path="/form-submissions" element={<PrivateRoute><UserFormSubmissions /></PrivateRoute>} />
+          <Route path="/form-submission/:id" element={<PrivateRoute><FormSubmissionDetail /></PrivateRoute>} />
           <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
         </Routes>
       </div>

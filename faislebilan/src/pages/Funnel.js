@@ -314,9 +314,9 @@ function Funnel() {
             let result = {};
 
             if (test.name === 'ruffier') {
-                const p1 = parseFloat(responses['P1']) || 0;
-                const p2 = parseFloat(responses['P2']) || 0;
-                const p3 = parseFloat(responses['P3']) || 0;
+                const p1 = parseFloat(responses['P1']);
+                const p2 = parseFloat(responses['P2']);
+                const p3 = parseFloat(responses['P3']);
                 if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
                     continue; // Skip this test if the values are invalid
                 }

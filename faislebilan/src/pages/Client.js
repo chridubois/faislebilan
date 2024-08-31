@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { doc, getDoc, collection, query, where, getDocs, addDoc, orderBy } from 'firebase/firestore';
-import { db, storage } from '../config/firebase'; // Assurez-vous d'importer Firebase Storage
-import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box, Grid, Dialog, DialogTitle, DialogContent, TextField, DialogActions } from '@mui/material';
+import { db, storage } from '../config/firebase';
+import { Container, Typography, Table, TableBody, TableCell, TableRow, Button, List, ListItem, ListItemText, Box, Grid, Dialog, DialogTitle, DialogContent, TextField, DialogActions, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, LineElement, PointElement, LinearScale, Title, Tooltip, Legend } from 'chart.js';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Importer les fonctions Firebase Storage
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 
 ChartJS.register(LineElement, PointElement, LinearScale, Title, Tooltip, Legend);
@@ -14,7 +14,11 @@ function Client() {
   const { id } = useParams();
   const [client, setClient] = useState(null);
   const [bilans, setBilans] = useState([]);
-  const [prescriptions, setPrescriptions] = useState([]); // État pour stocker les prescriptions
+  const [forms, setForms] = useState([]);
+  const [formSubmissions, setFormSubmissions] = useState([]);
+  const [selectedFormId, setSelectedFormId] = useState('');
+  const [openFormDialog, setOpenFormDialog] = useState(false);
+  const [prescriptions, setPrescriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [open, setOpen] = useState(false);
   const [sessions, setSessions] = useState([]);
@@ -30,7 +34,6 @@ function Client() {
         if (clientDocSnap.exists()) {
           setClient(clientDocSnap.data());
 
-          // Envoyer l'événement au dataLayer lorsque le client est vu
           window.dataLayer.push({
             event: 'view_client',
             clientId: id,
@@ -40,7 +43,7 @@ function Client() {
           const bilansQuery = query(
             bilansCollection,
             where('clientId', '==', id),
-            orderBy('createdAt', 'desc') // Sorting by createdAt in descending order
+            orderBy('createdAt', 'desc')
           );
           const bilanSnapshot = await getDocs(bilansQuery);
           const bilanList = bilanSnapshot.docs.map(doc => ({
@@ -49,7 +52,30 @@ function Client() {
           }));
           setBilans(bilanList);
 
-          // Récupérer les sessions du client
+          // Fetch available forms
+          const formsCollection = collection(db, 'forms');
+          const formsQuery = query(formsCollection, where('userId', '==', clientDocSnap.data().userId));
+          const formsSnapshot = await getDocs(formsQuery);
+          const formsList = formsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setForms(formsList);
+
+          // Fetch available forms submissions
+          const formSubmissionsCollection = collection(db, 'formSubmissions');
+          const formSubmissionsQuery = query(
+            formSubmissionsCollection,
+            where('clientId', '==', id),
+            orderBy('submittedAt', 'desc')
+          );
+          const formSubmissionsSnapshot = await getDocs(formSubmissionsQuery);
+          const formSubmissionsList = formSubmissionsSnapshot.docs.map(doc => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setFormSubmissions(formSubmissionsList);
+
           const sessionsCollection = collection(db, 'sessions');
           const sessionQuery = query(sessionsCollection, where('clientId', '==', id));
           const sessionSnapshot = await getDocs(sessionQuery);
@@ -59,7 +85,6 @@ function Client() {
           }));
           setSessions(sessionList);
 
-          // Récupérer les prescriptions du client
           const prescriptionsCollection = collection(db, 'prescriptions');
           const prescriptionsQuery = query(prescriptionsCollection, where('clientId', '==', id));
           const prescriptionsSnapshot = await getDocs(prescriptionsQuery);
@@ -86,18 +111,15 @@ function Client() {
     navigate('/funnel', { state: { clientId: id, client } });
   };
 
-  // Ouvrir le formulaire de session
   const handleOpen = () => {
     setOpen(true);
   };
 
-  // Fermer le formulaire de session
   const handleClose = () => {
     setOpen(false);
     setSessionDescription('');
   };
 
-  // Gérer la soumission de la session
   const handleSessionSubmit = async () => {
     try {
       const auth = getAuth();
@@ -111,7 +133,6 @@ function Client() {
         createdAt: new Date(),
       });
 
-      // Envoyer l'événement au dataLayer lorsque le client est vu
       window.dataLayer.push({
         event: 'create_session',
         clientId: id,
@@ -120,7 +141,6 @@ function Client() {
         },
       });
 
-      // Rafraîchir la liste des sessions après création
       const sessionsCollection = collection(db, 'sessions');
       const sessionQuery = query(sessionsCollection, where('clientId', '==', id));
       const sessionSnapshot = await getDocs(sessionQuery);
@@ -143,11 +163,9 @@ function Client() {
     const storageRef = ref(storage, `prescriptions/${id}/${file.name}`);
 
     try {
-      // Upload du fichier PDF vers Firebase Storage
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
 
-      // Enregistrer les informations de la prescription dans Firestore
       await addDoc(collection(db, 'prescriptions'), {
         clientId: id,
         fileName: file.name,
@@ -155,7 +173,6 @@ function Client() {
         createdAt: new Date(),
       });
 
-      // Envoyer l'événement au dataLayer lorsque le client est vu
       window.dataLayer.push({
         event: 'create_prescription',
         clientId: id,
@@ -165,12 +182,42 @@ function Client() {
         },
       });
 
-      // Ajouter la prescription à l'état local
       setPrescriptions([...prescriptions, { fileName: file.name, fileURL: downloadURL }]);
 
     } catch (error) {
       console.error('Erreur lors de l\'upload de la prescription:', error);
     }
+  };
+
+  const handleOpenFormDialog = () => {
+    setOpenFormDialog(true);
+  };
+
+  const handleCloseFormDialog = () => {
+    setOpenFormDialog(false);
+  };
+
+  const handleFormSelection = (event) => {
+    setSelectedFormId(event.target.value);
+  };
+
+  const handleFillForm = () => {
+    if (selectedFormId) {
+      navigate(`/fill-form/${selectedFormId}/${id}`);
+    }
+  };
+
+  // Calculer l'âge du client à partir de la date de naissance (dob)
+  const calculateAge = (dob) => {
+    const birthDate = new Date(dob);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+    }
+    return age;
   };
 
   const chartData = {
@@ -203,14 +250,6 @@ function Client() {
         <Typography variant="h4" component="h1" gutterBottom>
           Informations du client
         </Typography>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={handleNewBilan}
-          style={{ marginBottom: '10px' }}
-        >
-          Nouveau Bilan
-        </Button>
       </Box>
 
       <Grid container spacing={4}>
@@ -222,8 +261,10 @@ function Client() {
                 <TableCell>{client.name}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell>Date de naissance</TableCell>
-                <TableCell>{client.dob}</TableCell>
+                <TableCell>Age</TableCell>
+                <TableCell>
+                  {calculateAge(client.dob)} ans ({new Date(client.dob).toLocaleDateString()})
+                </TableCell>
               </TableRow>
               <TableRow>
                 <TableCell>Sexe</TableCell>
@@ -273,6 +314,14 @@ function Client() {
           <Typography variant="h6" gutterBottom>
             Bilans
           </Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleNewBilan}
+            style={{ marginBottom: '10px', marginRight: '10px' }}
+          >
+            Nouveau Bilan
+          </Button>
           {bilans.length > 0 ? (
             <List>
               {bilans.map((bilan) => (
@@ -308,11 +357,13 @@ function Client() {
         </Grid>
       </Grid>
 
-      {/* Section pour afficher et créer des sessions */}
       <Box mt={4}>
         <Typography variant="h6" gutterBottom>
-          Sessions
+          Séances
         </Typography>
+        <Button variant="contained" color="primary" onClick={handleOpen}>
+          Ajouter une Séance
+        </Button>
         {sessions.length > 0 ? (
           <List>
             {sessions.map((session) => (
@@ -325,16 +376,12 @@ function Client() {
             ))}
           </List>
         ) : (
-          <Typography variant="body1">Ce client n'a pas encore de sessions.</Typography>
+          <Typography variant="body1">Ce client n'a pas encore de séances.</Typography>
         )}
-        <Button variant="contained" color="primary" onClick={handleOpen}>
-          Ajouter une Session
-        </Button>
       </Box>
 
-      {/* Formulaire de création de session */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Créer une nouvelle Session</DialogTitle>
+        <DialogTitle>Créer une nouvelle Séance</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
@@ -356,22 +403,76 @@ function Client() {
         </DialogActions>
       </Dialog>
 
-      {/* Section des prescriptions */}
       <Box mt={4}>
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Typography variant="h6" gutterBottom>
-            Prescriptions
-          </Typography>
-          <Button variant="contained" component="label">
-            Importer une prescription
-            <input
-              type="file"
-              accept="application/pdf"
-              hidden
-              onChange={handleFileUpload}
-            />
-          </Button>
-        </Box>
+        <Typography variant="h6" gutterBottom>
+          Formulaires
+        </Typography>
+        <Button variant="contained" color="primary" onClick={handleOpenFormDialog}>
+          Remplir un formulaire
+        </Button>
+        <Dialog open={openFormDialog} onClose={handleCloseFormDialog}>
+          <DialogTitle>Choisir un formulaire</DialogTitle>
+          <DialogContent>
+            <FormControl fullWidth>
+              <InputLabel id="form-select-label">Formulaire</InputLabel>
+              <Select
+                labelId="form-select-label"
+                id="form-select"
+                value={selectedFormId}
+                label="Formulaire"
+                onChange={handleFormSelection}
+              >
+                {forms.map(form => (
+                  <MenuItem key={form.id} value={form.id}>
+                    {form.title}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseFormDialog} color="primary">
+              Annuler
+            </Button>
+            <Button onClick={handleFillForm} color="primary">
+              Remplir
+            </Button>
+          </DialogActions>
+        </Dialog>
+        {formSubmissions.length > 0 ? (
+          <List>
+            {formSubmissions.map(submission => (
+              <ListItem
+                key={submission.id}
+                style={{ backgroundColor: '#f0f0f0', marginBottom: '10px', borderRadius: '8px' }}
+                button
+                component={Link}
+                to={`/form-submission/${submission.id}`}
+              >
+                <ListItemText
+                  primary={`Soumission le : ${new Date(submission.submittedAt.toDate()).toLocaleDateString()}`}
+                />
+              </ListItem>
+            ))}
+          </List>
+        ) : (
+          <Typography variant="body1">Aucun formulaire rempli pour ce client.</Typography>
+        )}
+      </Box>
+
+      <Box mt={4}>
+        <Typography variant="h6" gutterBottom>
+          Prescriptions
+        </Typography>
+        <Button variant="contained" component="label">
+          Importer une prescription
+          <input
+            type="file"
+            accept="application/pdf"
+            hidden
+            onChange={handleFileUpload}
+          />
+        </Button>
         {prescriptions.length > 0 ? (
           <List>
             {prescriptions.map((prescription) => (
@@ -408,7 +509,6 @@ function Client() {
         )}
       </Box>
 
-      {/* Graphique d'évolution de l'indice de forme */}
       <Box mt={4}>
         <Typography variant="h6" gutterBottom>
           Évolution de l'indice de forme moyen

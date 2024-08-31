@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
-import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Box } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, IconButton, Menu, MenuItem, Box, Popover } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link } from 'react-router-dom';
 import logo from '../images/faislebilan.png';
-import AddIcon from '@mui/icons-material/Add';
-import PeopleIcon from '@mui/icons-material/People';
-import ListAltIcon from '@mui/icons-material/ListAlt';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import { getAuth } from 'firebase/auth';
 import { useAuth } from '../hooks/useAuth';
 
 function Header() {
   const [anchorEl, setAnchorEl] = useState(null);
+  const [clientsSubmenuAnchorEl, setClientsSubmenuAnchorEl] = useState(null);
+  const [adminSubmenuAnchorEl, setAdminSubmenuAnchorEl] = useState(null);
   const auth = getAuth();
   const { isAuthenticated, isAdmin } = useAuth();
 
@@ -29,6 +27,28 @@ function Header() {
     auth.signOut();
   };
 
+  const handleClientsSubmenuOpen = (event) => {
+    if (adminSubmenuAnchorEl) {
+      setAdminSubmenuAnchorEl(null);
+    }
+    setClientsSubmenuAnchorEl(event.currentTarget);
+  };
+
+  const handleClientsSubmenuClose = () => {
+    setClientsSubmenuAnchorEl(null);
+  };
+
+  const handleAdminSubmenuOpen = (event) => {
+    if (clientsSubmenuAnchorEl) {
+      setClientsSubmenuAnchorEl(null);
+    }
+    setAdminSubmenuAnchorEl(event.currentTarget);
+  };
+
+  const handleAdminSubmenuClose = () => {
+    setAdminSubmenuAnchorEl(null);
+  };
+
   return (
     <AppBar position="static" sx={{ backgroundColor: '#A7C3CA' }}>
       <Toolbar style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -38,33 +58,102 @@ function Header() {
           </Link>
         </Typography>
 
-        {/* Masquer les liens sur petits écrans */}
+        {/* Desktop Menu */}
         <Box sx={{ display: { xs: 'none', sm: 'flex' }, justifyContent: 'flex-end', flexGrow: 1 }}>
-          {isAuthenticated && isAdmin && (
-            <Button color="inherit" component={Link} to="/admin" startIcon={<DashboardIcon />}>
-              Administration
-            </Button>
-          )}
-          {isAuthenticated ? (
+          {isAuthenticated && (
             <>
-              <Button color="inherit" component={Link} to="/funnel" startIcon={<AddIcon />}>
-                Créer un bilan
-              </Button>
-              <Button color="inherit" component={Link} to="/clients" startIcon={<PeopleIcon />}>
-                Liste des clients
-              </Button>
-              <Button color="inherit" component={Link} to="/bilans" startIcon={<ListAltIcon />}>
-                Liste des bilans
-              </Button>
-              <Button color="inherit" component={Link} to="/bilan-templates" startIcon={<ListAltIcon />}>
-                Gestion de bilans
-              </Button>
-              <Button color="inherit" component={Link} to="/dashboard" startIcon={<ListAltIcon />}>
+              <Button color="inherit" component={Link} to="/dashboard">
                 Dashboard
               </Button>
-              <Button color="inherit" component={Link} to="/preferences" startIcon={<ListAltIcon />}>
-                Préférences
-              </Button>
+
+              {/* Sous-menu Clients */}
+              <Box
+                onMouseEnter={handleClientsSubmenuOpen}
+                onMouseLeave={handleClientsSubmenuClose}
+              >
+                <Button color="inherit">
+                  Clients
+                </Button>
+                <Popover
+                  open={Boolean(clientsSubmenuAnchorEl)}
+                  anchorEl={clientsSubmenuAnchorEl}
+                  onClose={handleClientsSubmenuClose}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                >
+                  <MenuItem
+                    onClick={handleClientsSubmenuClose}
+                    component={Link}
+                    to="/funnel"
+                  >
+                    Créer un bilan
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleClientsSubmenuClose}
+                    component={Link}
+                    to="/clients"
+                  >
+                    Liste Clients
+                  </MenuItem>
+                </Popover>
+              </Box>
+
+              {/* Sous-menu Administration */}
+              <Box
+                onMouseEnter={handleAdminSubmenuOpen}
+                onMouseLeave={handleAdminSubmenuClose}
+              >
+                <Button color="inherit">
+                  Administration
+                </Button>
+                <Popover
+                  open={Boolean(adminSubmenuAnchorEl)}
+                  anchorEl={adminSubmenuAnchorEl}
+                  onClose={handleAdminSubmenuClose}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                >
+                  <MenuItem
+                    onClick={handleAdminSubmenuClose}
+                    component={Link}
+                    to="/bilan-templates"
+                  >
+                    Gestion Bilans
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleAdminSubmenuClose}
+                    component={Link}
+                    to="/manage-forms"
+                  >
+                    Gestion Formulaires
+                  </MenuItem>
+                  <MenuItem
+                    onClick={handleAdminSubmenuClose}
+                    component={Link}
+                    to="/preferences"
+                  >
+                    Préférences
+                  </MenuItem>
+                  {isAdmin && (
+                    <MenuItem onClick={handleMenuClose} component={Link} to="/admin">
+                      Administration
+                    </MenuItem>
+                  )}
+                </Popover>
+              </Box>
+
               <IconButton color="inherit" component={Link} to="/profile">
                 <AccountCircleIcon />
               </IconButton>
@@ -72,15 +161,11 @@ function Header() {
                 <LogoutIcon />
               </IconButton>
             </>
-          ) : (
-            <>
-              <Button color="inherit" component={Link} to="/funnel" startIcon={<AddIcon />}>
-                Créer un bilan
-              </Button>
-              <Button color="inherit" component={Link} to="/login">
-                Se connecter
-              </Button>
-            </>
+          )}
+          {!isAuthenticated && (
+            <Button color="inherit" component={Link} to="/login">
+              Se connecter
+            </Button>
           )}
         </Box>
 
@@ -112,31 +197,36 @@ function Header() {
           open={Boolean(anchorEl)}
           onClose={handleMenuClose}
         >
-          {isAuthenticated && isAdmin && (
-            <MenuItem onClick={handleMenuClose} component={Link} to="/admin">
-              Administration
-            </MenuItem>
-          )}
-          {isAuthenticated ? (
+          {isAuthenticated && (
             <>
+              <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard">
+                Dashboard
+              </MenuItem>
+
+              {/* Sous-menu Clients */}
               <MenuItem onClick={handleMenuClose} component={Link} to="/funnel">
                 Créer un bilan
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/clients">
-                Liste des clients
+                Liste Clients
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/bilans">
-                Liste des bilans
-              </MenuItem>
+
+              {/* Sous-menu Administration */}
               <MenuItem onClick={handleMenuClose} component={Link} to="/bilan-templates">
-                Gestion de bilans
+                Gestion Bilans
               </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/dashboard">
-                Dashboard
+              <MenuItem onClick={handleMenuClose} component={Link} to="/manage-forms">
+                Gestion Formulaires
               </MenuItem>
               <MenuItem onClick={handleMenuClose} component={Link} to="/preferences">
                 Préférences
               </MenuItem>
+              {isAdmin && (
+                <MenuItem onClick={handleMenuClose} component={Link} to="/admin">
+                  Administration
+                </MenuItem>
+              )}
+
               <MenuItem onClick={handleMenuClose} component={Link} to="/profile">
                 Mon profil
               </MenuItem>
@@ -144,15 +234,11 @@ function Header() {
                 Se déconnecter
               </MenuItem>
             </>
-          ) : (
-            <>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/funnel">
-                Créer un bilan
-              </MenuItem>
-              <MenuItem onClick={handleMenuClose} component={Link} to="/login">
-                Se connecter
-              </MenuItem>
-            </>
+          )}
+          {!isAuthenticated && (
+            <MenuItem onClick={handleMenuClose} component={Link} to="/login">
+              Se connecter
+            </MenuItem>
           )}
         </Menu>
       </Toolbar>
