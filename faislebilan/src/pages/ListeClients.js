@@ -1,11 +1,11 @@
-// src/pages/ListeClients.js
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Card, CardContent, Grid, Button, Box } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Container, Typography, Box, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { getAuth } from 'firebase/auth';
+import CustomTable from '../components/CustomTable';  // Import du composant réutilisable
 
 function ListeClients() {
   const [clients, setClients] = useState([]);
@@ -25,12 +25,6 @@ function ListeClients() {
         ...doc.data()
       }));
       setClients(clientList);
-      // Envoyer l'événement au dataLayer lorsque le client est vu
-      window.dataLayer.push({
-        event: 'view_client_list',
-        userId: user.uid,
-        clientCount: clientList.length
-      });
     };
 
     fetchClients();
@@ -40,11 +34,34 @@ function ListeClients() {
     navigate('/funnel');
   };
 
+  const handleViewDetails = (clientId) => {
+    navigate(`/client/${clientId}`);
+  };
+
+  const handleDeleteClient = (clientId) => {
+    // Ajoute la logique de suppression ici si nécessaire
+    console.log('Supprimer le client :', clientId);
+  };
+
+  // Définit les colonnes du tableau
+  const columns = [
+    { id: 'name', label: 'Nom du Client', field: 'name' },
+    { id: 'email', label: 'Email', field: 'email' },
+    { id: 'dob', label: 'Date de Naissance', field: 'dob' }
+  ];
+
+  // Définit les actions possibles (Voir Détails, Supprimer)
+  const actions = [
+    { label: 'Voir détails', onClick: handleViewDetails },
+    { label: 'Supprimer', color: 'secondary', onClick: handleDeleteClient }
+  ];
+
   return (
     <Container>
       <Helmet>
         <title>Liste Clients</title>
       </Helmet>
+
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
         <Typography variant="h4" component="h1">
           Liste des clients
@@ -54,34 +71,8 @@ function ListeClients() {
         </Button>
       </Box>
 
-      <Grid container spacing={4}>
-        {clients.map((client) => (
-          <Grid item xs={12} sm={6} md={4} key={client.id}>
-            <Card
-              component={Link}
-              to={`/client/${client.id}`}
-              style={{
-                backgroundColor: '#e0e0e0', // Forcer la couleur de fond
-                textDecoration: 'none',
-                cursor: 'pointer',
-                transition: 'background-color 0.3s ease',
-                '&:hover': {
-                  backgroundColor: '#d3d3d3', // Forcer la couleur de fond au survol
-                },
-              }}
-            >
-              <CardContent>
-                <Typography variant="h6" style={{ color: '#34495e' }}>
-                  {client.name}
-                </Typography>
-                <Typography variant="body2" color="textSecondary">
-                  Date de naissance : {client.dob}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      {/* Utilisation du CustomTable */}
+      <CustomTable columns={columns} data={clients} actions={actions} />
     </Container>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { useAuth } from '../hooks/useAuth';
-import { Container, Typography, Checkbox, FormControlLabel, Button } from '@mui/material';
+import { Container, Typography, Checkbox, FormControlLabel, Button, Grid, Paper, Box } from '@mui/material';
 
 function UserPreferences() {
   const { currentUser } = useAuth();
@@ -73,47 +73,71 @@ function UserPreferences() {
   };
 
   return (
-    <Container>
-      <Typography variant="h4">Personnaliser la page Bilan</Typography>
-      <Typography variant="h6">Sections à afficher</Typography>
-      <FormControlLabel
-        control={<Checkbox checked={preferences.showClientInfo} onChange={() => handleCheckboxChange('showClientInfo')} />}
-        label="Afficher les informations du client"
-      />
-      <FormControlLabel
-        control={<Checkbox checked={preferences.showTestResults} onChange={() => handleCheckboxChange('showTestResults')} />}
-        label="Afficher les résultats des tests"
-      />
-      <FormControlLabel
-        control={<Checkbox checked={preferences.showRecommendations} onChange={() => handleCheckboxChange('showRecommendations')} />}
-        label="Afficher les recommandations"
-      />
-      <FormControlLabel
-        control={<Checkbox checked={preferences.showEvolutionGraph} onChange={() => handleCheckboxChange('showEvolutionGraph')} />}
-        label="Afficher l'évolution de l'indice moyen"
-      />
-      <FormControlLabel
-        control={<Checkbox checked={preferences.showIndicesGraph} onChange={() => handleCheckboxChange('showIndicesGraph')} />}
-        label="Afficher le graphique des indices"
-      />
+    <Container maxWidth="md">
+      <Paper elevation={3} sx={{ padding: 4, marginTop: 4 }}>
+        <Typography variant="h4" gutterBottom>Personnaliser la page Bilan</Typography>
 
-      <Typography variant="h6">Attributs des informations du client</Typography>
-      {Object.keys(preferences.clientAttributes).map(attr => (
-        <FormControlLabel
-          key={attr}
-          control={
-            <Checkbox
-              checked={preferences.clientAttributes[attr]}
-              onChange={() => handleCheckboxChange('clientAttributes', attr)}
-            />
-          }
-          label={`Afficher ${attr}`}
-        />
-      ))}
+        <Box mb={4}>
+          <Typography variant="h6" gutterBottom>Sections à afficher</Typography>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox checked={preferences.showClientInfo} onChange={() => handleCheckboxChange('showClientInfo')} />}
+                label="Afficher les informations du client"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox checked={preferences.showTestResults} onChange={() => handleCheckboxChange('showTestResults')} />}
+                label="Afficher les résultats des tests"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox checked={preferences.showRecommendations} onChange={() => handleCheckboxChange('showRecommendations')} />}
+                label="Afficher les recommandations"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox checked={preferences.showEvolutionGraph} onChange={() => handleCheckboxChange('showEvolutionGraph')} />}
+                label="Afficher l'évolution de l'indice moyen"
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <FormControlLabel
+                control={<Checkbox checked={preferences.showIndicesGraph} onChange={() => handleCheckboxChange('showIndicesGraph')} />}
+                label="Afficher le graphique des indices"
+              />
+            </Grid>
+          </Grid>
+        </Box>
 
-      <Button variant="contained" color="primary" onClick={savePreferences}>
-        Sauvegarder
-      </Button>
+        <Box mb={4}>
+          <Typography variant="h6" gutterBottom>Attributs des informations du client</Typography>
+          <Grid container spacing={2}>
+            {Object.keys(preferences.clientAttributes).map(attr => (
+              <Grid item xs={12} sm={6} md={4} key={attr}>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={preferences.clientAttributes[attr]}
+                      onChange={() => handleCheckboxChange('clientAttributes', attr)}
+                    />
+                  }
+                  label={`Afficher ${attr}`}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+
+        <Box textAlign="center" mt={4}>
+          <Button variant="contained" color="primary" onClick={savePreferences}>
+            Sauvegarder
+          </Button>
+        </Box>
+      </Paper>
     </Container>
   );
 }

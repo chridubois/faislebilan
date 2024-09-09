@@ -7,8 +7,8 @@ import Bilan from './pages/Bilan';
 import ListeBilans from './pages/ListeBilans';
 import ListeClients from './pages/ListeClients';
 import Client from './pages/Client';
-import Header from './components/Header';
 import Footer from './components/Footer';
+import Header from './components/Header';
 import Dashboard from './pages/Dashboard';
 import FAQ from './pages/FAQ';
 import Support from './pages/Support';
@@ -23,50 +23,276 @@ import NoTemplates from './pages/NoTemplates';
 import UserPreferences from './pages/UserPreferences';
 import CreateForm from './pages/CreateForm';
 import FormManagement from './pages/FormManagement';
-import FillForm from './pages/FillForm';
-import UserFormSubmissions from './pages/UserFormSubmissions';
-import FormSubmissionDetail from './pages/FormSubmissionDetail';
+import FillForm from './pages/FillForm';  // Nouvelle page ajoutée
+import UserFormSubmissions from './pages/UserFormSubmissions';  // Nouvelle page ajoutée
+import FormSubmissionDetail from './pages/FormSubmissionDetail';  // Nouvelle page ajoutée
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Layout from './components/Layout';
 import { getAuth } from 'firebase/auth';
 
 function App() {
   const auth = getAuth();
   const user = auth.currentUser; // Obtenez l'utilisateur connecté
+
   window.dataLayer.push({
     event: 'page_view',
     userId: user ? user.uid : null,
   });
+
   return (
     <Router>
-      <Header />
-      <Box mt={4}></Box>
-      <div style={{ minHeight: 'calc(100vh - 64px - 64px)' }}>
+      <Box mt={4} />
+      <div style={{ minHeight: 'calc(100vh - 64px)' }}>
         <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/funnel" element={<PrivateRoute><Funnel /></PrivateRoute>} />
-          <Route path="/bilan/:id" element={<PrivateRoute><Bilan /></PrivateRoute>} />
-          <Route path="/bilans" element={<PrivateRoute><ListeBilans /></PrivateRoute>} />
-          <Route path="/clients" element={<PrivateRoute><ListeClients /></PrivateRoute>} />
-          <Route path="/client/:id" element={<PrivateRoute><Client /></PrivateRoute>} />
-          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/support" element={<Support />} />
-          <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
-          <Route path="/bilan-templates" element={<PrivateRoute><BilanTemplates /></PrivateRoute>} />
-          <Route path="/create-bilan-template" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
-          <Route path="/create-bilan-template/:id" element={<PrivateRoute><CreateBilanTemplate /></PrivateRoute>} />
-          <Route path="/no-templates" element={<PrivateRoute><NoTemplates /></PrivateRoute>} />
-          <Route path="/preferences" element={<PrivateRoute><UserPreferences /></PrivateRoute>} />
-          <Route path="/create-form" element={<PrivateRoute><CreateForm /></PrivateRoute>} />
-          <Route path="/edit-form/:id" element={<PrivateRoute><CreateForm /></PrivateRoute>} />
-          <Route path="/manage-forms" element={<PrivateRoute><FormManagement /></PrivateRoute>} />
-          <Route path="/fill-form/:formId/:clientId" element={<FillForm />} />
-          <Route path="/form-submissions" element={<PrivateRoute><UserFormSubmissions /></PrivateRoute>} />
-          <Route path="/form-submission/:id" element={<PrivateRoute><FormSubmissionDetail /></PrivateRoute>} />
-          <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
+          {/* Pages publiques sans le layout */}
+          <Route
+            path="/login"
+            element={
+              <>
+                <Header />  {/* Affichage du Header */}
+                <Login />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />  {/* Affichage du Header */}
+                <Home />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <>
+                <Header />  {/* Affichage du Header */}
+                <FAQ />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/support"
+            element={
+              <>
+                <Header />  {/* Affichage du Header */}
+                <Support />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <>
+                <Header />  {/* Affichage du Header */}
+                <PrivacyPolicy />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Pages privées avec Layout */}
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Dashboard />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/funnel"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Funnel />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/bilan/:id"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Bilan />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/bilans"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <ListeBilans />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/clients"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <ListeClients />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/client/:id"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Client />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <Profile />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/bilan-templates"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <BilanTemplates />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create-bilan-template"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <CreateBilanTemplate />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create-bilan-template/:id"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <CreateBilanTemplate />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/no-templates"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <NoTemplates />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/preferences"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <UserPreferences />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/create-form"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <CreateForm />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/edit-form/:id"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <CreateForm />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/manage-forms"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <FormManagement />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+
+          {/* Nouveaux chemins ajoutés */}
+          <Route
+            path="/fill-form/:formId/:clientId"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <FillForm />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/form-submissions"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <UserFormSubmissions />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/form-submission/:id"
+            element={
+              <PrivateRoute>
+                <Layout>
+                  <FormSubmissionDetail />
+                </Layout>
+              </PrivateRoute>
+            }
+          />
+
+          {/* Route Admin */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute>
+                <Layout>
+                  <AdminPage />
+                </Layout>
+              </AdminRoute>
+            }
+          />
         </Routes>
       </div>
-      <Footer />
     </Router>
   );
 }

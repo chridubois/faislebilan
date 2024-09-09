@@ -245,155 +245,160 @@ function Funnel() {
 
   const handleSubmit = async () => {
     try {
-        const auth = getAuth();
-        const user = auth.currentUser; // Obtenez l'utilisateur connecté
-        if (!user) {
-            throw new Error("User not authenticated");
-        }
-        let clientId = location.state?.clientId;
+      const auth = getAuth();
+      const user = auth.currentUser; // Obtenez l'utilisateur connecté
+      if (!user) {
+        throw new Error("User not authenticated");
+      }
+      let clientId = location.state?.clientId;
 
-        if (!clientId && !clientExists) {
-            const age = new Date().getFullYear() - new Date(responses.dob).getFullYear();
-            const { gender, height, weight } = responses;
-
-            // Calcul BMR (Harris Benedict)
-            const bmrHarrisBenedict =
-                gender === 'Homme'
-                    ? 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
-                    : 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
-
-            // Calcul BMR (Mifflin St Jeor)
-            const bmrMifflinStJeor =
-                gender === 'Homme'
-                    ? 10 * weight + 6.25 * height - 5 * age + 5
-                    : 10 * weight + 6.25 * height - 5 * age - 161;
-
-            // Calcul de l'IMC
-            const bmi = weight / ((height / 100) ** 2);
-
-            const newClient = {
-                name: responses.name,
-                dob: responses.dob,
-                gender: responses.gender,
-                height: responses.height,
-                weight: responses.weight,
-                activity: responses.activity,
-                activityCoeff: calculateActivityLevelCoeff(responses.activity),
-                bmrHarrisBenedict,
-                bmrMifflinStJeor,
-                bmrHarrisBenedictFinal: bmrHarrisBenedict * calculateActivityLevelCoeff(responses.activity),
-                bmrMifflinStJeorFinal: bmrMifflinStJeor * calculateActivityLevelCoeff(responses.activity),
-                bmi,
-                createdAt: new Date(),
-                userId: user.uid,
-            };
-            const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
-            window.dataLayer.push({
-                event: 'create_client',
-                userId: user.uid,
-            });
-            clientId = clientDocRef.id;
-        } else if (!clientId) {
-            const clientsRef = collection(db, 'clients');
-            const q = query(clientsRef, where('name', '==', responses.name));
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                clientId = doc.id;
-            });
-        }
-
-        if (!clientId) {
-            throw new Error("Client ID is undefined");
-        }
-
+      if (!clientId && !clientExists) {
         const age = new Date().getFullYear() - new Date(responses.dob).getFullYear();
+        const { gender, height, weight } = responses;
 
-        // Calcul des indices pour chaque test et création de l'objet tests avec le nom du test
-        const testsWithNames = {};
-        for (const test of tests) {
-            let result = {};
+        // Calcul BMR (Harris Benedict)
+        const bmrHarrisBenedict =
+          gender === 'Homme'
+            ? 88.362 + 13.397 * weight + 4.799 * height - 5.677 * age
+            : 447.593 + 9.247 * weight + 3.098 * height - 4.330 * age;
 
-            if (test.name === 'ruffier') {
-                const p1 = parseFloat(responses['P1']);
-                const p2 = parseFloat(responses['P2']);
-                const p3 = parseFloat(responses['P3']);
-                if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
-                    continue; // Skip this test if the values are invalid
-                }
-                result = calculateRuffierIndex(p1, p2, p3);
-                testsWithNames[test.id] = {
-                    name: test.name,
-                    response: { P1: p1, P2: p2, P3: p3 },
-                    index: result.indice,
-                    goal: result.goal,
-                };
-            } else {
-                const response = responses[test.id];
-                if (response === undefined) {
-                    continue; // Skip this test if the response is undefined
-                }
+        // Calcul BMR (Mifflin St Jeor)
+        const bmrMifflinStJeor =
+          gender === 'Homme'
+            ? 10 * weight + 6.25 * height - 5 * age + 5
+            : 10 * weight + 6.25 * height - 5 * age - 161;
 
-                // Calculer l'indice et le goal basé sur le nom du test
-                if (test.name === 'assis debout') {
-                    result = calculateAssisDeboutIndex(responses.gender, age, response);
-                } else if (test.name === 'pushup') {
-                    result = calculatePushupIndex(responses.gender, age, response);
-                } else if (test.name === 'chaise') {
-                    result = calculateChairIndex(response);
-                } else if (test.name === '6min marche') {
-                    result = calculate6MinWalkIndex(responses.gender, age, response);
-                } else if (test.name === 'planche') {
-                    result = calculatePlankIndex(response);
-                } else if (test.name === 'sorensen') {
-                    result = calculateSorensenIndex(responses.gender, age, response);
-                } else if (test.name === 'mobilité épaule') {
-                    result = calculateHandPositionIndex(response);
-                } else if (test.name === 'souplesse chaîne post') {
-                    result = calculateSouplessePostIndex(responses.gender, response);
-                } else if (test.name === 'mobilité hanches') {
-                    result = calculateLegPositionIndex(response);
-                } else if (test.name === 'marche 2min') {
-                    result = calculate2MinWalkIndex(responses.gender, age, response);
-                } else if (test.name === 'mobilité hanche flexion') {
-                    result = calculateHipFlexionMobilityIndex(response);
-                } else if (test.name === 'coordination jambes bras') {
-                    result = calculateCoordinationJambesBrasIndex(response);
-                }
+        // Calcul de l'IMC
+        const bmi = weight / ((height / 100) ** 2);
 
-                if (result.indice !== undefined && response !== undefined) {
-                    testsWithNames[test.id] = {
-                        name: test.name,
-                        response: response,
-                        index: result.indice,
-                        goal: result.goal,
-                    };
-                }
-            }
-        }
-
-        const newBilan = {
-            clientId: clientId,
-            tests: testsWithNames,
-            createdAt: new Date(),
-            userId: user.uid,
+        const newClient = {
+          name: responses.name,
+          dob: responses.dob,
+          gender: responses.gender,
+          height: responses.height,
+          weight: responses.weight,
+          activity: responses.activity,
+          activityCoeff: calculateActivityLevelCoeff(responses.activity),
+          bmrHarrisBenedict,
+          bmrMifflinStJeor,
+          bmrHarrisBenedictFinal: bmrHarrisBenedict * calculateActivityLevelCoeff(responses.activity),
+          bmrMifflinStJeorFinal: bmrMifflinStJeor * calculateActivityLevelCoeff(responses.activity),
+          bmi,
+          createdAt: new Date(),
+          userId: user.uid,
         };
-
-        const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);
+        const clientDocRef = await addDoc(collection(db, 'clients'), newClient);
         window.dataLayer.push({
-            event: 'create_bilan',
-            userId: user.uid,
+          event: 'create_client',
+          userId: user.uid,
         });
-        navigate(`/bilan/${bilanDocRef.id}`);
+        clientId = clientDocRef.id;
+      } else if (!clientId) {
+        const clientsRef = collection(db, 'clients');
+        const q = query(clientsRef, where('name', '==', responses.name));
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+          clientId = doc.id;
+        });
+      }
+
+      if (!clientId) {
+        throw new Error("Client ID is undefined");
+      }
+
+      const age = new Date().getFullYear() - new Date(responses.dob).getFullYear();
+
+      // Calcul des indices pour chaque test et création de l'objet tests avec le nom du test
+      const testsWithNames = {};
+      for (const test of tests) {
+        let result = {};
+
+        if (test.name === 'ruffier') {
+          const p1 = parseFloat(responses['P1']);
+          const p2 = parseFloat(responses['P2']);
+          const p3 = parseFloat(responses['P3']);
+          if (isNaN(p1) || isNaN(p2) || isNaN(p3)) {
+            continue; // Skip this test if the values are invalid
+          }
+          result = calculateRuffierIndex(p1, p2, p3);
+          testsWithNames[test.id] = {
+            name: test.name,
+            response: { P1: p1, P2: p2, P3: p3 },
+            index: result.indice,
+            goal: result.goal,
+          };
+        } else {
+          const response = responses[test.id];
+          if (response === undefined) {
+            continue; // Skip this test if the response is undefined
+          }
+
+          // Calculer l'indice et le goal basé sur le nom du test
+          if (test.name === 'assis debout') {
+            result = calculateAssisDeboutIndex(responses.gender, age, response);
+          } else if (test.name === 'pushup') {
+            result = calculatePushupIndex(responses.gender, age, response);
+          } else if (test.name === 'chaise') {
+            result = calculateChairIndex(response);
+          } else if (test.name === '6min marche') {
+            result = calculate6MinWalkIndex(responses.gender, age, response);
+          } else if (test.name === 'planche') {
+            result = calculatePlankIndex(response);
+          } else if (test.name === 'sorensen') {
+            result = calculateSorensenIndex(responses.gender, age, response);
+          } else if (test.name === 'mobilité épaule') {
+            result = calculateHandPositionIndex(response);
+          } else if (test.name === 'souplesse chaîne post') {
+            result = calculateSouplessePostIndex(responses.gender, response);
+          } else if (test.name === 'mobilité hanches') {
+            result = calculateLegPositionIndex(response);
+          } else if (test.name === 'marche 2min') {
+            result = calculate2MinWalkIndex(responses.gender, age, response);
+          } else if (test.name === 'mobilité hanche flexion') {
+            result = calculateHipFlexionMobilityIndex(response);
+          } else if (test.name === 'coordination jambes bras') {
+            result = calculateCoordinationJambesBrasIndex(response);
+          }
+
+          if (result.indice !== undefined && response !== undefined) {
+            testsWithNames[test.id] = {
+              name: test.name,
+              response: response,
+              index: result.indice,
+              goal: result.goal,
+            };
+          }
+        }
+      }
+
+      window.dataLayer.push({
+        event: 'create_bilan',
+        userId: user.uid,
+      });
+
+      const newBilan = {
+        clientId: clientId,
+        tests: testsWithNames,
+        createdAt: new Date(),
+        userId: user.uid,
+      };
+
+      const bilanDocRef = await addDoc(collection(db, "bilans"), newBilan);
+
+      navigate(`/bilan/${bilanDocRef.id}`);
     } catch (e) {
-        console.error("Erreur lors de la création du bilan :", e);
+      console.error("Erreur lors de la création du bilan :", e);
     }
-};
+  };
 
 
 
 
   return (
-    <Container maxWidth="sm">
+    <Container>
+      <Typography variant="h4" component="h1" gutterBottom>
+        Créer un bilan
+      </Typography>
       {/* Barre de progression */}
       <Box width="100%" mb={2}>
         <LinearProgress variant="determinate" value={progress} />
