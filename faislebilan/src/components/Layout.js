@@ -25,11 +25,20 @@ function Layout({ children }) {
     setMobileOpen(!mobileOpen);
   };
 
+  // Fermer le drawer lors du clic sur un lien
+  const handleDrawerClose = () => {
+    if (mobileOpen) {
+      setMobileOpen(false);
+    }
+  };
+
   const handleProfileClick = () => {
+    handleDrawerClose(); // Ferme le drawer après le clic
     navigate('/profile'); // Redirige vers la page de profil
   };
 
   const handleCreateBilan = () => {
+    handleDrawerClose(); // Ferme le drawer après le clic
     navigate('/funnel'); // Redirige vers la page de création d'un bilan
   };
 
@@ -37,7 +46,7 @@ function Layout({ children }) {
     <div style={{ backgroundColor: '#A7C3CA', height: '100%', display: 'flex', flexDirection: 'column' }}> {/* Couleur de fond et flex layout */}
       {/* Logo en haut */}
       <Box display="flex" justifyContent="center" alignItems="center" p={2}>
-        <Link to="/dashboard">
+        <Link to="/dashboard" onClick={handleDrawerClose}>
           <img src={logo} alt="Faislebilan Logo" style={{ width: '150px', cursor: 'pointer' }} />
         </Link>
       </Box>
@@ -54,14 +63,14 @@ function Layout({ children }) {
       >
         {isAuthenticated && (
           <>
-            <ListItem button component={Link} to="/dashboard">
+            <ListItem button component={Link} to="/dashboard" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItem>
 
-            <ListItem button component={Link} to="/clients">
+            <ListItem button component={Link} to="/clients" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
@@ -76,7 +85,7 @@ function Layout({ children }) {
                 size="large"
                 startIcon={<AddCircleIcon />}  // Icone "Créer un bilan"
                 sx={{ width: '100%', backgroundColor: '#FF5722', '&:hover': { backgroundColor: '#FF7043' } }}
-                onClick={handleCreateBilan}
+                onClick={handleCreateBilan} // Ferme le drawer et redirige
               >
                 Créer un bilan
               </Button>
@@ -84,7 +93,7 @@ function Layout({ children }) {
           </>
         )}
         {!isAuthenticated && (
-          <ListItem button component={Link} to="/login">
+          <ListItem button component={Link} to="/login" onClick={handleDrawerClose}>
             <ListItemIcon>
               <AccountCircleIcon />
             </ListItemIcon>
@@ -105,21 +114,21 @@ function Layout({ children }) {
               </ListSubheader>
             }
           >
-            <ListItem button component={Link} to="/bilan-templates">
+            <ListItem button component={Link} to="/bilan-templates" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <AssignmentIcon />
               </ListItemIcon>
               <ListItemText primary="Bilans" />
             </ListItem>
 
-            <ListItem button component={Link} to="/manage-forms">
+            <ListItem button component={Link} to="/manage-forms" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <FormIcon />
               </ListItemIcon>
               <ListItemText primary="Formulaires" />
             </ListItem>
 
-            <ListItem button component={Link} to="/preferences">
+            <ListItem button component={Link} to="/preferences" onClick={handleDrawerClose}>
               <ListItemIcon>
                 <SettingsIcon />
               </ListItemIcon>
@@ -161,7 +170,7 @@ function Layout({ children }) {
         <Toolbar>
           {/* Logo dans l'AppBar mobile */}
           <Box display="flex" justifyContent="center" alignItems="center" flexGrow={1}>
-            <Link to="/dashboard">
+            <Link to="/dashboard" onClick={handleDrawerClose}>
               <img src={logo} alt="Faislebilan Logo" style={{ width: '120px', cursor: 'pointer' }} />
             </Link>
           </Box>
