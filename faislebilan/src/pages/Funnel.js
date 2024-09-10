@@ -400,17 +400,6 @@ function Funnel() {
         <LinearProgress variant="determinate" value={progress} />
       </Box>
 
-      <Box width="100%" mb={4}>
-        <Stepper activeStep={step} alternativeLabel>
-          {allSteps.map((label, index) => (
-            <Step key={index}>
-              <StepLabel>{label}</StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
-
-
       <Box
         display="flex"
         flexDirection="column"
