@@ -83,7 +83,7 @@ function UserPreferences() {
             <Grid item xs={12} sm={6}>
               <FormControlLabel
                 control={<Checkbox checked={preferences.showClientInfo} onChange={() => handleCheckboxChange('showClientInfo')} />}
-                label="Afficher les informations du client"
+                label="Afficher les informations du bénéficiaire"
               />
             </Grid>
             <Grid item xs={12} sm={6}>

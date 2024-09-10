@@ -74,7 +74,7 @@ function Layout({ children }) {
               <ListItemIcon>
                 <PeopleIcon />
               </ListItemIcon>
-              <ListItemText primary="Clients" />
+              <ListItemText primary="Bénéficiaires" />
             </ListItem>
 
             {/* Mettre en avant le bouton "Créer un bilan" */}

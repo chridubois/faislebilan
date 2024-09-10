@@ -1,14 +1,10 @@
-// src/pages/Funnel.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, TextField, Button, Box } from '@mui/material';
+import { Container, Typography, TextField, Button, Box, LinearProgress, Stepper, Step, StepLabel } from '@mui/material';
 import { calculateCoordinationJambesBrasIndex, calculateHipFlexionMobilityIndex, calculate2MinWalkIndex, calculateActivityLevelCoeff, calculateLegPositionIndex, calculateSouplessePostIndex, calculateHandPositionIndex, calculateSorensenIndex, calculatePlankIndex, calculateAssisDeboutIndex, calculatePushupIndex, calculateChairIndex, calculate6MinWalkIndex, calculateRuffierIndex } from '../utils/utils';
-// import { fetchTests } from '../services/testService';
-import { LinearProgress } from '@mui/material';
 import { getAuth } from 'firebase/auth';
-
 
 function Funnel() {
   const location = useLocation();
@@ -108,19 +104,19 @@ function Funnel() {
         label: template.name,
       })),
     },
-    { id: 'name', title: 'Quel est le nom-prénom du client ?', type: 'text' },
+    { id: 'name', title: 'Quel est le nom-prénom du bénéficiaire ?', type: 'text' },
     { id: 'dob', title: 'Quelle est la date de naissance ?', type: 'date' },
     {
-      id: 'gender', title: 'Quel est le sexe du client ?', type: 'select', options: ['Homme', 'Femme'].map(option => ({
+      id: 'gender', title: 'Quel est le sexe du bénéficiaire ?', type: 'select', options: ['Homme', 'Femme'].map(option => ({
         value: option,
         label: option,
       }))
     },
-    { id: 'height', title: 'Quelle est la taille du client ? (cm)', type: 'number' },
-    { id: 'weight', title: 'Quel est le poids du client ? (kg)', type: 'number' },
+    { id: 'height', title: 'Quelle est la taille du bénéficiaire ? (cm)', type: 'number' },
+    { id: 'weight', title: 'Quel est le poids du bénéficiaire ? (kg)', type: 'number' },
     {
       id: 'activity',
-      title: 'Quel est le niveau d\'activité du client ?',
+      title: 'Quel est le niveau d\'activité du bénéficiaire ?',
       description: (
         <ul>
           <li><strong>Sédentaire :</strong> Peu ou pas d’activité physique, mode de vie sédentaire.</li>
@@ -403,6 +399,18 @@ function Funnel() {
       <Box width="100%" mb={2}>
         <LinearProgress variant="determinate" value={progress} />
       </Box>
+
+      <Box width="100%" mb={4}>
+        <Stepper activeStep={step} alternativeLabel>
+          {allSteps.map((label, index) => (
+            <Step key={index}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
+      </Box>
+
+
       <Box
         display="flex"
         flexDirection="column"

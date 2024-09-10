@@ -10,7 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 function Dashboard() {
-  const [bilans, setBilans] = useState([]);
+  const [recentBilans, setRecentBilans] = useState([]); // Derniers bilans
+  const [clientBilans, setClientBilans] = useState([]); // Bilans filtrés par client
   const [clients, setClients] = useState([]);
   const [selectedClient, setSelectedClient] = useState(''); // Aucun client sélectionné par défaut
   const [averageIndex, setAverageIndex] = useState(0);
@@ -37,6 +38,27 @@ function Dashboard() {
     fetchClients();
   }, []);
 
+  // Récupérer les derniers bilans (sans filtre de client)
+  useEffect(() => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    if (!user) return;
+
+    const fetchRecentBilans = async () => {
+      const bilansCollection = collection(db, 'bilans');
+      const q = query(bilansCollection, where('userId', '==', user.uid), orderBy('createdAt', 'desc'));
+
+      const bilanSnapshot = await getDocs(q);
+      const bilansData = bilanSnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setRecentBilans(bilansData.slice(0, 5)); // Garde les 5 derniers bilans
+    };
+
+    fetchRecentBilans();
+  }, []);
+
   // Récupérer les bilans (soit tous, soit pour un client spécifique)
   useEffect(() => {
     const auth = getAuth();
@@ -54,8 +76,11 @@ function Dashboard() {
       }
 
       const bilanSnapshot = await getDocs(bilanQuery);
-      const bilansData = bilanSnapshot.docs.map(doc => doc.data());
-      setBilans(bilansData);
+      const bilansData = bilanSnapshot.docs.map(doc => ({
+        id: doc.id,  // Ajout de l'ID du document dans les données du bilan
+        ...doc.data(),
+      }));
+      setClientBilans(bilansData);
 
       if (bilansData.length > 0) {
         // Calculer la moyenne des indices
@@ -120,9 +145,9 @@ function Dashboard() {
       <Grid container spacing={4} style={{ marginBottom: '20px' }}>
         <Grid item xs={12} sm={6}>
           <Typography variant="h6">Derniers Bilans</Typography>
-          {bilans.length > 0 ? (
+          {recentBilans.length > 0 ? (
             <List>
-              {bilans.slice(0, 5).map((bilan) => (
+              {recentBilans.slice(0, 5).map((bilan) => (
                 <ListItem
                   key={bilan.id}
                   button
@@ -154,7 +179,7 @@ function Dashboard() {
           )}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Typography variant="h6">Derniers Clients</Typography>
+          <Typography variant="h6">Derniers Bénéficiaires</Typography>
           {clients.length > 0 ? (
             <List>
               {clients.slice(0, 5).map((client) => (
@@ -185,7 +210,7 @@ function Dashboard() {
               ))}
             </List>
           ) : (
-            <Typography variant="body1">Ce client n'a pas encore fait de bilan.</Typography>
+            <Typography variant="body1">Ce bénéficiaire n'a pas encore fait de bilan.</Typography>
           )}
         </Grid>
       </Grid>
@@ -195,7 +220,7 @@ function Dashboard() {
       {/* Sélecteur de client */}
       <TextField
         select
-        label="Sélectionner un client"
+        label="Sélectionner un bénéficiaire"
         value={selectedClient}
         onChange={handleClientChange}
         variant="outlined"
@@ -217,7 +242,7 @@ function Dashboard() {
           <Card sx={{ height: '100%' }}>
             <CardContent>
               <Typography variant="h6">Nombre de Bilans</Typography>
-              <Typography variant="h4">{bilans.length}</Typography>
+              <Typography variant="h4">{clientBilans.length}</Typography>
             </CardContent>
           </Card>
         </Grid>

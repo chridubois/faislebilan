@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../config/firebase';
-import { Container, Typography, Box, Button } from '@mui/material';
+import { Container, Typography, Box, Button, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { getAuth } from 'firebase/auth';
 import CustomTable from '../components/CustomTable';  // Import du composant réutilisable
+import { useTheme } from '@mui/material/styles';
 
 function ListeClients() {
   const [clients, setClients] = useState([]);
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Vérifie si l'utilisateur est sur un écran mobile
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -38,41 +41,40 @@ function ListeClients() {
     navigate(`/client/${clientId}`);
   };
 
-  const handleDeleteClient = (clientId) => {
-    // Ajoute la logique de suppression ici si nécessaire
-    console.log('Supprimer le client :', clientId);
-  };
-
   // Définit les colonnes du tableau
   const columns = [
     { id: 'name', label: 'Nom du Client', field: 'name' },
-    { id: 'email', label: 'Email', field: 'email' },
-    { id: 'dob', label: 'Date de Naissance', field: 'dob' }
   ];
 
   // Définit les actions possibles (Voir Détails, Supprimer)
   const actions = [
     { label: 'Voir détails', onClick: handleViewDetails },
-    { label: 'Supprimer', color: 'secondary', onClick: handleDeleteClient }
   ];
 
   return (
     <Container>
       <Helmet>
-        <title>Liste Clients</title>
+        <title>Liste des bénéficiaires</title>
       </Helmet>
 
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={4}>
-        <Typography variant="h4" component="h1">
-          Liste des clients
+        <Typography variant={isMobile ? 'h5' : 'h4'} component="h1">
+          Bénéficiaires
         </Typography>
-        <Button variant="contained" color="primary" onClick={handleCreateClient}>
-          Créer un client
+        <Button variant="contained" color="primary" onClick={handleCreateClient} size={isMobile ? 'small' : 'medium'}>
+          Créer un bénéficiaire
         </Button>
       </Box>
 
-      {/* Utilisation du CustomTable */}
-      <CustomTable columns={columns} data={clients} actions={actions} />
+      {/* Table scrollable sur petits écrans */}
+      <Box sx={{ overflowX: 'auto' }}>
+        <CustomTable
+          columns={columns}
+          data={clients}
+          actions={actions}
+          isMobile={isMobile} // Passe l'information pour les actions responsives
+        />
+      </Box>
     </Container>
   );
 }

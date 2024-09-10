@@ -9,7 +9,7 @@ const AdminRoute = ({ children }) => {
     return <Navigate to="/login" />;
   }
 
-  return isAdmin ? children : <Navigate to="/" />;
+  return isAdmin ? children : <Navigate to="/dashboard" />;
 };
 
 export default AdminRoute;

@@ -1,166 +1,335 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Typography, Button, Container, Card, CardContent, Grid, Box, Snackbar } from '@mui/material';
-import { Helmet } from 'react-helmet';
-import { collection, query, orderBy, limit, getDocs, doc, getDoc, where } from 'firebase/firestore';
-import { db } from '../config/firebase';
-import { useAuth } from '../hooks/useAuth';
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import image1 from '../images/carrousel1.png';
-import image2 from '../images/carrousel2.png';
-import image3 from '../images/carrousel3.png';
+import React, { useState } from 'react';
+import { AppBar, Toolbar, IconButton, Button, Grid, Typography, Drawer, List, ListItem, ListItemText, Box, Container } from '@mui/material';
+import { useNavigate, Link as RouterLink } from 'react-router-dom';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
+import logo from '../images/faislebilan.png';  // Assure-toi d'avoir un logo contrasté
+import screenshot1 from '../images/screenshot1.png';  // Assure-toi d'avoir une capture d'écran
+import iconEvaluation from '../images/icon-evaluation.png';  // Assure-toi d'avoir des icônes
+import iconPlanning from '../images/icon-planning.png';  // Assure-toi d'avoir des icônes
+import iconFollowup from '../images/icon-followup.png';  // Assure-toi d'avoir des icônes
 
 function Home() {
   const navigate = useNavigate();
-  const { isAuthenticated, currentUser } = useAuth();
-  const [recentBilans, setRecentBilans] = useState([]);
-  const [notificationOpen, setNotificationOpen] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchRecentBilans = async () => {
-      if (isAuthenticated) {
-        const bilansRef = collection(db, 'bilans');
-        const q = query(bilansRef, where('userId', '==', currentUser.uid), orderBy('createdAt', 'desc'), limit(5));
-        const querySnapshot = await getDocs(q);
-
-        const bilans = await Promise.all(
-          querySnapshot.docs.map(async (bilanDoc) => {
-            const bilanData = bilanDoc.data();
-            const clientDocRef = doc(db, 'clients', bilanData.clientId);
-            const clientDocSnap = await getDoc(clientDocRef);
-
-            let clientName = 'Client inconnu';
-            if (clientDocSnap.exists()) {
-              const clientData = clientDocSnap.data();
-              clientName = clientData.name || 'Client sans nom';
-            }
-
-            return { id: bilanDoc.id, clientName, createdAt: bilanData.createdAt };
-          })
-        );
-
-        setRecentBilans(bilans);
-      }
-    };
-
-    fetchRecentBilans();
-  }, [isAuthenticated, currentUser]);
-
-  const handleStart = () => {
-    navigate('/funnel');
-  };
-
-  const handleViewBilan = (id) => {
-    navigate(`/bilan/${id}`);
-  };
-
-  const handleNotificationClose = () => {
-    setNotificationOpen(false);
+  const toggleDrawer = () => {
+    setDrawerOpen(!drawerOpen);
   };
 
   return (
-    <>
-      <Helmet>
-        <title>Faislebilan</title>
-      </Helmet>
+    <Box sx={{ backgroundColor: '#2C3E50', minHeight: '100vh', py: 5, color: '#FFFFFF' }}>
+      {/* En-tête avec AppBar */}
+      <AppBar position="static" sx={{ backgroundColor: '#2C3E50', mb: 5 }} elevation={0}>
+        <Container maxWidth="xl">
+          <Toolbar sx={{ justifyContent: 'space-between' }}>
+            {/* Logo */}
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <RouterLink to="/" style={{ textDecoration: 'none' }}> {/* Ajoute le lien vers la home */}
+                <img src={logo} alt="faislebilan logo" style={{ height: 40 }} />
+              </RouterLink>
+            </Box>
 
-      {/* Full-width Carousel */}
-      <Box sx={{ width: '100vw', position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw', my: 4 }}>
-        <Carousel showThumbs={false} autoPlay interval={3000} infiniteLoop>
-          <div>
-            <img src={image1} alt="Étape 1" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
-            {/* <p className="legend">Étape 1: Créez un bilan en quelques clics</p> */}
-          </div>
-          <div>
-            <img src={image2} alt="Étape 2" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
-            {/* <p className="legend">Étape 2: Suivez vos progrès avec des graphiques détaillés</p> */}
-          </div>
-          <div>
-            <img src={image3} alt="Étape 3" style={{ width: '100%', height: 'auto', objectFit: 'cover' }} />
-            {/* <p className="legend">Étape 3: Recevez des recommandations personnalisées</p> */}
-          </div>
-        </Carousel>
-      </Box>
+            {/* Boutons pour les écrans larges */}
+            <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+              <Button
+                variant="outlined"
+                sx={{
+                  mr: 2,
+                  color: '#FF5722',
+                  borderColor: '#FF5722',
+                  '&:hover': {
+                    backgroundColor: '#FF5722',
+                    color: '#fff',
+                  },
+                }}
+                onClick={() => navigate('/signup')}
+              >
+                Créer un compte
+              </Button>
+              <Button
+                variant="contained"
+                sx={{
+                  backgroundColor: '#FF5722',
+                  color: '#fff',
+                  '&:hover': {
+                    backgroundColor: '#FF7043',
+                  },
+                }}
+                onClick={() => navigate('/login')}
+              >
+                Se connecter
+              </Button>
+            </Box>
 
-      <Container
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          padding: '20px',
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
-          Bienvenue sur Faislebilan !
-        </Typography>
-        <Typography variant="body1" paragraph>
-          Une application simple pour gérer vos bilans de forme physique.
-        </Typography>
+            {/* Menu burger pour les écrans plus petits */}
+            <IconButton
+              color="inherit"
+              edge="end"
+              onClick={toggleDrawer}
+              sx={{ display: { xs: 'block', md: 'none' } }}
+            >
+              <MenuIcon />
+            </IconButton>
+          </Toolbar>
+        </Container>
+      </AppBar>
 
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          onClick={() => {
-            handleStart();
-            setNotificationOpen(true);
+      {/* Drawer/Menu burger */}
+      <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+        <Box
+          sx={{
+            width: 250,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            height: '100%',
           }}
-          style={{ backgroundColor: '#2980b9', marginTop: '20px' }}
         >
-          Lancer un bilan
-        </Button>
+          <IconButton onClick={toggleDrawer} sx={{ alignSelf: 'flex-end', m: 2 }}>
+            <CloseIcon />
+          </IconButton>
 
-        {isAuthenticated && recentBilans.length > 0 && (
-          <>
-            <Typography variant="h5" style={{ marginTop: '40px' }}>
-              Bilans Récents
-            </Typography>
-            <Grid container spacing={3} style={{ marginTop: '20px' }}>
-              {recentBilans.map((bilan) => (
-                <Grid item xs={12} sm={6} md={4} key={bilan.id}>
-                  <Card
-                    onClick={() => handleViewBilan(bilan.id)}
-                    style={{
-                      cursor: 'pointer',
-                      backgroundColor: '#ecf0f1',
-                      boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)',
-                      transition: '0.3s',
-                      '&:hover': { boxShadow: '0 8px 16px 0 rgba(0, 0, 0, 0.2)' },
-                    }}
-                  >
-                    <CardContent>
-                      <Typography variant="h6" style={{ color: '#34495e' }}>{bilan.clientName}</Typography>
-                      <Typography variant="body2" color="textSecondary">
-                        Date: {new Date(bilan.createdAt.toDate()).toLocaleDateString()}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
-          </>
-        )}
+          <List>
+            <ListItem button onClick={() => { navigate('/login'); toggleDrawer(); }}>
+              <ListItemText primary="Créer un compte" />
+            </ListItem>
+            <ListItem button onClick={() => { navigate('/login'); toggleDrawer(); }}>
+              <ListItemText primary="Se connecter" />
+            </ListItem>
+          </List>
+        </Box>
+      </Drawer>
 
-        <Box style={{ marginTop: '60px', width: '100%', textAlign: 'center' }}>
-          <Typography variant="h6" gutterBottom>
-            Besoin d'aide ?
+      <Box height={94} />  {/* Espace pour le logo et les boutons */}
+
+      {/* Section titre et sous-titre */}
+      <Container maxWidth="lg">
+        <Box textAlign="center" mb={6}>
+          <Typography variant="h2" fontWeight="bold" gutterBottom>
+            La solution <span style={{ color: '#FF5722' }}>n°1</span> pour les enseignants APA
           </Typography>
-          <Typography variant="body2" color="textSecondary" paragraph>
-            Consultez notre <a href="/faq" style={{ color: '#2980b9' }}>FAQ</a> ou contactez notre <a href="/support" style={{ color: '#2980b9' }}>support</a> pour obtenir de l'aide.
+          <Typography variant="h5" color="textSecondary" sx={{ maxWidth: 800, margin: '0 auto', color: '#B0BEC5' }}>
+            Évaluez, planifiez et suivez vos bilans APA plus facilement que jamais.
+          </Typography>
+          <Box mt={4}>
+            <Button
+              variant="contained"
+              size="large"
+              sx={{
+                mr: 2,
+                backgroundColor: '#FF5722',
+                color: '#fff',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                '&:hover': {
+                  backgroundColor: '#FF7043',
+                  boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                },
+              }}
+              onClick={() => navigate('/login')}
+            >
+              Essayer gratuitement
+            </Button>
+            <Button
+              variant="outlined"
+              size="large"
+              sx={{
+                color: '#FF5722',
+                borderColor: '#FF5722',
+                boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                '&:hover': {
+                  backgroundColor: '#FF5722',
+                  color: '#fff',
+                  boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                },
+              }}
+              onClick={() => window.open('https://calendly.com/hellochristophedubois/call-decouverte', '_blank')}
+            >
+              Demander une démo
+            </Button>
+          </Box>
+          <Typography variant="caption" color="textSecondary" mt={2} sx={{ color: '#B0BEC5' }}>
+            14 jours d'essai gratuit. Pas besoin de CB.
           </Typography>
         </Box>
-      </Container>
 
-      <Snackbar
-        open={notificationOpen}
-        autoHideDuration={3000}
-        onClose={handleNotificationClose}
-        message="Bilan lancé avec succès !"
-      />
-    </>
+        {/* Capture d'écran centrée */}
+        <Box textAlign="center" mb={8} sx={{ display: 'flex', justifyContent: 'center' }}>
+          <img src={screenshot1} alt="faislebilan demo" style={{ width: '100%', maxWidth: '900px', borderRadius: 8, boxShadow: '0px 4px 12px rgba(0,0,0,0.1)' }} />
+        </Box>
+
+        {/* Section fonctionnalités avec icônes centrées */}
+        <Box mb={8}>
+          <Typography variant="h4" textAlign="center" fontWeight="bold" mb={6}>
+            Tout ce dont vous avez besoin pour gérer vos bilans APA
+          </Typography>
+          <Grid container spacing={4} justifyContent="center" alignItems="center">
+            <Grid item xs={12} sm={6} md={4}>
+              <Box display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <img src={iconEvaluation} alt="icon" style={{ height: 80, marginBottom: '16px' }} />
+                <Typography variant="h6" fontWeight="bold" color="#fff">
+                  Évaluation personnalisée
+                </Typography>
+                <Typography color="#B0BEC5">
+                  Créez des bilans adaptés aux besoins de chaque élève.
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <img src={iconPlanning} alt="icon" style={{ height: 80, marginBottom: '16px' }} />
+                <Typography variant="h6" fontWeight="bold" color="#fff">
+                  Planification simplifiée
+                </Typography>
+                <Typography color="#B0BEC5">
+                  Organisez et planifiez vos bilans en quelques clics.
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box display="flex" flexDirection="column" alignItems="center" textAlign="center">
+                <img src={iconFollowup} alt="icon" style={{ height: 80, marginBottom: '16px' }} />
+                <Typography variant="h6" fontWeight="bold" color="#fff">
+                  Suivi des résultats
+                </Typography>
+                <Typography color="#B0BEC5">
+                  Suivez les progrès de vos élèves et ajustez les bilans.
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+
+        {/* Témoignages / Preuve sociale avec fond blanc */}
+        <Box mb={8} textAlign="center">
+          <Typography variant="h4" fontWeight="bold" mb={6} color="#fff">
+            Des enseignants APA nous font déjà confiance
+          </Typography>
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                p={3}
+                borderRadius={4}
+                sx={{
+                  backgroundColor: '#FFF',
+                  color: '#2C3E50',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                  },
+                  transition: '0.3s ease-in-out',
+                }}
+              >
+                <Typography variant="body1" color="textSecondary">
+                  "faislebilan a changé ma façon d'évaluer mes élèves. Tout est plus simple et rapide."
+                </Typography>
+                <Typography variant="subtitle2" fontWeight="bold" mt={2} color="#2C3E50">
+                  - Sarah P., Enseignante APA
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                p={3}
+                borderRadius={4}
+                sx={{
+                  backgroundColor: '#FFF',
+                  color: '#2C3E50',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                  },
+                  transition: '0.3s ease-in-out',
+                }}
+              >
+                <Typography variant="body1" color="textSecondary">
+                  "Je ne peux plus m'en passer. Tout est optimisé pour mon travail quotidien."
+                </Typography>
+                <Typography variant="subtitle2" fontWeight="bold" mt={2} color="#2C3E50">
+                  - Jean L., Enseignant APA
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                p={3}
+                borderRadius={4}
+                sx={{
+                  backgroundColor: '#FFF',
+                  color: '#2C3E50',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                  },
+                  transition: '0.3s ease-in-out',
+                }}
+              >
+                <Typography variant="body1" color="textSecondary">
+                  "L'outil idéal pour gérer mes bilans APA, je recommande chaudement !"
+                </Typography>
+                <Typography variant="subtitle2" fontWeight="bold" mt={2} color="#2C3E50">
+                  - Sophie M., Enseignante APA
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+              <Box
+                p={3}
+                borderRadius={4}
+                sx={{
+                  backgroundColor: '#FFF',
+                  color: '#2C3E50',
+                  boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+                  border: '1px solid rgba(0, 0, 0, 0.05)',
+                  '&:hover': {
+                    transform: 'scale(1.02)',
+                    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+                  },
+                  transition: '0.3s ease-in-out',
+                }}
+              >
+                <Typography variant="body1" color="textSecondary">
+                  "Facile à utiliser, complet et intuitif, faislebilan est un atout au quotidien."
+                </Typography>
+                <Typography variant="subtitle2" fontWeight="bold" mt={2} color="#2C3E50">
+                  - Pierre D., Enseignant APA
+                </Typography>
+              </Box>
+            </Grid>
+          </Grid>
+        </Box>
+
+
+        {/* Appel final à l'action */}
+        <Box textAlign="center" py={6} sx={{ bgcolor: '#1A2B3C' }}>
+          <Typography variant="h5" fontWeight="bold" mb={4} color="#E1F5FE">
+            Rejoignez des centaines d'enseignants APA qui utilisent faislebilan
+          </Typography>
+          <Button
+            variant="contained"
+            size="large"
+            sx={{
+              backgroundColor: '#FF5722',
+              color: '#fff',
+              boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.1)',
+              '&:hover': {
+                backgroundColor: '#FF7043',
+                boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.2)',
+              },
+            }}
+            onClick={() => navigate('/login')}
+          >
+            Commencer dès maintenant
+          </Button>
+        </Box>
+      </Container>
+    </Box>
   );
 }
 

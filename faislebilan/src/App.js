@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Box } from '@mui/material';
 import Home from './pages/Home';
 import Funnel from './pages/Funnel';
 import Bilan from './pages/Bilan';
@@ -41,7 +40,6 @@ function App() {
 
   return (
     <Router>
-      <Box mt={4} />
       <div style={{ minHeight: 'calc(100vh - 64px)' }}>
         <Routes>
           {/* Pages publiques sans le layout */}
@@ -49,7 +47,6 @@ function App() {
             path="/login"
             element={
               <>
-                <Header />  {/* Affichage du Header */}
                 <Login />
                 <Footer />
               </>
@@ -59,7 +56,6 @@ function App() {
             path="/"
             element={
               <>
-                <Header />  {/* Affichage du Header */}
                 <Home />
                 <Footer />
               </>

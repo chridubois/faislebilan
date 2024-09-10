@@ -30,21 +30,15 @@ function BilanTemplates() {
     navigate(`/create-bilan-template/${templateId}`);
   };
 
-  const handleDelete = (templateId) => {
-    // Ajoute la logique de suppression du template
-    console.log('Supprimer le template:', templateId);
-  };
 
   // Définit les colonnes du tableau
   const columns = [
     { id: 'name', label: 'Nom du Template', field: 'name' },
-    { id: 'description', label: 'Description', field: 'description' }
   ];
 
   // Définit les actions possibles (Éditer, Supprimer)
   const actions = [
     { label: 'Éditer', onClick: handleTemplateClick },
-    { label: 'Supprimer', color: 'secondary', onClick: handleDelete }
   ];
 
   return (

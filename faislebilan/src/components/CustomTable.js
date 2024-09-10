@@ -7,17 +7,23 @@ import {
   TableHead,
   TableRow,
   Paper,
-  Button,
+  IconButton,
   TablePagination,
   TextField,
   Box,
+  useMediaQuery,
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import { useTheme } from '@mui/material/styles';
 
 function CustomTable({ columns, data, actions }) {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); // Vérification des petits écrans
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -39,6 +45,10 @@ function CustomTable({ columns, data, actions }) {
     });
   });
 
+  const handleRowClick = (rowId) => {
+    actions[0].onClick(rowId); // Par défaut, clique sur "Voir Détails"
+  };
+
   return (
     <>
       <Box display="flex" justifyContent="space-between" alignItems="left" mb={2}>
@@ -54,7 +64,8 @@ function CustomTable({ columns, data, actions }) {
         </Box>
       </Box>
 
-      <TableContainer component={Paper}>
+      {/* Ajout de overflowX pour le scroll horizontal sur mobile */}
+      <TableContainer component={Paper} sx={{ overflowX: 'auto' }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -68,28 +79,34 @@ function CustomTable({ columns, data, actions }) {
             {filteredData
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => (
-                <TableRow key={row.id}>
+                <TableRow
+                  key={row.id}
+                  hover
+                  onClick={() => handleRowClick(row.id)} // La ligne devient cliquable
+                  sx={{ cursor: 'pointer' }} // Ajout du curseur pour indiquer que la ligne est cliquable
+                >
                   {columns.map((column) => (
                     <TableCell key={column.id}>{row[column.field]}</TableCell>
                   ))}
                   <TableCell>
-                    {actions.map((action) => (
-                      <Button
-                        key={action.label}
-                        variant="contained"
-                        color={action.color || 'primary'}
-                        onClick={() => action.onClick(row.id)}
-                        sx={{ marginRight: 1 }}
+                    <Box display="flex" flexDirection={isMobile ? 'column' : 'row'}>
+                      {/* Icône pour Voir Détails */}
+                      <IconButton
+                        aria-label="Voir détails"
+                        color="primary"
+                        onClick={(e) => { e.stopPropagation(); actions[0].onClick(row.id); }}
+                        size={isMobile ? 'small' : 'medium'}
                       >
-                        {action.label}
-                      </Button>
-                    ))}
+                        <VisibilityIcon />
+                      </IconButton>
+                    </Box>
                   </TableCell>
                 </TableRow>
               ))}
           </TableBody>
         </Table>
       </TableContainer>
+
       <TablePagination
         component="div"
         count={filteredData.length}
