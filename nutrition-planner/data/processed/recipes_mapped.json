@@ -1,0 +1,826 @@
+[
+  {
+    "id": "rec_pates_epinards",
+    "name": "Spaghetti aux épinards",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_name": "epinards",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180,
+        "ciqual_code": "25085",
+        "ciqual_name": "Pâtes à la bolognaise (spaghetti, tagliatelles…)",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "epinards",
+        "quantity_g": 150,
+        "ciqual_code": "20059",
+        "ciqual_name": "Épinard, cru",
+        "confidence": 72.0
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10,
+        "ciqual_code": "17270",
+        "ciqual_name": "Huile d'olive vierge extra",
+        "confidence": 73.63636363636364
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6,
+        "ciqual_code": "25126",
+        "ciqual_name": "Paupiette de volaille",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_curry_lentilles",
+    "name": "Curry de lentilles corail",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 3,
+    "dish_family": "curry",
+    "cuisine": "indian",
+    "time_min": 30,
+    "ingredients": [
+      {
+        "ingredient_name": "lentilles",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "lait coco",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "lentilles",
+        "quantity_g": 200,
+        "ciqual_code": "26261",
+        "ciqual_name": "Salade de lentilles et saucisse fumée, préemballée",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "lait coco",
+        "quantity_g": 200,
+        "ciqual_code": "25174",
+        "ciqual_name": "Poulet au curry et au lait de coco",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 100,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6,
+        "ciqual_code": "25126",
+        "ciqual_name": "Paupiette de volaille",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_poulet",
+    "name": "Salade de poulet",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 80
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200,
+        "ciqual_code": "25138",
+        "ciqual_name": "Couscous au poulet",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 150,
+        "ciqual_code": "20031",
+        "ciqual_name": "Laitue, crue",
+        "confidence": 75.00000000000001
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100,
+        "ciqual_code": "25914",
+        "ciqual_name": "Soupe à la tomate, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 80,
+        "ciqual_code": "25400",
+        "ciqual_name": "Croque-monsieur, fait maison",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_omelette_champignons",
+    "name": "Omelette aux champignons",
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "portions": 2,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 12,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_name": "champignons",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 120,
+        "ciqual_code": "25033",
+        "ciqual_name": "Boeuf bourguignon",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "champignons",
+        "quantity_g": 150,
+        "ciqual_code": "25912",
+        "ciqual_name": "Soupe aux champignons, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_chili_sin_carne",
+    "name": "Chili sin carne",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 4,
+    "dish_family": "stew",
+    "cuisine": "mexican",
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_name": "haricots rouges",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 400
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 100
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "haricots rouges",
+        "quantity_g": 300,
+        "ciqual_code": "13998",
+        "ciqual_name": "Coulis de fruits rouges (framboises, fraises, groseilles, cassis)",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 400,
+        "ciqual_code": "25933",
+        "ciqual_name": "Soupe à la tomate et aux vermicelles, préemballée à réchauffer",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 150,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 100,
+        "ciqual_code": "25400",
+        "ciqual_name": "Croque-monsieur, fait maison",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_bol_yaourt_granola",
+    "name": "Bol yaourt granola banane",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "granola",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 200,
+        "ciqual_code": "23588",
+        "ciqual_name": "Gâteau au yaourt",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "granola",
+        "quantity_g": 50,
+        "ciqual_code": "28503",
+        "ciqual_name": "Bresaola",
+        "confidence": 66.66666666666667
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100,
+        "ciqual_code": "2366",
+        "ciqual_name": "Nectar de banane",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_poulet_riz",
+    "name": "Poulet au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "rice",
+    "cuisine": "asian",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200,
+        "ciqual_code": "25138",
+        "ciqual_name": "Couscous au poulet",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150,
+        "ciqual_code": "9520",
+        "ciqual_name": "Farine de riz",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_pates_tomates",
+    "name": "Spaghetti sauce tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180,
+        "ciqual_code": "25085",
+        "ciqual_name": "Pâtes à la bolognaise (spaghetti, tagliatelles…)",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 200,
+        "ciqual_code": "25933",
+        "ciqual_name": "Soupe à la tomate et aux vermicelles, préemballée à réchauffer",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10,
+        "ciqual_code": "17270",
+        "ciqual_name": "Huile d'olive vierge extra",
+        "confidence": 73.63636363636364
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_oeuf",
+    "name": "Salade œuf tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 1,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 10,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 80
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 60,
+        "ciqual_code": "25033",
+        "ciqual_name": "Boeuf bourguignon",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 120,
+        "ciqual_code": "25914",
+        "ciqual_name": "Soupe à la tomate, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 80,
+        "ciqual_code": "20031",
+        "ciqual_name": "Laitue, crue",
+        "confidence": 75.00000000000001
+      }
+    ]
+  },
+  {
+    "id": "rec_poivrons_farci_riz",
+    "name": "Poivrons farcis au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "stuffed",
+    "cuisine": "mediterranean",
+    "time_min": 45,
+    "ingredients": [
+      {
+        "ingredient_name": "poivron",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "poivron",
+        "quantity_g": 200,
+        "ciqual_code": "11170",
+        "ciqual_name": "Sauce basquaise ou Sauce aux poivrons, préemballée",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150,
+        "ciqual_code": "9520",
+        "ciqual_name": "Farine de riz",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 80,
+        "ciqual_code": "25910",
+        "ciqual_name": "Soupe à l'oignon, préemballée à réchauffer",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100,
+        "ciqual_code": "25914",
+        "ciqual_name": "Soupe à la tomate, préemballée à réchauffer",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_toast_avocat",
+    "name": "Toast à l'avocat",
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "portions": 1,
+    "dish_family": "toast",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_name": "avocat",
+        "quantity_g": 80
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60,
+        "ciqual_code": "25544",
+        "ciqual_name": "Sandwich pain de mie, garnitures diverses, préemballé",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "avocat",
+        "quantity_g": 80,
+        "ciqual_code": "17100",
+        "ciqual_name": "Huile d'avocat",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_porridge_classique",
+    "name": "Porridge avoine lait",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "porridge",
+    "cuisine": "international",
+    "time_min": 8,
+    "ingredients": [
+      {
+        "ingredient_name": "flocons avoine",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "miel",
+        "quantity_g": 10
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "flocons avoine",
+        "quantity_g": 50,
+        "ciqual_code": "4016",
+        "ciqual_name": "Pomme de terre, flocons déshydratés, au lait ou à la crème",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 200,
+        "ciqual_code": "19865",
+        "ciqual_name": "Kéfir de lait",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "miel",
+        "quantity_g": 10,
+        "ciqual_code": "31008",
+        "ciqual_name": "Miel",
+        "confidence": 75.0
+      }
+    ]
+  },
+  {
+    "id": "rec_chia_pudding",
+    "name": "Chia pudding fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "graines chia",
+        "quantity_g": 30
+      },
+      {
+        "ingredient_name": "lait amande",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 120
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "graines chia",
+        "quantity_g": 30,
+        "ciqual_code": "15018",
+        "ciqual_name": "Mélange apéritif de graines salées et raisins secs",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "lait amande",
+        "quantity_g": 200,
+        "ciqual_code": "25174",
+        "ciqual_name": "Poulet au curry et au lait de coco",
+        "confidence": 85.5
+      },
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 120,
+        "ciqual_code": "13998",
+        "ciqual_name": "Coulis de fruits rouges (framboises, fraises, groseilles, cassis)",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_yaourt_pb_banane",
+    "name": "Fromage blanc, banane & beurre de cacahuète",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 3,
+    "ingredients": [
+      {
+        "ingredient_name": "fromage blanc",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "beurre cacahuete",
+        "quantity_g": 20
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "fromage blanc",
+        "quantity_g": 200,
+        "ciqual_code": "26260",
+        "ciqual_name": "Salade de concombre à la crème/fromage blanc, préemballée",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100,
+        "ciqual_code": "2366",
+        "ciqual_name": "Nectar de banane",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "beurre cacahuete",
+        "quantity_g": 20,
+        "ciqual_code": "25475",
+        "ciqual_name": "Sandwich baguette, jambon, oeuf dur, crudités (tomate, salade), beurre",
+        "confidence": 85.5
+      }
+    ]
+  },
+  {
+    "id": "rec_smoothie_fruits_rouges",
+    "name": "Smoothie fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "portions": 1,
+    "dish_family": "smoothie",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 100
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 150,
+        "ciqual_code": "13998",
+        "ciqual_name": "Coulis de fruits rouges (framboises, fraises, groseilles, cassis)",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 150,
+        "ciqual_code": "23588",
+        "ciqual_name": "Gâteau au yaourt",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 100,
+        "ciqual_code": "19865",
+        "ciqual_name": "Kéfir de lait",
+        "confidence": 90.0
+      }
+    ]
+  },
+  {
+    "id": "rec_oeufs_brouilles_toast",
+    "name": "Œufs brouillés & toast",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 7,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60
+      }
+    ],
+    "ingredients_mapped": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 100,
+        "ciqual_code": "25033",
+        "ciqual_name": "Boeuf bourguignon",
+        "confidence": 90.0
+      },
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60,
+        "ciqual_code": "25544",
+        "ciqual_name": "Sandwich pain de mie, garnitures diverses, préemballé",
+        "confidence": 85.5
+      }
+    ]
+  }
+]

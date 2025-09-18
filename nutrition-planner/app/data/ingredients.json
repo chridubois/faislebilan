@@ -1,0 +1,6933 @@
+[
+  {
+    "id": "ing_ail",
+    "name": "Ail",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 149,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 623,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 6.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 33.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.1,
+            "unit": "g"
+          },
+          "starch": {
+            "value": null,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "omega3_total": {
+            "value": 5,
+            "unit": "mg"
+          },
+          "omega3_ALA": {
+            "value": 0.005,
+            "unit": "g"
+          },
+          "omega3_EPA": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega3_DHA": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega6_total": {
+            "value": 250,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 17,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 401,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 181,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 25,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 153,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 1.7,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 1.2,
+            "unit": "mg"
+          },
+          "copper": {
+            "value": 0.3,
+            "unit": "mg"
+          },
+          "manganese": {
+            "value": 1.7,
+            "unit": "mg"
+          },
+          "selenium": {
+            "value": 14.2,
+            "unit": "µg"
+          },
+          "iodine": {
+            "value": 2,
+            "unit": "µg"
+          },
+          "vitamin_A_RAE": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "vitamin_E": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "vitamin_D": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "vitamin_K": {
+            "value": 2.3,
+            "unit": "µg"
+          },
+          "vitamin_C": {
+            "value": 31.2,
+            "unit": "mg"
+          },
+          "thiamin_B1": {
+            "value": 0.2,
+            "unit": "mg"
+          },
+          "riboflavin_B2": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "niacin_B3": {
+            "value": 0.7,
+            "unit": "mg"
+          },
+          "pantothenic_B5": {
+            "value": 0.6,
+            "unit": "mg"
+          },
+          "vitamin_B6": {
+            "value": 1.2,
+            "unit": "mg"
+          },
+          "biotin_B7": {
+            "value": null,
+            "unit": "µg"
+          },
+          "folate_B9": {
+            "value": 3,
+            "unit": "µg"
+          },
+          "cobalamin_B12": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 58.6,
+            "unit": "g"
+          },
+          "alcohol": {
+            "value": 0,
+            "unit": "g"
+          },
+          "caffeine": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 150,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 628,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 6.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 32.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "starch": {
+            "value": null,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.6,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "omega3_total": {
+            "value": 5,
+            "unit": "mg"
+          },
+          "omega3_ALA": {
+            "value": 0.005,
+            "unit": "g"
+          },
+          "omega3_EPA": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega3_DHA": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega6_total": {
+            "value": 250,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 17,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 401,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 181,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 25,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 153,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 1.7,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 1.2,
+            "unit": "mg"
+          },
+          "copper": {
+            "value": 0.3,
+            "unit": "mg"
+          },
+          "manganese": {
+            "value": 1.7,
+            "unit": "mg"
+          },
+          "selenium": {
+            "value": 14.2,
+            "unit": "µg"
+          },
+          "iodine": {
+            "value": 2,
+            "unit": "µg"
+          },
+          "vitamin_A_RAE": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "vitamin_E": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "vitamin_D": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "vitamin_K": {
+            "value": 2.3,
+            "unit": "µg"
+          },
+          "vitamin_C": {
+            "value": 15.0,
+            "unit": "mg"
+          },
+          "thiamin_B1": {
+            "value": 0.2,
+            "unit": "mg"
+          },
+          "riboflavin_B2": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "niacin_B3": {
+            "value": 0.7,
+            "unit": "mg"
+          },
+          "pantothenic_B5": {
+            "value": 0.6,
+            "unit": "mg"
+          },
+          "vitamin_B6": {
+            "value": 1.2,
+            "unit": "mg"
+          },
+          "biotin_B7": {
+            "value": null,
+            "unit": "µg"
+          },
+          "folate_B9": {
+            "value": 3,
+            "unit": "µg"
+          },
+          "cobalamin_B12": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 58.0,
+            "unit": "g"
+          },
+          "alcohol": {
+            "value": 0,
+            "unit": "g"
+          },
+          "caffeine": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_avocat",
+    "name": "Avocat",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 160,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 15.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 160,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 15.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_banane",
+    "name": "Banane",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 89,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 23,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 12,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 22,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 12,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_beurre_cacahuete",
+    "name": "Beurre de cacahuète",
+    "category": "spread",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 588,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 25,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 20,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 50,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 588,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 25,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 20,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 50,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "arachides"
+    ]
+  },
+  {
+    "id": "ing_boeuf_bourguignon",
+    "name": "Bœuf bourguignon (plat)",
+    "category": "stew",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 185,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 18,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 10,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 185,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 18,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 10,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_broccoli",
+    "name": "Brocoli",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 34,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 35,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 7.2,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_brochette_poulet",
+    "name": "Brochette de poulet",
+    "category": "meat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 130,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 22,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 4,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 170,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 27,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 6,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_burrata",
+    "name": "Burrata",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 245,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 22,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 245,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 22,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_carotte",
+    "name": "Carotte",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 41,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.9,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 10,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 36,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 8.2,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_champignons",
+    "name": "Champignons de Paris",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 22,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 28,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_coulis_tomate",
+    "name": "Coulis de tomate",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 40,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 9,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 40,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 9,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_courgette",
+    "name": "Courgette",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 17,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.1,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 20,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.3,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_creme_liquide_5",
+    "name": "Crème liquide 5% MG",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 60,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 5.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 60,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 5.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_crepe_sarrasin",
+    "name": "Crêpe de sarrasin",
+    "category": "cereal product",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 200,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 6.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 42,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 220,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 6.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 44,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 2.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_epinards",
+    "name": "Épinards",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 23,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.9,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.2,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 35,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_farine",
+    "name": "Farine de blé",
+    "category": "cereal product",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 364,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 76,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 364,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 76,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_feta",
+    "name": "Feta",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 264,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 21,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 264,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 21,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_flocons_avoine",
+    "name": "Flocons d’avoine",
+    "category": "cereal product",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 367,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 13,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 59,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 10,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 7.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 71,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.5,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 12,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_fromage_blanc",
+    "name": "Fromage blanc",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 8.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 4.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 8.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 4.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_fruits_rouges",
+    "name": "Fruits rouges (mélange)",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 50,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 12,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 8.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 55,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 13,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_gingembre",
+    "name": "Gingembre",
+    "category": "spice",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 80,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 18,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.8,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 80,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 18,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.7,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.8,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_gnocchi",
+    "name": "Gnocchi",
+    "category": "pasta",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 160,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 34,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 130,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 27,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_graines_chia",
+    "name": "Graines de chia",
+    "category": "seed",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 486,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 16.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 42.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 34.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 31.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 17800,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 486,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 16.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 42.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 34.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 31.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 17800,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_granola",
+    "name": "Granola",
+    "category": "cereal product",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 450,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 60.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 15.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 450,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 60.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 15.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten",
+      "fruits à coque"
+    ]
+  },
+  {
+    "id": "ing_gruyere",
+    "name": "Gruyère râpé",
+    "category": "cheese",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 413,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 29.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 33.0,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 1010,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 413,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 29.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 33.0,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 1010,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_haricots_rouges",
+    "name": "Haricots rouges",
+    "category": "legume",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 333,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 23.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 60.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 25.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 127,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 22.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 8.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_herbes_provence",
+    "name": "Herbes de Provence",
+    "category": "spice",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 250,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 40.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 30.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 8.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 250,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 40.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 30.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 8.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_huile_olive",
+    "name": "Huile d’olive",
+    "category": "fat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 884,
+            "unit": "kcal"
+          },
+          "fat_total": {
+            "value": 100,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 73,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 11,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 14,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 884,
+            "unit": "kcal"
+          },
+          "fat_total": {
+            "value": 100,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 73,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 11,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 14,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_jambon_cuit",
+    "name": "Jambon cuit",
+    "category": "meat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 145,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 7.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 145,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 7.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_lait",
+    "name": "Lait de vache",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 47,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.8,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 120,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 47,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.8,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 120,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_lait_amande",
+    "name": "Lait d’amande",
+    "category": "plant milk",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 17,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.1,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 17,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.1,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "fruits à coque"
+    ]
+  },
+  {
+    "id": "ing_lait_coco",
+    "name": "Lait de coco",
+    "category": "plant milk",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 188,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 16.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 188,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 16.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_laitue",
+    "name": "Laitue",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 15,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2.9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          },
+          "water": {
+            "value": 95,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 15,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 1.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2.9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          },
+          "water": {
+            "value": 95,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_lardon",
+    "name": "Allumettes de lardons",
+    "category": "meat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 320,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 30.0,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 900,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 350,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 33.0,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 950,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_lentilles",
+    "name": "Lentilles vertes",
+    "category": "legume",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 353,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 25.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 60.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 30.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 116,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 8.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_lentilles_corail",
+    "name": "Lentilles corail",
+    "category": "legume",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 358,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 23.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 63.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 11.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 116,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 20.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 8.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_mais",
+    "name": "Maïs",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 86,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 19.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.7,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 96,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 21.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_miel",
+    "name": "Miel",
+    "category": "sweetener",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 304,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 82.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 82.0,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 304,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 82.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 82.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_mozzarella",
+    "name": "Mozzarella",
+    "category": "cheese",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 280,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 22.0,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 505,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 280,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 2.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 22.0,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 505,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_oeuf",
+    "name": "Œuf",
+    "category": "eggs",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 60,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 143,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 13,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 10,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1.1,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 373,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 60,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 155,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 13,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 11,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 1.1,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "oeuf"
+    ]
+  },
+  {
+    "id": "ing_oignon",
+    "name": "Oignon",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 40,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 9.3,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.7,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.1,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 45,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.1,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_oignon_nouveau",
+    "name": "Oignon nouveau",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 32,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 7.3,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 34,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 7.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_pain_complet",
+    "name": "Pain complet",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 40,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 247,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 8.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 41,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 40,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 250,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 9.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 42,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 6.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_parmesan",
+    "name": "Parmesan",
+    "category": "cheese",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 20,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 431,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 38,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 29,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 1184,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 20,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 431,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 38,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 29,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 1184,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_pasteque",
+    "name": "Pastèque",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 30,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 7.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 6.2,
+            "unit": "g"
+          },
+          "water": {
+            "value": 91,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 30,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 7.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 6.2,
+            "unit": "g"
+          },
+          "water": {
+            "value": 91,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_patate_douce",
+    "name": "Patate douce",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 86,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 20,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.6,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 21,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.5,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 2,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_pate_brisee",
+    "name": "Pâte brisée",
+    "category": "pastry",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 380,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 42,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 20,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 6,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 420,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 45,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 22,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 7,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_pate_curry",
+    "name": "Pâte de curry",
+    "category": "condiment",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 15,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "fat_total": {
+            "value": 7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 1200,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 15,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 90,
+            "unit": "kcal"
+          },
+          "fat_total": {
+            "value": 7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_peche",
+    "name": "Pêche",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 39,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 10,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 8,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 42,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 11,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_pois_chiches",
+    "name": "Pois chiches",
+    "category": "legume",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 364,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 19,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 61,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 17,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 6,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 164,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 9,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 27,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_poivron",
+    "name": "Poivron",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 31,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.1,
+            "unit": "g"
+          },
+          "vitamin_C": {
+            "value": 80,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 28,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.8,
+            "unit": "g"
+          },
+          "vitamin_C": {
+            "value": 40,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_poulet",
+    "name": "Filet de poulet",
+    "category": "meat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 120,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 22,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 2.6,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 165,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 31,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3.6,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_quinoa",
+    "name": "Quinoa",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 368,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 14,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 64,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 7,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 6,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 120,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 4.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 21,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.9,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "gluten-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_riz",
+    "name": "Riz blanc",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 360,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 79,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 130,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 28,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "gluten-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_riz_complet",
+    "name": "Riz complet",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 360,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 7.5,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 76,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 110,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 23,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.8,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "gluten-free"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_spaghetti",
+    "name": "Spaghetti blanc",
+    "category": "pasta",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 350,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 70,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 158,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 5.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 31,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.9,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_spaghetti_complet",
+    "name": "Spaghetti complet",
+    "category": "pasta",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 340,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 13,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 65,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 2,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 150,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 6,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 29,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_tagliatelle",
+    "name": "Tagliatelle",
+    "category": "pasta",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 350,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 71,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 157,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 5.7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 30,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.9,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_tomate",
+    "name": "Tomate",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 18,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "vitamin_C": {
+            "value": 14,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 20,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.1,
+            "unit": "g"
+          },
+          "vitamin_C": {
+            "value": 10,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_tomate_cerise",
+    "name": "Tomate cerise",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 25,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 27,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_tomate_concassee",
+    "name": "Tomate concassée",
+    "category": "vegetable",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 30,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 32,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 5.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.4,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_viande_hachee_5",
+    "name": "Viande hachée 5% MG",
+    "category": "meat",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 155,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 20,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 8,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 210,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 26,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 11,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_vin_rouge",
+    "name": "Vin rouge",
+    "category": "beverage",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 85,
+            "unit": "kcal"
+          },
+          "alcohol": {
+            "value": 12,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 20,
+            "unit": "kcal"
+          },
+          "alcohol": {
+            "value": 0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_yaourt",
+    "name": "Yaourt nature",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 60,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.7,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.7,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3.3,
+            "unit": "g"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 58,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 4.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 3.2,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "lactose"
+    ]
+  },
+  {
+    "id": "ing_amandes",
+    "name": "Amandes",
+    "category": "nut",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 579,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 21.2,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 21.7,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 12.5,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 49.9,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "fruits_a_coque"
+    ]
+  },
+  {
+    "id": "ing_beurre",
+    "name": "Beurre",
+    "category": "dairy",
+    "states": {
+      "froid": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 717,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.85,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.06,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.06,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 81.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 717,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.85,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.06,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.06,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 81.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_cannelle",
+    "name": "Cannelle (moulue)",
+    "category": "spice",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 247,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 81.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 53.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 247,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 4.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 81.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 53.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_chocolat_noir_70",
+    "name": "Chocolat noir 70%",
+    "category": "chocolate",
+    "states": {
+      "froid": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 598,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 7.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 46.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 24.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 10.9,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 42.6,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "fondu": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 598,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 7.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 46.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 24.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 10.9,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 42.6,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": []
+  },
+  {
+    "id": "ing_eau",
+    "name": "Eau",
+    "category": "liquid",
+    "states": {
+      "froid": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 0,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 0,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_farine_ble",
+    "name": "Farine de blé (T55)",
+    "category": "grain",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 364,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 76.3,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.7,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 364,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 76.3,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.7,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_mangue",
+    "name": "Mangue",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 60,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 15.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 14.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_menthe_fraiche",
+    "name": "Menthe fraîche",
+    "category": "herb",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 44,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 8.4,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 6.8,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.7,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_noisettes",
+    "name": "Noisettes",
+    "category": "nut",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 628,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 15.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 17.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 4.3,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 61.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 100,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "fruits_a_coque"
+    ]
+  },
+  {
+    "id": "ing_noix",
+    "name": "Noix (cerneaux)",
+    "category": "nut",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 654,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 15.2,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 13.7,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 2.6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 6.7,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 65.2,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 9000,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "fruits_a_coque"
+    ]
+  },
+  {
+    "id": "ing_orange",
+    "name": "Orange",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 47,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.9,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 11.8,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 9.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_pamplemousse",
+    "name": "Pamplemousse",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 42,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 10.7,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 6.9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.6,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_poire",
+    "name": "Poire",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 57,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 15.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.1,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_pomme",
+    "name": "Pomme",
+    "category": "fruit",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 52,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 14.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 10.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_riz_rond",
+    "name": "Riz rond (blanc)",
+    "category": "grain",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 360,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 7.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 79.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.7,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 130,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 28.2,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_semoule_blanche",
+    "name": "Semoule de blé (blanche)",
+    "category": "grain",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 360,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12.7,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 72.8,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.9,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 100,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 21.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.2,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.5,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": [
+      "gluten"
+    ]
+  },
+  {
+    "id": "ing_sirop_erable",
+    "name": "Sirop d'érable",
+    "category": "sweetener",
+    "states": {
+      "froid": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 260,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 67.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 60.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_sucre",
+    "name": "Sucre (blanc, semoule)",
+    "category": "sweetener",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 387,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 387,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_vanille",
+    "name": "Vanille (gousse/extrait)",
+    "category": "spice",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 52,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 13.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 13.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      },
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 52,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 13.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 13.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_yaourt_grec",
+    "name": "Yaourt grec (nature, 0–2% MG)",
+    "category": "dairy",
+    "states": {
+      "froid": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 60,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "omega3_ALA": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [],
+    "allergens": [
+      "lait"
+    ]
+  },
+  {
+    "id": "ing_compote_pomme_ssucre",
+    "name": "Compote de pomme sans sucre ajouté",
+    "category": "fruit",
+    "states": {
+      "frais": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 68,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 285,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 17.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 15.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "starch": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "omega3_total": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "omega3_ALA": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega3_EPA": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega3_DHA": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "omega6_total": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 2,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 180,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 6,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 5,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 7,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 0.2,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "copper": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "manganese": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "selenium": {
+            "value": 0.1,
+            "unit": "µg"
+          },
+          "iodine": {
+            "value": 1,
+            "unit": "µg"
+          },
+          "vitamin_A_RAE": {
+            "value": 3,
+            "unit": "µg"
+          },
+          "vitamin_E": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "vitamin_D": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "vitamin_K": {
+            "value": 0.5,
+            "unit": "µg"
+          },
+          "vitamin_C": {
+            "value": 1.0,
+            "unit": "mg"
+          },
+          "thiamin_B1": {
+            "value": 0.02,
+            "unit": "mg"
+          },
+          "riboflavin_B2": {
+            "value": 0.02,
+            "unit": "mg"
+          },
+          "niacin_B3": {
+            "value": 0.2,
+            "unit": "mg"
+          },
+          "pantothenic_B5": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "vitamin_B6": {
+            "value": 0.05,
+            "unit": "mg"
+          },
+          "biotin_B7": {
+            "value": null,
+            "unit": "µg"
+          },
+          "folate_B9": {
+            "value": 3,
+            "unit": "µg"
+          },
+          "cobalamin_B12": {
+            "value": 0,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 81.0,
+            "unit": "g"
+          },
+          "alcohol": {
+            "value": 0,
+            "unit": "g"
+          },
+          "caffeine": {
+            "value": 0,
+            "unit": "mg"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_fromage_blanc_0_3",
+    "name": "Fromage blanc 0–3% MG",
+    "category": "dairy",
+    "states": {
+      "frais": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 50,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 209,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 8.5,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 3.5,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "starch": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 2,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 40,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 120,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 160,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 90,
+            "unit": "mg"
+          },
+          "vitamin_B12": {
+            "value": 0.5,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 87,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "milk"
+    ]
+  },
+  {
+    "id": "ing_skyr_nature",
+    "name": "Skyr nature",
+    "category": "dairy",
+    "states": {
+      "frais": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 62,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 260,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 11,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.8,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 2,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 40,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 110,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 160,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 95,
+            "unit": "mg"
+          },
+          "vitamin_B12": {
+            "value": 0.4,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 84,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "milk"
+    ]
+  },
+  {
+    "id": "ing_yaourt_grec_0_2",
+    "name": "Yaourt grec 0–2% MG",
+    "category": "dairy",
+    "states": {
+      "frais": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 59,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 247,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 3.6,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 2,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 36,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 110,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 150,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 95,
+            "unit": "mg"
+          },
+          "vitamin_B12": {
+            "value": 0.4,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 85,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": [
+      "milk"
+    ]
+  },
+  {
+    "id": "ing_flocons_avoine",
+    "name": "Flocons d’avoine",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 379,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 1587,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 13.2,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 67.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 1.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 10.0,
+            "unit": "g"
+          },
+          "starch": {
+            "value": 59.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 6.5,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 1.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 2.2,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 2.5,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 3,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 350,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 54,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 138,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 4.3,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 3.6,
+            "unit": "mg"
+          },
+          "vitamin_B1": {
+            "value": 0.5,
+            "unit": "mg"
+          },
+          "vitamin_B2": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "vitamin_B3": {
+            "value": 1.1,
+            "unit": "mg"
+          },
+          "vitamin_B6": {
+            "value": 0.1,
+            "unit": "mg"
+          },
+          "folate_B9": {
+            "value": 56,
+            "unit": "µg"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "ing_riz_blanc",
+    "name": "Riz blanc cuit",
+    "category": "cereal",
+    "states": {
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 130,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 544,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 2.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 28.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.4,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 1,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 35,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 13,
+            "unit": "mg"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "ing_lait_ecreme",
+    "name": "Lait écrémé",
+    "category": "dairy",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "ml"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 34,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 3.4,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 5.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 5.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "calcium": {
+            "value": 120,
+            "unit": "mg"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "ing_sucre_blanc",
+    "name": "Sucre blanc",
+    "category": "sweetener",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 400,
+            "unit": "kcal"
+          },
+          "carbs": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 100.0,
+            "unit": "g"
+          },
+          "protein": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.0,
+            "unit": "g"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "ing_semoule_fine",
+    "name": "Semoule fine",
+    "category": "cereal",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 360,
+            "unit": "kcal"
+          },
+          "protein": {
+            "value": 12.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 72.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.9,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 1.0,
+            "unit": "g"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "ing_cabillaud",
+    "name": "Cabillaud",
+    "category": "fish",
+    "states": {
+      "cuit": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 82,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 344,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 18.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 0.0,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.7,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 50,
+            "unit": "mg"
+          },
+          "omega3_total": {
+            "value": 170,
+            "unit": "mg"
+          },
+          "omega3_ALA": {
+            "value": 0.01,
+            "unit": "g"
+          },
+          "omega3_EPA": {
+            "value": 0.04,
+            "unit": "g"
+          },
+          "omega3_DHA": {
+            "value": 0.12,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 60,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 300,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 15,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 30,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 200,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 0.2,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 0.4,
+            "unit": "mg"
+          },
+          "selenium": {
+            "value": 35,
+            "unit": "µg"
+          },
+          "iodine": {
+            "value": 135,
+            "unit": "µg"
+          },
+          "vitamin_B12": {
+            "value": 2.0,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 80.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "lean"
+    ],
+    "allergens": [
+      "fish"
+    ]
+  },
+  {
+    "id": "ing_noix_coco_rpe",
+    "name": "Noix de coco râpée",
+    "category": "nut",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 660,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 2759,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 6.9,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 23.7,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 6.2,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 16.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 64.5,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 57.0,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 2.7,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 1.5,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "omega3_total": {
+            "value": 0.05,
+            "unit": "g"
+          },
+          "sodium": {
+            "value": 37,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 543,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 26,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 90,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 206,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 3.3,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 2.0,
+            "unit": "mg"
+          },
+          "vitamin_C": {
+            "value": 1.5,
+            "unit": "mg"
+          },
+          "water": {
+            "value": 3.0,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegetarian"
+    ],
+    "allergens": []
+  },
+  {
+    "id": "ing_persil",
+    "name": "Persil",
+    "category": "herb",
+    "states": {
+      "cru": {
+        "portion_ref": {
+          "amount": 100,
+          "unit": "g"
+        },
+        "nutrients": {
+          "energy_kcal": {
+            "value": 36,
+            "unit": "kcal"
+          },
+          "energy_kj": {
+            "value": 151,
+            "unit": "kJ"
+          },
+          "protein": {
+            "value": 3.0,
+            "unit": "g"
+          },
+          "carbs": {
+            "value": 6.3,
+            "unit": "g"
+          },
+          "sugars": {
+            "value": 0.9,
+            "unit": "g"
+          },
+          "fiber": {
+            "value": 3.3,
+            "unit": "g"
+          },
+          "fat_total": {
+            "value": 0.8,
+            "unit": "g"
+          },
+          "fat_sat": {
+            "value": 0.1,
+            "unit": "g"
+          },
+          "fat_mono": {
+            "value": 0.2,
+            "unit": "g"
+          },
+          "fat_poly": {
+            "value": 0.3,
+            "unit": "g"
+          },
+          "cholesterol": {
+            "value": 0,
+            "unit": "mg"
+          },
+          "sodium": {
+            "value": 56,
+            "unit": "mg"
+          },
+          "potassium": {
+            "value": 554,
+            "unit": "mg"
+          },
+          "calcium": {
+            "value": 138,
+            "unit": "mg"
+          },
+          "magnesium": {
+            "value": 50,
+            "unit": "mg"
+          },
+          "phosphorus": {
+            "value": 58,
+            "unit": "mg"
+          },
+          "iron": {
+            "value": 6.2,
+            "unit": "mg"
+          },
+          "zinc": {
+            "value": 1.1,
+            "unit": "mg"
+          },
+          "vitamin_C": {
+            "value": 133,
+            "unit": "mg"
+          },
+          "vitamin_A_RAE": {
+            "value": 421,
+            "unit": "µg"
+          },
+          "vitamin_K": {
+            "value": 1640,
+            "unit": "µg"
+          },
+          "folate_B9": {
+            "value": 152,
+            "unit": "µg"
+          },
+          "water": {
+            "value": 87.7,
+            "unit": "g"
+          }
+        }
+      }
+    },
+    "labels": [
+      "vegan"
+    ],
+    "allergens": []
+  }
+]

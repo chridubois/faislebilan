@@ -1,0 +1,7 @@
+id,external_code,user_id,name,gender,birth_date,age_years,weight_kg,height_cm,activity,goal,food_budget_level,max_time_per_meal_min
+523211a5-6c8a-5810-96a1-98250553291e,pro_jean_0001,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Jean,m,1989-04-15,36.0,78.5,178.0,moderate,fat_loss,medium,25
+84ffe2a1-13ba-510a-b068-3e08101785da,pro_amelie_0002,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Amélie,f,1995-11-02,29.0,59.2,164.0,light,maintain,low,15
+f23fe613-6aa0-5694-9fd5-94b8f9351f2b,pro_marc_0003,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Marc,m,1978-07-22,47.0,92.0,182.0,moderate,muscle_gain,high,40
+5d111b58-899a-50e0-a3a6-dabc9d4b1318,pro_sophia_0004,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Sophia,f,1985-03-10,40.0,68.0,170.0,moderate,health,medium,20
+5d2357d8-a12c-5b3f-ba27-e4e36b7e6f5a,pro_ali_0005,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Ali,m,2001-12-05,23.0,70.0,176.0,sedentary,performance,low,10
+7b37adab-2734-55da-9313-699686ed7bb5,pro_lucie_0006,6c97eeb7-0d4b-44ca-b654-ae2d42023bf4,Lucie,f,2015-06-18,10.0,35.0,140.0,moderate,health,medium,15

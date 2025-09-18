@@ -1,0 +1,212 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --header-h: 56px;             /* hauteur mini, pas figée */
+}
+
+/* Reset root container: plus de padding/marge/centrage ici */
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* ===== HEADER STICKY CLAIR (ne chevauche plus le contenu) ===== */
+.app-header {
+  position: sticky;              /* <- au lieu de fixed */
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: #ffffff;
+  border-bottom: 1px solid #eaeef3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  min-height: var(--header-h);
+}
+
+/* Logo */
+.app-logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+/* Nav desktop + mobile (scroll horizontal si ça déborde) */
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  flex: 1;
+  min-width: 0;                 /* autorise overflow */
+}
+
+@media (max-width: 640px) {
+  .app-nav {
+    overflow-x: auto;           /* défilement horizontal */
+    white-space: nowrap;        /* pas de retour ligne */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    padding-bottom: 4px;        /* espace pour le pouce */
+  }
+}
+
+/* Liens + état actif */
+.app-link {
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.app-link:hover,
+.app-link:focus-visible {
+  background: #f1f5f9;
+  outline: none;
+}
+
+.app-link.is-active {
+  background: #e2e8f0;
+}
+
+/* ===== CONTENU ===== */
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.app-main {
+  /* plus de padding-top avec calc(), sticky gère la place */
+  padding: 16px;
+  max-width: 1100px;
+  margin: 12px auto 32px;
+  background: #fff;            /* page claire */
+}
+
+/* ===== Styles démo conservés (optionnels) ===== */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover { filter: drop-shadow(0 0 2em #646cffaa); }
+.logo.react:hover { filter: drop-shadow(0 0 2em #61dafbaa); }
+
+@keyframes logo-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo { animation: logo-spin infinite 20s linear; }
+}
+
+.card { padding: 2em; }
+.read-the-docs { color: #888; }
+
+
+/* ===== HOME : pas de fond sombre, juste une grille propre ===== */
+.home{
+  color: #0f1115;              /* titres foncés, page claire */
+  padding: clamp(8px, 2vw, 12px);
+}
+
+.home__header h1{
+  margin: 0 0 4px 0;
+  font-size: clamp(22px, 3.6vw, 32px);
+  letter-spacing: .2px;
+}
+.home__tagline{
+  margin: 0;
+  color: #6b7280;              /* gris lisible */
+  font-size: clamp(13px, 2.2vw, 15px);
+}
+
+/* Grille responsive */
+.home__grid{
+  display: grid;
+  gap: 14px;
+  margin-top: clamp(10px, 1.8vw, 18px);
+  grid-template-columns: 1fr;                /* mobile: 1 colonne */
+}
+@media (min-width: 480px){
+  .home__grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+@media (min-width: 840px){
+  .home__grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+@media (min-width: 1100px){
+  .home__grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+}
+
+/* ===== TUILES SOMBRES sur fond clair ===== */
+:root{
+  --card: #12161d;
+  --cardHover: #1a2130;
+  --text: #e9eef7;
+  --muted: #a6b1c2;
+  --accent: #ff7a1a;
+  --radius: 14px;
+  --ring: 0 0 0 3px rgba(255,122,26,.25);
+  --shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+
+.tile{
+  display:flex; flex-direction:column; justify-content:center; gap:6px;
+  min-height: 96px;
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 16px 15px;
+  text-decoration:none; color: var(--text);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.tile:hover,
+.tile:focus-visible{
+  background: var(--cardHover);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+  outline: none;
+}
+
+.tile__title{
+  font-weight: 800;
+  letter-spacing:.2px;
+  font-size: clamp(15px, 3.2vw, 18px);
+}
+.tile__subtitle{
+  font-size: clamp(12px, 2.3vw, 14px);
+  color: var(--muted);
+}
+
+/* Accent sur “Créer recette” si tu as gardé la classe */
+.tile--accent{ border-color: rgba(255,122,26,.35); }
+.tile--accent .tile__title{ color: var(--accent); }
+
+/* Badge disabled */
+.tile--disabled{ position:relative; cursor:not-allowed; opacity:.8; }
+.tile--disabled .tile__badge{
+  position:absolute; top:10px; right:10px;
+  background: var(--accent); color:#111; font-weight:800;
+  border-radius: 999px; padding: 3px 8px; font-size: 11px; letter-spacing:.3px;
+}
+
+
+.input{
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 8px 10px;
+  outline: none;
+}
+.input:focus{ box-shadow: 0 0 0 3px rgba(255,122,26,.25); border-color:#f59e0b; }

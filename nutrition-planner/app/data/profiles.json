@@ -1,0 +1,177 @@
+[
+  {
+    "profile_id": "pro_jean_0001",
+    "first_name": "Jean",
+    "birth_date": "1989-04-15",
+    "gender": "male",
+    "height_cm": 178,
+    "weight_kg": 78.5,
+    "goal": "fat_loss",
+    "sport_frequency": "3-4",
+    "job_activity": "sedentary",
+    "conditions": [
+      "none"
+    ],
+    "food_budget_level": "medium",
+    "max_time_per_meal_min": 25,
+    "allergies": [
+      {
+        "ingredient_id": "ing_arachide",
+        "label": "Arachide"
+      },
+      {
+        "ingredient_id": "ing_noisette",
+        "label": "Noisette"
+      }
+    ],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_brocoli",
+        "label": "Brocoli"
+      }
+    ]
+  },
+  {
+    "profile_id": "pro_amelie_0002",
+    "first_name": "Amélie",
+    "birth_date": "1995-11-02",
+    "gender": "female",
+    "height_cm": 164,
+    "weight_kg": 59.2,
+    "goal": "maintain",
+    "sport_frequency": "1-2",
+    "job_activity": "light",
+    "conditions": [
+      "pregnancy"
+    ],
+    "food_budget_level": "low",
+    "max_time_per_meal_min": 15,
+    "allergies": [
+      {
+        "ingredient_id": "ing_lait_cow",
+        "label": "Lait de vache"
+      }
+    ],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_coriandre",
+        "label": "Coriandre"
+      },
+      {
+        "ingredient_id": "ing_haricot_rouge",
+        "label": "Haricots rouges"
+      }
+    ]
+  },
+  {
+    "profile_id": "pro_marc_0003",
+    "first_name": "Marc",
+    "birth_date": "1978-07-22",
+    "gender": "male",
+    "height_cm": 182,
+    "weight_kg": 92.0,
+    "goal": "muscle_gain",
+    "sport_frequency": "5-6",
+    "job_activity": "moderate",
+    "conditions": [
+      "hypertension"
+    ],
+    "food_budget_level": "high",
+    "max_time_per_meal_min": 40,
+    "allergies": [],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_chou_fleur",
+        "label": "Chou-fleur"
+      }
+    ]
+  },
+  {
+    "profile_id": "pro_sophia_0004",
+    "first_name": "Sophia",
+    "birth_date": "1985-03-10",
+    "gender": "female",
+    "height_cm": 170,
+    "weight_kg": 68.0,
+    "goal": "health",
+    "sport_frequency": "3-4",
+    "job_activity": "light",
+    "conditions": [
+      "celiac"
+    ],
+    "food_budget_level": "medium",
+    "max_time_per_meal_min": 20,
+    "allergies": [
+      {
+        "ingredient_id": "ing_ble",
+        "label": "Blé"
+      },
+      {
+        "ingredient_id": "ing_orge",
+        "label": "Orge"
+      }
+    ],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_aubergine",
+        "label": "Aubergine"
+      }
+    ]
+  },
+  {
+    "profile_id": "pro_ali_0005",
+    "first_name": "Ali",
+    "birth_date": "2001-12-05",
+    "gender": "male",
+    "height_cm": 176,
+    "weight_kg": 70.0,
+    "goal": "performance",
+    "sport_frequency": "6_plus_per_week",
+    "job_activity": "student",
+    "conditions": [
+      "none"
+    ],
+    "food_budget_level": "low",
+    "max_time_per_meal_min": 10,
+    "allergies": [
+      {
+        "ingredient_id": "ing_fruit_coque",
+        "label": "Fruits à coque"
+      }
+    ],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_poivron_vert",
+        "label": "Poivron vert"
+      }
+    ]
+  },
+  {
+    "profile_id": "pro_lucie_0006",
+    "first_name": "Lucie",
+    "birth_date": "2015-06-18",
+    "gender": "female",
+    "height_cm": 140,
+    "weight_kg": 35.0,
+    "goal": "health",
+    "sport_frequency": "3-4",
+    "job_activity": "student",
+    "conditions": [
+      "none"
+    ],
+    "food_budget_level": "medium",
+    "max_time_per_meal_min": 15,
+    "allergies": [
+      {
+        "ingredient_id": "ing_fraise",
+        "label": "Fraise"
+      }
+    ],
+    "dislikes": [
+      {
+        "ingredient_id": "ing_epinard",
+        "label": "Épinard"
+      }
+    ]
+  }
+]

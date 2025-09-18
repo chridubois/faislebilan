@@ -1,0 +1,1748 @@
+[
+  {
+    "id": "rec_pates_epinards",
+    "name": "Spaghetti aux épinards",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_spaghetti",
+        "state": "cuit",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_id": "ing_epinards",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 10
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 6
+      }
+    ]
+  },
+  {
+    "id": "rec_curry_lentilles",
+    "name": "Curry de lentilles corail",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 3,
+    "dish_family": "curry",
+    "cuisine": "indian",
+    "time_min": 30,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_lentilles",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_lait_coco",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 6
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_poulet",
+    "name": "Salade de poulet",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poulet",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_laitue",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cru",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_mais",
+        "state": "cuit",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_omelette_champignons",
+    "name": "Omelette aux champignons",
+    "meal_types": [
+      "lunch"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 12,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_champignons",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_chili_sin_carne",
+    "name": "Chili sin carne",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 4,
+    "dish_family": "stew",
+    "cuisine": "mexican",
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_haricots_rouges",
+        "state": "cuit",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_tomate_concassee",
+        "state": "cuit",
+        "quantity_g": 400
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_mais",
+        "state": "cuit",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_bol_yaourt_granola",
+    "name": "Bol yaourt granola banane",
+    "meal_types": [
+      "breakfast"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_yaourt",
+        "state": "cru",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_granola",
+        "state": "cru",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_id": "ing_banane",
+        "state": "cru",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_poulet_riz",
+    "name": "Poulet au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "rice",
+    "cuisine": "asian",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poulet",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_riz",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_pates_tomates",
+    "name": "Spaghetti sauce tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_spaghetti",
+        "state": "cuit",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_id": "ing_tomate_concassee",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_oeuf",
+    "name": "Salade œuf tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 10,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cru",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_laitue",
+        "state": "cru",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_poivrons_farci_riz",
+    "name": "Poivrons farcis au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "stuffed",
+    "cuisine": "mediterranean",
+    "time_min": 45,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poivron",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_riz",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cuit",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_toast_avocat",
+    "name": "Toast à l'avocat",
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "toast",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_pain_complet",
+        "state": "cuit",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_id": "ing_avocat",
+        "state": "cru",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_porridge_classique",
+    "name": "Porridge avoine lait",
+    "meal_types": [
+      "breakfast"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "porridge",
+    "cuisine": "international",
+    "time_min": 8,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_flocons_avoine",
+        "state": "cuit",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_id": "ing_lait",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "cru",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_chia_pudding",
+    "name": "Chia pudding fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_graines_chia",
+        "state": "cru",
+        "quantity_g": 30
+      },
+      {
+        "ingredient_id": "ing_lait_amande",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_fruits_rouges",
+        "state": "cru",
+        "quantity_g": 120
+      }
+    ]
+  },
+  {
+    "id": "rec_yaourt_pb_banane",
+    "name": "Fromage blanc, banane & beurre de cacahuète",
+    "meal_types": [
+      "breakfast"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 3,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_fromage_blanc",
+        "state": "cru",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_banane",
+        "state": "cru",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_beurre_cacahuete",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_smoothie_fruits_rouges",
+    "name": "Smoothie fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "smoothie",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_fruits_rouges",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_yaourt",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_lait",
+        "state": "cuit",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_oeufs_brouilles_toast",
+    "name": "Œufs brouillés & toast",
+    "meal_types": [
+      "breakfast"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 7,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_pain_complet",
+        "state": "cuit",
+        "quantity_g": 60
+      }
+    ]
+  },
+  {
+    "id": "rec_poulet_curry_riz",
+    "name": "Poulet curry + riz complet",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "rice",
+    "cuisine": "indian",
+    "time_min": 35,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poulet",
+        "state": "cuit",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 15
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 6
+      },
+      {
+        "ingredient_id": "ing_carotte",
+        "state": "cuit",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_lait_coco",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_pate_curry",
+        "state": "cuit",
+        "quantity_g": 20
+      },
+      {
+        "ingredient_id": "ing_riz_complet",
+        "state": "cuit",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_gingembre",
+        "state": "cuit",
+        "quantity_g": 5
+      }
+    ]
+  },
+  {
+    "id": "rec_dahl_lentilles_riz",
+    "name": "Dahl de lentilles corail + riz complet",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 3,
+    "dish_family": "stew",
+    "cuisine": "indian",
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_lentilles_corail",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 6
+      },
+      {
+        "ingredient_id": "ing_pate_curry",
+        "state": "cuit",
+        "quantity_g": 20
+      },
+      {
+        "ingredient_id": "ing_carotte",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_courgette",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_lait_coco",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_riz_complet",
+        "state": "cuit",
+        "quantity_g": 250
+      }
+    ]
+  },
+  {
+    "id": "rec_spaghetti_bolognaise",
+    "name": "Spaghetti bolognaise",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 30,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_spaghetti_complet",
+        "state": "cuit",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_id": "ing_coulis_tomate",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_viande_hachee_5",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_tarte_tatin_tomate_burrata",
+    "name": "Tarte tatin de tomate + Burrata",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "tart",
+    "cuisine": "italian",
+    "time_min": 45,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_pate_brisee",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_burrata",
+        "state": "cru",
+        "quantity_g": 125
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_pasteque_tomate_peche_mozza",
+    "name": "Salade Pastèque tomate pêche mozzarella",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "salad",
+    "cuisine": "mediterranean",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_pasteque",
+        "state": "cru",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_peche",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cru",
+        "quantity_g": 10
+      },
+      {
+        "ingredient_id": "ing_mozzarella",
+        "state": "cru",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_brochette_poulet_riz_tomate",
+    "name": "Brochette poulet barbecue + riz + tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "rice",
+    "cuisine": "french",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_brochette_poulet",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_riz",
+        "state": "cuit",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_tomate",
+        "state": "cuit",
+        "quantity_g": 150
+      }
+    ]
+  },
+  {
+    "id": "rec_quinoa_bowl",
+    "name": "Quinoa Bowl",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_quinoa",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_avocat",
+        "state": "cru",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_pois_chiches",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_carotte",
+        "state": "cru",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_soupe_patate_carotte_coco",
+    "name": "Soupe Patate douce carotte lait de coco",
+    "meal_types": [
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 4,
+    "dish_family": "soup",
+    "cuisine": "international",
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_patate_douce",
+        "state": "cuit",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_carotte",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_lait_coco",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 5
+      },
+      {
+        "ingredient_id": "ing_pate_curry",
+        "state": "cuit",
+        "quantity_g": 15
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_riz_mais_avocat",
+    "name": "Salade riz mais avocat",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_riz",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_mais",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_avocat",
+        "state": "cru",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_tomate_cerise",
+        "state": "cru",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_crepe_jambon_gruyere",
+    "name": "Crepe Jambon gruyere",
+    "meal_types": [
+      "lunch"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "dish_family": "crepe",
+    "cuisine": "french",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_crepe_sarrasin",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_jambon_cuit",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_gruyere",
+        "state": "cuit",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_pates_carbonara",
+    "name": "Pates carbonara",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_spaghetti",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_creme_liquide_5",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_lardon",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_oignon",
+        "state": "cuit",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_boeuf_bourguignon",
+    "name": "Boeuf bourguignon",
+    "meal_types": [
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 4,
+    "dish_family": "stew",
+    "cuisine": "french",
+    "time_min": 120,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_carotte",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_vin_rouge",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_tagliatelle",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_boeuf_bourguignon",
+        "state": "cuit",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_farine",
+        "state": "cuit",
+        "quantity_g": 20
+      },
+      {
+        "ingredient_id": "ing_oignon_nouveau",
+        "state": "cuit",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_quiche_lorraine",
+    "name": "Quiche Lorraine",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 4,
+    "dish_family": "tart",
+    "cuisine": "french",
+    "time_min": 45,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_pate_brisee",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_creme_liquide_5",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_gruyere",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_lardon",
+        "state": "cuit",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_feta_four_tomate_miel",
+    "name": "Feta au four avec tomate cerise miel et pain",
+    "meal_types": [
+      "lunch"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "bake",
+    "cuisine": "mediterranean",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_feta",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_tomate_cerise",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "cuit",
+        "quantity_g": 15
+      },
+      {
+        "ingredient_id": "ing_pain_complet",
+        "state": "cru",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_id": "ing_herbes_provence",
+        "state": "cuit",
+        "quantity_g": 2
+      }
+    ]
+  },
+  {
+    "id": "rec_gnocchi_broccoli_parmesan",
+    "name": "Gnocchi broccoli creme parmesan ail",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 30,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_gnocchi",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_broccoli",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_creme_liquide_5",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_parmesan",
+        "state": "cuit",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_id": "ing_ail",
+        "state": "cuit",
+        "quantity_g": 5
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_yaourt_fruits_rouges",
+    "name": "Yaourt grec & fruits rouges au miel",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "mediterranean",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_yaourt_grec",
+        "state": "froid",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_fruits_rouges",
+        "state": "froid",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "froid",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_agrumes_menthe",
+    "name": "Salade d’agrumes à la menthe",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "international",
+    "time_min": 10,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_orange",
+        "state": "cru",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_pamplemousse",
+        "state": "cru",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_menthe_fraiche",
+        "state": "cru",
+        "quantity_g": 6
+      },
+      {
+        "ingredient_id": "ing_sirop_erable",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_compote_pomme_maison",
+    "name": "Compote de pommes maison (peu sucrée)",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_pomme",
+        "state": "cuit",
+        "quantity_g": 400
+      },
+      {
+        "ingredient_id": "ing_cannelle",
+        "state": "cuit",
+        "quantity_g": 2
+      },
+      {
+        "ingredient_id": "ing_eau",
+        "state": "cuit",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_poire_rotie_chocolat",
+    "name": "Poires rôties au chocolat noir",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poire",
+        "state": "cuit",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_chocolat_noir_70",
+        "state": "fondu",
+        "quantity_g": 40
+      },
+      {
+        "ingredient_id": "ing_noisettes",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_riz_au_lait_leger",
+    "name": "Riz au lait léger à la vanille",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 35,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_riz_rond",
+        "state": "cuit",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_lait",
+        "state": "cuit",
+        "quantity_g": 500
+      },
+      {
+        "ingredient_id": "ing_sucre",
+        "state": "cuit",
+        "quantity_g": 20
+      },
+      {
+        "ingredient_id": "ing_vanille",
+        "state": "cuit",
+        "quantity_g": 1
+      }
+    ]
+  },
+  {
+    "id": "rec_chia_pudding_coco_mangue",
+    "name": "Chia pudding coco-mangue",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_graines_chia",
+        "state": "froid",
+        "quantity_g": 40
+      },
+      {
+        "ingredient_id": "ing_lait_coco",
+        "state": "froid",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_mangue",
+        "state": "cru",
+        "quantity_g": 150
+      }
+    ]
+  },
+  {
+    "id": "rec_fromage_blanc_miel_noix",
+    "name": "Fromage blanc, miel & noix",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_fromage_blanc",
+        "state": "froid",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "froid",
+        "quantity_g": 20
+      },
+      {
+        "ingredient_id": "ing_noix",
+        "state": "cru",
+        "quantity_g": 25
+      }
+    ]
+  },
+  {
+    "id": "rec_semoule_laitiere",
+    "name": "Crème de semoule au lait",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_semoule_blanche",
+        "state": "cuit",
+        "quantity_g": 70
+      },
+      {
+        "ingredient_id": "ing_lait",
+        "state": "cuit",
+        "quantity_g": 500
+      },
+      {
+        "ingredient_id": "ing_sucre",
+        "state": "cuit",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_banane_choco_amandes",
+    "name": "Banane, chocolat noir & amandes",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_banane",
+        "state": "cru",
+        "quantity_g": 220
+      },
+      {
+        "ingredient_id": "ing_chocolat_noir_70",
+        "state": "froid",
+        "quantity_g": 30
+      },
+      {
+        "ingredient_id": "ing_amandes",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_crepes_nature",
+    "name": "Crêpes nature (2 portions)",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_farine_ble",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_lait",
+        "state": "cuit",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_sucre",
+        "state": "cuit",
+        "quantity_g": 15
+      },
+      {
+        "ingredient_id": "ing_beurre",
+        "state": "cuit",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_skyr_fruits_miel",
+    "name": "Skyr aux fruits rouges & miel",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dairy",
+    "cuisine": "european",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_skyr_nature",
+        "state": "frais",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_fruits_rouges",
+        "state": "brut",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "brut",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_fromage_blanc_compote",
+    "name": "Fromage blanc 0–3% & compote sans sucre",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dairy",
+    "cuisine": "french",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_fromage_blanc_0_3",
+        "state": "frais",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_id": "ing_compote_pomme_ssucre",
+        "state": "frais",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_cannelle",
+        "state": "brut",
+        "quantity_g": 2
+      }
+    ]
+  },
+  {
+    "id": "rec_yaourt_grec_banane",
+    "name": "Yaourt grec 0–2% & banane",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dairy",
+    "cuisine": "mediterranean",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_yaourt_grec_0_2",
+        "state": "frais",
+        "quantity_g": 340
+      },
+      {
+        "ingredient_id": "ing_banane",
+        "state": "brut",
+        "quantity_g": 240
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "brut",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_compote_avoine",
+    "name": "Compote de pomme sans sucre + flocons d’avoine",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 1,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_compote_pomme_ssucre",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_flocons_avoine",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_riz_lait_ecreme",
+    "name": "Riz au lait écrémé",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "french",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_riz_blanc",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_lait_ecreme",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_sucre_blanc",
+        "state": "cru",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_skyr_banane",
+    "name": "Skyr nature + banane",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 1,
+    "dish_family": "dessert",
+    "cuisine": "nordic",
+    "time_min": 3,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_skyr_nature",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_banane",
+        "state": "cru",
+        "quantity_g": 120
+      }
+    ]
+  },
+  {
+    "id": "rec_semoule_lait_miel",
+    "name": "Semoule au lait écrémé + miel",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "dish_family": "dessert",
+    "cuisine": "mediterranean",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_semoule_fine",
+        "state": "cuit",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_lait_ecreme",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "cru",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_poulet_grille",
+    "name": "Blanc de poulet grillé",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_poulet",
+        "state": "cuit",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 5
+      }
+    ]
+  },
+  {
+    "id": "rec_fromage_blanc_fruits",
+    "name": "Fromage blanc 0% aux fruits",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 1,
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_fromage_blanc_0_3",
+        "state": "cru",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_fruits_rouges",
+        "state": "cru",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_id": "ing_miel",
+        "state": "cru",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_cabillaud_epinards",
+    "name": "Cabillaud aux épinards",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 2,
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_cabillaud",
+        "state": "cuit",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_id": "ing_epinards",
+        "state": "cuit",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_id": "ing_huile_olive",
+        "state": "cuit",
+        "quantity_g": 5
+      }
+    ]
+  },
+  {
+    "id": "rec_omelette_fines_herbes",
+    "name": "Omelette aux fines herbes",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "main",
+    "portions": 1,
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cuit",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_id": "ing_persil",
+        "state": "cru",
+        "quantity_g": 5
+      }
+    ]
+  },
+  {
+    "id": "rec_flancoco_proteine",
+    "name": "Flan coco protéiné",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "course_type": "dessert",
+    "portions": 2,
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_id": "ing_lait_ecreme",
+        "state": "cru",
+        "quantity_g": 250
+      },
+      {
+        "ingredient_id": "ing_oeuf",
+        "state": "cru",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_id": "ing_noix_coco_rpe",
+        "state": "cru",
+        "quantity_g": 20
+      }
+    ]
+  }
+]

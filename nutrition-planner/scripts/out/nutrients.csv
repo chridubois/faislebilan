@@ -1,0 +1,68 @@
+code,name,unit
+ag_10_0_capric_g_100g,AG 10 0 capric g,g
+ag_12_0_lauric_g_100g,AG 12 0 lauric g,g
+ag_14_0_myristic_g_100g,AG 14 0 myristic g,g
+ag_16_0_palmitic_g_100g,AG 16 0 palmitic g,g
+ag_18_0_stearic_g_100g,AG 18 0 stearic g,g
+ag_18_1_oleic_g_100g,AG 18 1 oleic g,g
+ag_18_2_linoleic_g_100g,AG 18 2 linoleic g,g
+ag_18_3_ala_g_100g,AG 18 3 ala g,g
+ag_20_4_arachidonic_g_100g,AG 20 4 arachidonic g,g
+ag_20_5_epa_g_100g,AG 20 5 epa g,g
+ag_22_6_dha_g_100g,AG 22 6 dha g,g
+ag_4_0_butyric_g_100g,AG 4 0 butyric g,g
+ag_6_0_caproic_g_100g,AG 6 0 caproic g,g
+ag_8_0_caprylic_g_100g,AG 8 0 caprylic g,g
+alcohol_g_100g,Alcohol g,g
+ash_g_100g,Ash g,g
+beta_carotene_ug_100g,Β-carotène ug,µg
+calcium_mg_100g,Calcium mg,mg
+carbs_g_100g,Glucides,g
+chloride_mg_100g,Chloride mg,mg
+cholesterol_mg_100g,Cholestérol,mg
+copper_mg_100g,Copper mg,mg
+energy_jones_kcal_100g,"Énergie (Jones, kcal)",kcal
+energy_jones_kj_100g,"Énergie (Jones, kJ)",kJ
+energy_reg_kcal_100g,Énergie (kcal),kcal
+energy_reg_kj_100g,Énergie (kJ),kJ
+fat_g_100g,Lipides,g
+fiber_g_100g,Fibres alimentaires,g
+fructose_g_100g,Fructose g,g
+galactose_g_100g,Galactose g,g
+glucose_g_100g,Glucose g,g
+iodine_ug_100g,Iodine ug,µg
+iron_mg_100g,Iron mg,mg
+lactose_g_100g,Lactose g,g
+magnesium_mg_100g,Magnesium mg,mg
+maltose_g_100g,Maltose g,g
+manganese_mg_100g,Manganese mg,mg
+mufa_g_100g,Mufa g,g
+organic_acids_g_100g,Organic acids g,g
+phosphorus_mg_100g,Phosphorus mg,mg
+polyols_g_100g,Polyols g,g
+potassium_mg_100g,Potassium mg,mg
+protein_625_g_100g,Protéines,g
+protein_jones_g_100g,Protéines (Jones),g
+pufa_g_100g,Pufa g,g
+saccharose_g_100g,Saccharose g,g
+salt_g_100g,Sel,g
+selenium_ug_100g,Selenium ug,µg
+sfa_g_100g,Sfa g,g
+sodium_mg_100g,Sodium mg,mg
+starch_g_100g,Starch g,g
+sugars_g_100g,Sucres,g
+vitamin_a_retinol_ug_100g,Vitamine a retinol ug,µg
+vitamin_b12_ug_100g,Vitamine B12,µg
+vitamin_b1_mg_100g,Vitamine b1 mg,mg
+vitamin_b2_mg_100g,Vitamine b2 mg,mg
+vitamin_b3_mg_100g,Vitamine b3 mg,mg
+vitamin_b5_mg_100g,Vitamine b5 mg,mg
+vitamin_b6_mg_100g,Vitamine b6 mg,mg
+vitamin_b9_ug_100g,Vitamine b9 ug,µg
+vitamin_c_mg_100g,Vitamine C,mg
+vitamin_d_ug_100g,Vitamine d ug,µg
+vitamin_e_mg_100g,Vitamine e mg,mg
+vitamin_k1_ug_100g,Vitamine k1 ug,µg
+vitamin_k2_ug_100g,Vitamine k2 ug,µg
+water_g_100g,Water g,g
+zinc_mg_100g,Zinc mg,mg

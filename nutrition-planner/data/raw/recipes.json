@@ -1,0 +1,430 @@
+[
+  {
+    "id": "rec_pates_epinards",
+    "name": "Spaghetti aux épinards",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_name": "epinards",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6
+      }
+    ]
+  },
+  {
+    "id": "rec_curry_lentilles",
+    "name": "Curry de lentilles corail",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 3,
+    "dish_family": "curry",
+    "cuisine": "indian",
+    "time_min": 30,
+    "ingredients": [
+      {
+        "ingredient_name": "lentilles",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "lait coco",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "ail",
+        "quantity_g": 6
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_poulet",
+    "name": "Salade de poulet",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 15,
+    "ingredients": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_omelette_champignons",
+    "name": "Omelette aux champignons",
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "portions": 2,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 12,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_name": "champignons",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_chili_sin_carne",
+    "name": "Chili sin carne",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 4,
+    "dish_family": "stew",
+    "cuisine": "mexican",
+    "time_min": 40,
+    "ingredients": [
+      {
+        "ingredient_name": "haricots rouges",
+        "quantity_g": 300
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 400
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "mais",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_bol_yaourt_granola",
+    "name": "Bol yaourt granola banane",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "granola",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_poulet_riz",
+    "name": "Poulet au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "rice",
+    "cuisine": "asian",
+    "time_min": 25,
+    "ingredients": [
+      {
+        "ingredient_name": "poulet",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      }
+    ]
+  },
+  {
+    "id": "rec_pates_tomates",
+    "name": "Spaghetti sauce tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "pasta",
+    "cuisine": "italian",
+    "time_min": 20,
+    "ingredients": [
+      {
+        "ingredient_name": "spaghetti",
+        "quantity_g": 180
+      },
+      {
+        "ingredient_name": "tomate concassee",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "huile olive",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_salade_oeuf",
+    "name": "Salade œuf tomate",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 1,
+    "dish_family": "salad",
+    "cuisine": "international",
+    "time_min": 10,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 120
+      },
+      {
+        "ingredient_name": "laitue",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_poivrons_farci_riz",
+    "name": "Poivrons farcis au riz",
+    "meal_types": [
+      "lunch",
+      "dinner"
+    ],
+    "portions": 2,
+    "dish_family": "stuffed",
+    "cuisine": "mediterranean",
+    "time_min": 45,
+    "ingredients": [
+      {
+        "ingredient_name": "poivron",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "riz",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "oignon",
+        "quantity_g": 80
+      },
+      {
+        "ingredient_name": "tomate",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_toast_avocat",
+    "name": "Toast à l'avocat",
+    "meal_types": [
+      "breakfast",
+      "lunch"
+    ],
+    "portions": 1,
+    "dish_family": "toast",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60
+      },
+      {
+        "ingredient_name": "avocat",
+        "quantity_g": 80
+      }
+    ]
+  },
+  {
+    "id": "rec_porridge_classique",
+    "name": "Porridge avoine lait",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "porridge",
+    "cuisine": "international",
+    "time_min": 8,
+    "ingredients": [
+      {
+        "ingredient_name": "flocons avoine",
+        "quantity_g": 50
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "miel",
+        "quantity_g": 10
+      }
+    ]
+  },
+  {
+    "id": "rec_chia_pudding",
+    "name": "Chia pudding fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "graines chia",
+        "quantity_g": 30
+      },
+      {
+        "ingredient_name": "lait amande",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 120
+      }
+    ]
+  },
+  {
+    "id": "rec_yaourt_pb_banane",
+    "name": "Fromage blanc, banane & beurre de cacahuète",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "bowl",
+    "cuisine": "international",
+    "time_min": 3,
+    "ingredients": [
+      {
+        "ingredient_name": "fromage blanc",
+        "quantity_g": 200
+      },
+      {
+        "ingredient_name": "banane",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "beurre cacahuete",
+        "quantity_g": 20
+      }
+    ]
+  },
+  {
+    "id": "rec_smoothie_fruits_rouges",
+    "name": "Smoothie fruits rouges",
+    "meal_types": [
+      "breakfast",
+      "snack"
+    ],
+    "portions": 1,
+    "dish_family": "smoothie",
+    "cuisine": "international",
+    "time_min": 5,
+    "ingredients": [
+      {
+        "ingredient_name": "fruits rouges",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "yaourt",
+        "quantity_g": 150
+      },
+      {
+        "ingredient_name": "lait",
+        "quantity_g": 100
+      }
+    ]
+  },
+  {
+    "id": "rec_oeufs_brouilles_toast",
+    "name": "Œufs brouillés & toast",
+    "meal_types": [
+      "breakfast"
+    ],
+    "portions": 1,
+    "dish_family": "eggs",
+    "cuisine": "french",
+    "time_min": 7,
+    "ingredients": [
+      {
+        "ingredient_name": "oeuf",
+        "quantity_g": 100
+      },
+      {
+        "ingredient_name": "pain complet",
+        "quantity_g": 60
+      }
+    ]
+  }
+]

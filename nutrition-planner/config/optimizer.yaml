@@ -1,0 +1,52 @@
+# ----- Unicité / Doublons -----
+uniqueness:
+  mains:
+    per_day:    false   # vrai => jamais 2x le même plat le même jour
+    per_week:   true    # vrai => jamais 2x le même plat dans la semaine (ton cas actuel)
+  desserts:
+    per_day:    true    # vrai => jamais 2x le même dessert le même jour
+    per_week:   false   # vrai => jamais 2x le même dessert dans la semaine
+
+# ----- Répartition des slots -----
+slots:
+  order: ["breakfast","lunch","dinner"]
+  ratios:            # somme = 1.0
+    breakfast: 0.25
+    lunch:     0.35
+    dinner:    0.40
+  intra_ratios:      # part du slot dédiée à main/dessert
+    breakfast: { main: 1.0 }
+    lunch:     { main: 0.8, dessert: 0.2 }
+    dinner:    { main: 0.8, dessert: 0.2 }
+
+# ----- Bandes cibles JOUR (multiplicateurs) -----
+bands_day:
+  kcal:    { lo: 0.90, hi: 1.10 }
+  protein: { lo: 0.80, hi: 1.15 }
+  carbs:   { lo: 0.80, hi: 1.40 }
+  fat:     { lo: 0.80, hi: 1.00 }  # plafond dur à 100%
+
+# ----- Scale / portions -----
+scaling:
+  min_servings: 0.6
+  max_servings: 2.5
+  step: 0.5                   # arrondi par pas (ex: 0.5)
+  normalize_energy_tolerance: 0.05  # 5% (pour ta _normalize_day_energy)
+  band_tolerance: 0.10             # TOL actuel = ±10%
+
+# ----- Targets par défaut (si pas de profil) -----
+defaults:
+  kcal_per_day:         2000
+  protein_g_per_day:     90
+  carbs_g_per_day:      250
+  fat_g_per_day:         70
+  omega3_epa_dha_g_per_week: 1.8
+
+# ----- Optimiseur / heuristiques -----
+optimizer:
+  max_swaps_per_day: 6
+  swap_pool_top_k: 12           # nb de candidates top densité testées
+  candidate_sample_max: 30      # taille d’échantillon quand pool énorme
+  lean_tie_breaker: 0.0001      # pondération légère “plus maigre”
+  prefer_low_fat_for_boosts: true
+  enforce_fat_first: true       # baisse desserts si graisses dépassées
